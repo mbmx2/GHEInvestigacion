@@ -207,13 +207,59 @@ GHEInvestigacion/
 
 ---
 
+## Métricas del Repositorio
+
+| Métrica | Valor |
+|---|---|
+| **Archivos totales** | 144 |
+| **Líneas totales** | 19,190 |
+| **Escenarios Gherkin** | 151+ |
+| **Especialidades médicas** | 20 |
+| **Marcos de referencia** | 10 |
+| **Casos multiagente** | 4 |
+| **Guías de referencia** | 12 |
+
+---
+
 ## Acceso Rápido
 
-- **Para desarrolladores:** [docs/architecture/ARCHITECTURE.md](docs/architecture/ARCHITECTURE.md)
-- **Para clínicos:** [docs/clinical/WORKFLOWS.md](docs/clinical/WORKFLOWS.md)
-- **Para compliance:** [docs/compliance/NOM004.md](docs/compliance/NOM004.md)
-- **Para ejecutivos:** [docs/strategy/MISSION.md](docs/strategy/MISSION.md)
-- **Para testers:** [docs/quality/TESTING.md](docs/quality/TESTING.md)
+### Por audiencia:
+
+| Audiencia | Documento clave | URL |
+|---|---|---|
+| **Desarrolladores** | Arquitectura + Estándares | `docs/architecture/ARCHITECTURE.md` |
+| **Médicos** | Flujos clínicos | `docs/clinical/WORKFLOWS.md` |
+| **Compliance** | NOM-004/NOM-024/IEC 62304 | `docs/compliance/` |
+| **Ejecutivos** | Misión + Estrategia | `docs/strategy/MISSION.md` |
+| **QA/Testing** | Estrategia de testing | `docs/quality/TESTING.md` |
+| **Seguridad** | OWASP + Secure by Design | `docs/quality/OWASP_GUIDE.md` |
+| **UX/UI** | GUIX User First | `docs/quality/GUIX_USER_FIRST_GUIDE.md` |
+| **Multiagente** | Análisis de casos | `templates/multiagent_cases/` |
+
+### Por framework:
+
+| Framework | Directorio | Contenido |
+|---|---|---|
+| **SWEBOK** | `templates/gherkin/swebok/` | 12 áreas de ingeniería |
+| **PMBOK** | `templates/gherkin/pmbok/` | 10 áreas de gestión |
+| **SOLID** | `templates/gherkin/solid/` | 5 principios de diseño |
+| **Hexagonal** | `templates/gherkin/hexagonal/` | 6 componentes |
+| **OWASP** | `templates/gherkin/owasp/` | 11 vulnerabilidades |
+| **TDD** | `templates/gherkin/tdd/` | 7 prácticas |
+| **Secure by Design** | `templates/gherkin/secure_by_design/` | 7 componentes |
+| **Offline-First** | `templates/gherkin/offline_first/` | 7 componentes |
+| **GUIX User First** | `templates/gherkin/guix_user_first/` | 8 componentes |
+| **Spec Driven** | `templates/gherkin/spec_driven/` | 7 componentes |
+| **Deuda Técnica** | `templates/gherkin/technical_debt/` | 6 componentes |
+| **Cálculos Médicos** | `templates/gherkin/medical_calculations/` | 5 componentes |
+
+### Documentación final:
+
+| Documento | Contenido |
+|---|---|
+| `docs/AGENTIC_WORKFLOWS.md` | Workflows que vinculan todos los templates |
+| `docs/COMPLETE_PROJECT_DOCS.md` | Qué, por qué, cómo del proyecto |
+| `docs/VALUE_ADD_PROPOSALS.md` | Propuestas de valor añadido |
 
 ---
 
@@ -223,4 +269,4 @@ Proyecto privado — Maternidad de Altotonga, Veracruz, México.
 
 ---
 
-*GHE: Tecnología con propósito social.*
+*GHE: Tecnología con propósito social, documentación completa, conocimiento transferible.*
