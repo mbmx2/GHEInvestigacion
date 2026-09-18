@@ -25,6 +25,37 @@ GHE es un sistema médico offline-first diseñado para la Maternidad de Altotong
 
 ---
 
+## Especialidades Médicas Cubiertas
+
+GHE incluye workflows completos para todas las áreas de especialización médica:
+
+| Especialidad | Archivo | Escenarios | Casos de uso |
+|---|---|---|---|
+| **Urgencias** | `emergency.feature` | 10 | Triaje 5 niveles, politraumatismo, PCR, intoxicación |
+| **Cirugía** | `surgery.feature` | 8 | Preoperatorio, intraoperatorio, recuperación, ISQ |
+| **Pediatría** | `pediatrics.feature` | 8 | Niño sano, vacunas, crecimiento, IRA, emergencia |
+| **Medicina Interna** | `internal_medicine.feature` | 8 | Diabetes, HTA, ERC, asma, cetoacidosis, diálisis |
+| **Cardiología** | `cardiology.feature` | 7 | Dolor torácico, ECG, ecocardiograma, ICFE, MAPA |
+| **Neurología** | `neurology.feature` | 7 | Cefalea, Glasgow, epilepsia, ictus, Parkinson |
+| **Ginecología** | `gynecology.feature` | 7 | PAP, miomas, endometriosis, aborto, anticoncepción |
+| **Psiquiatría** | `psychiatry.feature` | 8 | Depresión, ansiedad, riesgo suicida, litio, TEC |
+| **Laboratorio** | `laboratory.feature` | 8 | Solicitud, procesamiento, valores críticos, QC |
+| **Imagenología** | `radiology.feature` | 8 | RX, ecografía, TAC, dosis radiación, lista espera |
+| **Nutrición** | `nutrition.feature` | 8 | Evaluación, plan alimentario, diabéticos, oncológico |
+| **Rehabilitación** | `rehabilitation.feature` | 7 | Evaluación, sesión, progreso, terapia de lenguaje |
+| **Odontología** | `dentistry.feature` | 7 | Odontograma, caries, profilaxis, urgencia, plan |
+| **Referencia** | `referral.feature` | 7 | Referencia, contrarreferencia, interconsulta, seguimiento |
+| **Enf. Crónicas** | `chronic_disease.feature` | 8 | Registro, dashboard, adherencia, complicaciones |
+| **Obstetricia** | `prenatal_control.feature` | 8 | Control prenatal, preeclampsia, CIUR |
+| **Farmacia** | `pharmacy_dispensing.feature` | 8 | Dispensación, stock, interacciones, controlados |
+| **Triaje** | `triage.feature` | 7 | 4 niveles, emergencia, historial |
+| **Receta** | `prescription.feature` | 8 | Generación, alergias, dosis, interacciones |
+| **Registro** | `patient_registration.feature` | 7 | Walk-in, CURP, duplicados, offline |
+
+**Total: 20 archivos, 151 escenarios Gherkin**
+
+---
+
 ## Estructura del Proyecto
 
 ```
@@ -59,14 +90,28 @@ GHEInvestigacion/
 │       └── DISASTER_RECOVERY.md      # Recuperación
 ├── templates/
 │   ├── gherkin/
-│   │   ├── patient_registration.feature
-│   │   ├── prenatal_control.feature
-│   │   ├── pharmacy_dispensing.feature
-│   │   ├── triage.feature
-│   │   └── prescription.feature
+│   │   ├── patient_registration.feature   # Registro de pacientes
+│   │   ├── prenatal_control.feature       # Control prenatal
+│   │   ├── pharmacy_dispensing.feature    # Dispensación farmacia
+│   │   ├── triage.feature                 # Triaje obstétrico
+│   │   ├── prescription.feature           # Receta electrónica
+│   │   ├── emergency.feature              # Urgencias
+│   │   ├── surgery.feature                # Cirugía
+│   │   ├── pediatrics.feature             # Pediatría
+│   │   ├── internal_medicine.feature      # Medicina Interna
+│   │   ├── cardiology.feature             # Cardiología
+│   │   ├── neurology.feature              # Neurología
+│   │   ├── gynecology.feature             # Ginecología
+│   │   ├── psychiatry.feature             # Psiquiatría
+│   │   ├── laboratory.feature             # Laboratorio
+│   │   ├── radiology.feature              # Imagenología
+│   │   ├── nutrition.feature              # Nutrición
+│   │   ├── rehabilitation.feature         # Rehabilitación
+│   │   ├── dentistry.feature              # Odontología
+│   │   ├── referral.feature               # Referencia/Contrarreferencia
+│   │   └── chronic_disease.feature        # Enfermedades Crónicas
 │   └── workflows/
-│       ├── PATIENT_JOURNEY.md
-│       └── CLINICAL_PROCESSES.md
+│       └── PATIENT_JOURNEY.md             # Journey del paciente
 ├── standards/
 │   ├── CODING_STANDARDS.md
 │   ├── SECURITY_STANDARDS.md
