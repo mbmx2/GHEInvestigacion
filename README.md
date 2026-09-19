@@ -23,6 +23,18 @@ GHE es un sistema médico offline-first diseñado para la Maternidad de Altotong
 | Certificación | IEC 62304 en proceso |
 | Normativa | NOM-004, NOM-007, NOM-024 |
 
+### Estado del Repositorio
+
+| Métrica | Valor |
+|---|---|
+| Archivos totales | 248 |
+| Líneas totales | 34,148 |
+| Feature files Gherkin | 209 |
+| Escenarios Gherkin | 450+ |
+| Documentos .md | 39 |
+| Categorías de templates | 34 |
+| Commits | 32 |
+
 ---
 
 ## Especialidades Médicas Cubiertas

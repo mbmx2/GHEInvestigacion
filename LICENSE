@@ -1,0 +1,41 @@
+# Licencia
+
+## GHEInvestigacion
+
+Este proyecto está bajo la licencia **MIT License**.
+
+### Términos
+
+Copyright (c) 2024 GHE Project - Maternidad de Altotonga, Veracruz, México
+
+Se concede permiso, libre de cargo, a cualquier persona que obtenga una copia de este software y de los archivos de documentación asociados (el "Software"), para operar en el Software sin restricciones, incluyendo sin limitación los derechos de usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar y/o vender copias del Software, y de permitir a las personas a las que se les proporcione el Software a hacerlo, sujeto a las siguientes condiciones:
+
+**El aviso de copyright anterior y este aviso de permiso se incluirán en todas las copias o partes sustanciales del Software.**
+
+**EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUYENDO PERO SIN LIMITARSE A GARANTÍAS DE COMERCIALIZACIÓN, IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS AUTORES O TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES DE RECLAMACIONES, DAÑOS U OTRAS RESPONSABILIDADES, YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O DE OTRO TIPO, DERIVADAS DE, O EN CONEXIÓN CON EL SOFTWARE O EL USO U OTROS TRATOS EN EL SOFTWARE.**
+
+---
+
+## Excepción para Uso en Salud
+
+Dado que este software está diseñado para uso en atención médica:
+
+1. **Responsabilidad clínica:** Este software es una herramienta de apoyo. La responsabilidad clínica recae siempre en el profesional de salud.
+2. **Sin garantía de seguridad clínica:** El software no garantiza la ausencia de errores que puedan afectar la atención al paciente.
+3. **Validación obligatoria:** Antes de usar en producción, el software debe ser validado por profesionales de salud calificados.
+4. **Cumplimiento normativo:** El usuario es responsable de确保 que el uso cumpla con NOM-004, NOM-024, y demás regulaciones aplicables.
+
+---
+
+## Para Investigadores y Academia
+
+Se otorga permiso especial para uso en investigación académica, publicaciones científicas y tesis de grado, siempre que se cite el proyecto GHEInvestigacion.
+
+---
+
+## Para Instituciones de Salud
+
+Se otorga permiso especial para uso en instituciones de salud pública, sin costo de licencia, siempre que:
+1. Se mantenga el aviso de copyright
+2. Se contribuyan mejoras de vuelta al proyecto
+3. Se respete la licencia MIT en distribuciones derivadas
