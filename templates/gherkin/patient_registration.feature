@@ -1,81 +1,83 @@
 # language: es
 Característica: Registro de Paciente
   Como recepcionista de la maternidad
-  Quiero registrar pacientes de forma rápida y completa
-  Para que tengan expediente clínico desde su primera consulta
+  Quiero registrar pacientes de forma rápida
+  Para que tengan expediente desde su primera consulta
 
   Contexto:
-    Dado que el sistema está funcionando
+    Dado que el sistema está activo
     Y que el usuario tiene rol de recepcionista
 
   Escenario: Registro exitoso de paciente nuevo
-    Dado que la paciente "María García López" acude por primera vez
-    Cuando el recepcionista captura los datos obligatorios:
-      | Campo                | Valor                    |
-      | Nombre               | María                    |
-      | Apellido paterno     | García                   |
-      | Apellido materno     | López                    |
-      | CURP                 | GALM850315MVZRRL04      |
-      | Fecha de nacimiento  | 15/03/1985               |
-      | Sexo                 | F                        |
-      | Tipo de sangre       | O+                       |
-      | Teléfono             | 7841234567               |
-      | Direccion            | Calle Juárez 15, Centro  |
-      | Contacto emergencia  | Juan García              |
-      | Teléfono emergencia  | 7841234568               |
-    Entonces el sistema crea el expediente con ID generado
-    Y el sistema registra la fecha de creación
-    Y el sistema muestra confirmación de registro
-    Y el sistema asigna estado "Activo" al expediente
+    Dado que "María García López" acude por primera vez
+    Cuando captura datos básicos
+      | Campo              | Valor                  |
+      | Nombre             | María                  |
+      | Apellido paterno   | García                 |
+      | CURP               | GALM850315MVZRRL04    |
+      | Fecha nacimiento   | 15/03/1985             |
+      | Sexo               | F                      |
+    Entonces el sistema:
+      | Acción                          | Resultado         |
+      | Crear expediente               | ID generado       |
+      | Registrar timestamp            | Automático        |
+      | Mostrar confirmación            | Toast visible     |
+      | Asignar estado                 | "Activo"          |
 
-  Escenario: Registro con alergias conocidas
-    Dado que la paciente "Ana López Torres" tiene alergias conocidas
-    Cuando el recepcionista registra la alergia:
-      | Alergia      | Severidad | Reacción       |
-      | Penicilina   | Alta      | Anafilaxia     |
-      | Sulfa        | Media     | Erupción cutánea|
-    Entonces el sistema registra las alergias en el expediente
-    Y el sistema marca alerta de alergia visible
-    Y la alergia aparece en futuras prescripciones
+  Escenario: Registro con alergias
+    Dado que "Ana López" tiene alergias conocidas
+    Cuando registra alergia
+      | Alergia      | Severidad | Reacción      |
+      | Penicilina   | Alta      | Anafilaxia    |
+    Entonces el sistema:
+      | Acción                          | Estado    |
+      | Guardar alergia en expediente   | ✅        |
+      | Mostrar alerta visible          | ✅        |
+      | Alertar en futuras prescripciones| ✅        |
 
-  Escenario: Rechazo de registro sin datos obligatorios
-    Dado que el recepcionista intenta registrar un paciente
-    Cuando deja el campo "CURP" vacío
-    Entonces el sistema muestra error de validación
-    Y el sistema indica "CURP es obligatoria"
-    Y el sistema no crea el expediente
+  Escenario: Rechazo por datos faltantes
+    Dado que el recepcionista deja CURP vacía
+    Cuando intenta guardar
+    Entonces el sistema:
+      | Acción                          |
+      | Mostrar error de validación    |
+      | Indicar "CURP es obligatoria"  |
+      | NO crear expediente           |
 
   Escenario: Detección de CURP duplicada
-    Dado que existe un paciente con CURP "GALM850315MVZRRL04"
-    Cuando el recepcionista intenta registrar otro paciente con la misma CURP
-    Entonces el sistema muestra alerta de duplicado
-    Y el sistema sugiere verificar datos
-    Y el sistema no crea un segundo expediente
+    Dado que existe paciente con CURP "GALM850315MVZRRL04"
+    Cuando se intenta registrar otro con misma CURP
+    Entonces el sistema:
+      | Acción                          |
+      | Mostrar alerta de duplicado   |
+      | Sugerir verificar datos       |
+      | NO crear segundo expediente   |
 
   Escenario: Búsqueda de paciente existente
-    Dado que existen pacientes registrados en el sistema
-    Cuando el recepcionista busca por nombre "María García"
-    Entonces el sistema muestra lista de coincidencias
-    Y cada resultado incluye: nombre, CURP, fecha nacimiento
-    Y el recepcionista puede seleccionar el expediente correcto
+    Dado que hay pacientes registrados
+    Cuando se busca por nombre "María García"
+    Entonces el sistema muestra coincidencias con:
+      | Campo              |
+      | Nombre             |
+      | CURP               |
+      | Fecha nacimiento   |
 
   Escenario: Registro offline
-    Dado que el sistema NO tiene conexión a internet
-    Cuando el recepcionista registra un paciente nuevo
-    Entonces el sistema guarda localmente en SQLite
-    Y el sistema asigna estado "Pendiente de sincronización"
-    Y cuando se restaure la conexión, el sistema sincroniza automáticamente
+    Dado que NO hay conexión a internet
+    Cuando se registra paciente nuevo
+    Entonces el sistema:
+      | Acción                          |
+      | Guardar localmente en SQLite  |
+      | Asignar estado "Pendiente sync"|
+      | Sincronizar al recuperar conexión |
 
   Escenario: Exportación de expediente
-    Dado que un paciente tiene expediente completo
-    Cuando el médico solicita exportar el expediente
-    Entonces el sistema genera archivo PDF con:
+    Dado que paciente tiene expediente completo
+    Cuando médico solicita exportar
+    Entonces el sistema genera PDF con:
       | Sección                    |
       | Ficha de identificación    |
       | Historia clínica           |
-      | Consultas anteriores       |
-      | Recetas                    |
-      | Estudios                   |
-      | Consentimientos            |
-    Y el archivo incluye firma electrónica del médico
-    Y el archivo incluye marca de tiempo
+      | Consultas y recetas        |
+      | Estudios y consentimientos |
+    Y PDF incluye firma electrónica y timestamp
