@@ -2,152 +2,94 @@
 Característica: Atención Cardiológica
   Como cardiólogo
   Quiero diagnosticar y tratar enfermedades cardiovasculares
-  Para reducir morbilidad y mortalidad cardiovascular
+  Para reducir morbilidad y mortalidad
 
   Contexto:
-    Dado que el sistema está funcionando
+    Dado que el sistema está activo
     Y que el usuario tiene rol de médico
 
   Escenario: Evaluación de dolor torácico
-    Dado que el paciente acude con dolor torácico
-    Cuando el médico realiza evaluación cardíaca
-    Entonces el sistema registra:
-      | Característica             | Detalle            |
-      | Tipo de dolor              | Opresivo           |
-      | Localización               | Retroesternal      |
-      | Irradiación                | Brazo izquierdo    |
-      | Duración                   | 30 minutos         |
-      | Factores agravantes        | Esfuerzo           |
-      | Factores atenuantes        | Reposo, nitroglicerina |
-      | Síntomas asociados         | Diaforesis, náuseas|
-    Y el sistema solicita:
-      | Estudio                   | Prioridad          |
-      | ECG de 12 derivaciones    | Inmediata          |
-      | Troponina                 | Urgente            |
-      | BHC                       | Urgente            |
-      | Química sanguínea         | Urgente            |
-      | Radiografía de tórax      | Urgente            |
-    Y el sistema evalúa score de riesgo:
-      | Score                     | Valor              |
-      | HEART Score               | 7 (Alto riesgo)    |
-    Y el sistema sugiere: "Hospitalización para observación"
+    Dado que paciente acude con dolor torácico opresivo retroesternal
+    Cuando médico realiza evaluación
+    Entonces el sistema:
+      | Acción                          |
+      | Registrar características del dolor |
+      | Solicitar: ECG 12 derivaciones, troponina, BHC, Rx tórax |
+      | Evaluar HEART Score: 7 (Alto riesgo) |
+      | Sugerir: Hospitalización para observación |
 
-  Escenario: Registro de electrocardiograma
+  Escenario: Registro de ECG
     Dado que se realizó ECG al paciente
-    Cuando el médico interpreta el ECG
+    Cuando médico interpreta
     Entonces el sistema registra:
       | Parámetro                 | Resultado          |
       | Ritmo                     | Sinusal            |
-      | Frecuencia                | 95 lpm             |
-      | Eje                       | Normal             |
-      | Intervalo PR              | 180 ms             |
-      | Intervalo QRS             | 100 ms             |
-      | Intervalo QTc             | 440 ms             |
+      | FC                        | 95 lpm             |
+      | PR/QRS/QTc               | 180/100/440 ms     |
       | Ondas ST                  | Elevación V1-V4    |
-      | Ondas T                   | Invertidas V1-V4   |
-      | Interpretación            | IAM anteroseptal agudo |
-    Y el sistema clasifica como "IAM con elevación del ST"
-    Y el sistema genera alarma: "Activar protocolo de infarto"
+      | Interpretación            | IAM anteroseptal   |
+    Y genera alarma: "Activar protocolo infarto"
 
   Escenario: Ecocardiograma
-    Dado que se solicitó ecocardiograma
-    Cuando el cardiólogo realiza el estudio
-    Entonces el sistema registra:
-      | Parámetro                 | Valor              |
+    Dado que se realizó ecocardiograma
+    Cuando cardiólogo interpreta
+    Entonces registra:
+      | Parámetro                 | Resultado          |
       | FEVI                      | 35%                |
-      | VTD                       | 180 mL             |
-      | VTS                       | 117 mL             |
-      | FRacción de acortamiento  | 18%                |
-      | Válvulas                  | Insuficiencia mitral moderada |
-      | Pericardio                | Sin derrame         |
-      | Motilidad segmentaria     | Hipocinesia anterior |
-    Y el sistema clasifica como "Disfunción sistólica severa"
-    Y el sistema sugiere: "ICFE - Iniciar tratamiento guiado por evidencia"
+      | Válvulas                  | Insuf. mitral mod. |
+      | Motilidad                 | Hipocinesia anterior |
+    Y clasifica: "Disfunción sistólica severa"
 
-  Escenario: Manejo de insuficiencia cardíaca
-    Dado que el paciente tiene ICFE con FEVI 35%
-    Cuando el médico actualiza tratamiento
-    Entonces el sistema muestra guía de tratamiento:
-      | Fármaco                   | Dosis actual | Meta       |
-      | Enalapril                 | 5mg cada 12h | 20mg cada 12h |
-      | Carvedilol                | 3.125mg cada 12h | 25mg cada 12h |
-      | Espironolactona           | 25mg diario  | 50mg diario |
-      | Furosemida                | 40mg diario  | Ajustar según peso |
-    Y el sistema registra titulación:
-      | Fecha        | Enalapril | Carvedilol | Espironolactona |
-      | 01/01/2024   | 5mg       | 3.125mg    | 25mg            |
-      | 01/02/2024   | 10mg      | 6.25mg     | 25mg            |
-      | 01/03/2024   | 10mg      | 12.5mg     | 50mg            |
-    Y el sistema evalúa seguimiento:
-      | Parámetro                 | Objetivo           |
-      | Peso                      | Estable ±1 kg      |
-      | PA                        | >90/60             |
-      | Potasio                   | 3.5-5.0            |
-      | Creatinina                | Estable            |
+  Escenario: Manejo de IC
+    Dado que paciente tiene ICFE con FEVI 35%
+    Cuando médico actualiza tratamiento
+    Entonces muestra guía:
+      | Fármaco     | Actual       | Meta            |
+      | Enalapril   | 5mg c/12h    | 20mg c/12h      |
+      | Carvedilol  | 3.125mg c/12h| 25mg c/12h      |
+      | Espironolactona| 25mg/día  | 50mg/día        |
+    Y evalúa seguimiento:
+      | Parámetro  | Objetivo         |
+      | Peso       | Estable ±1 kg    |
+      | PA         | >90/60           |
+      | Potasio    | 3.5-5.0          |
 
-  Escenario: Monitorización ambulatoria de presión arterial (MAPA)
-    Dado que se solicitó MAPA de 24 horas
-    Cuando se realiza el estudio
-    Entonces el sistema registra promedios:
-      | Período                    | PA sistólica | PA diastólica |
-      | Diurno (6-22h)            | 145          | 92            |
-      | Nocturno (22-6h)          | 130          | 80            |
-      | 24 horas                  | 140          | 88            |
-    Y el sistema evalúa:
-      | Criterio                  | Resultado         |
-      | Descenso nocturno         | Dipper (10-20%)   |
-      | Carga de presión          | Elevada           |
-      | Variabilidad              | Normal            |
-    Y el sistema clasifica como "Hipertensión mantecida"
-    Y el sistema sugiere: "Ajustar tratamiento antihipertensivo"
+  Escenario: MAPA de 24 horas
+    Dado que se realizó MAPA
+    Cuando se interpreta
+    Entonces registra promedios:
+      | Período    | Sistólica | Diastólica |
+      | Diurno     | 145       | 92         |
+      | Nocturno   | 130       | 80         |
+      | 24h        | 140       | 88         |
+    Y clasifica: "Hipertensión mantecida"
 
   Escenario: Holter de 24 horas
-    Dado que se solicitó Holter de 24 horas
-    Cuando se realiza el estudio
-    Entonces el sistema registra:
-      | Parámetro                 | Resultado          |
-      | FC media                  | 78 lpm             |
-      | FC mínima                 | 52 lpm (nocturna)  |
-      | FC máxima                 | 145 lpm            |
-      | Arritmias                 | Extrasístoles ventriculares (150/24h) |
-      | Bloqueos                  | Ninguno            |
-      | Isquemia                  | No documentada     |
-      | Ritmo predominante        | Sinusal            |
-    Y el sistema clasifica arritmias como "Frecuentes, no complejas"
-    Y el sistema sugiere: "Control periódico, sin tratamiento antiarrítmico"
+    Dado que se realizó Holter
+    Cuando se interpreta
+    Entonces registra:
+      | Parámetro   | Resultado                          |
+      | FC media    | 78 lpm                             |
+      | FC mín/máx  | 52-145 lpm                         |
+      | Arritmias   | Extrasístoles ventriculares 150/24h |
+    Y clasifica: "Frecuentes, no complejas"
 
   Escenario: Prueba de esfuerzo
-    Dado que se solicitó prueba de esfuerzo
-    Cuando se realiza el estudio
-    Entonces el sistema registra:
-      | Parámetro                 | Resultado          |
-      | Protocolo                 | Bruce Modificado   |
-      | Tiempo total              | 8 minutos          |
-      | METS alcanzados           | 10                 |
-      | FC máxima                 | 165 lpm            |
-      | PA máxima                 | 180/90             |
-      | Angina                    | No                 |
-      | Depresión del ST          | 2mm en V4-V6       |
-      | Arritmias                 | Extrasístoles ventriculares |
-      | Capacidad funcional       | Moderada           |
-    Y el sistema clasifica como "Prueba positiva para isquemia"
-    Y el sistema sugiere: "Angiografía coronaria"
+    Dado que se realizó prueba de esfuerzo (Bruce Modificado)
+    Cuando se interpreta
+    Entonces registra:
+      | Parámetro   | Resultado          |
+      | Tiempo      | 8 min, 10 METS     |
+      | FC/PA máx   | 165 lpm, 180/90    |
+      | ST          | Depresión 2mm V4-V6 |
+    Y clasifica: "Positiva para isquemia" → angiografía
 
   Escenario: Seguimiento post-infarto
-    Dado que el paciente fue hospitalizado por IAM
-    Cuando egresa del hospital
-    Entonces el sistema genera plan de egreso:
-      | Componente                |
-      | Diagnóstico de egreso     |
-      | Procedimientos realizados |
-      | Medicamentos de alta      |
-      | Educación al paciente     |
-      | Criterios de alarma       |
-      | Citas de seguimiento      |
-    Y el sistema programa seguimiento:
-      | Cita                      | Tiempo             |
-      | Control cardiológico      | 1 semana           |
-      | Ecocardiograma de control | 1 mes              |
-      | Reevaluación              | 3 meses            |
-      | Prueba de esfuerzo        | 3 meses            |
-    Y el sistema genera ordenes de rehabilitación cardíaca
+    Dado que paciente egresa post-IAM
+    Cuando se genera plan de egreso
+    Entonces programa seguimiento:
+      | Cita                | Tiempo   |
+      | Control cardiológico| 1 semana |
+      | Eco de control      | 1 mes    |
+      | Reevaluación        | 3 meses  |
+    Y genera ordenes de rehabilitación cardíaca
