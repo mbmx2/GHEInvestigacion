@@ -1,5 +1,8 @@
 # language: es
 # Reconciliación de Medicamentos en Embarazo
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Seguridad de Medicamentos (GHE Maternidad)
   Como médico de la maternidad
   Quiero que el sistema verifique cada prescripción contra el perfil de la paciente

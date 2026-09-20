@@ -1,5 +1,8 @@
 # language: es
 # GUIX User First - Principios de Diseño Centrado en Usuario
+@status:proposed
+@type:acceptance
+@domain:general
 # FILOSOFÍA: El usuario es el centro de cada decisión de diseño
 Característica: Principios de Diseño Centrado en Usuario (GUIX User First - GHE)
   Como diseñador UX del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-03: Software Construction
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Construcción de Software
 Característica: Construcción de Software (SWEBOK KA-03)
   Como desarrollador del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 Característica: Hardening de Infraestructura
+@status:proposed
+@type:acceptance
+@domain:security
   Como administrador de sistemas del hospital
   Quiero configurar servidores y bases de datos de forma segura
   Para que la infraestructura sea resistente a ataques

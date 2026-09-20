@@ -1,5 +1,8 @@
 # language: es
 # Ginecología - Patologías Específicas
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Patologías Ginecológicas Específicas (GHE Hospital)
   Como ginecólogo del hospital
   Quiero workflows completos para cada patología ginecológica

@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-04: Software Testing
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Pruebas de Software
 Característica: Pruebas de Software (SWEBOK KA-04)
   Como ingeniero de calidad del proyecto GHE

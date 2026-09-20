@@ -1,5 +1,8 @@
 # language: es
 # Secure by Design - Secure Coding Practices
+@status:proposed
+@type:acceptance
+@domain:general
 # PRÁCTICAS DE CÓDIGO SEGURO: Codificar de forma segura desde el inicio
 Característica: Prácticas de Código Seguro (Secure by Design - GHE)
   Como desarrollador del proyecto GHE

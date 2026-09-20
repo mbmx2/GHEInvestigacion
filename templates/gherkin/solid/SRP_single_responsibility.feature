@@ -1,5 +1,8 @@
 # language: es
 # SOLID - S: Single Responsibility Principle
+@status:proposed
+@type:acceptance
+@domain:general
 # PRINCIPIO: Cada módulo/clase debe tener una sola razón para cambiar
 Característica: Principio de Responsabilidad Única (SOLID - S)
   Como desarrollador del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # Offline-First - Sync Engine
+@status:proposed
+@type:acceptance
+@domain:general
 # MOTOR DE SINCRONIZACIÓN: Sincronizar datos locales con cloud
 Característica: Sync Engine (Offline-First - GHE)
   Como desarrollador del proyecto GHE

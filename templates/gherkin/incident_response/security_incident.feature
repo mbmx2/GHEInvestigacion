@@ -1,5 +1,8 @@
 # language: es
 # Gestión de Incidentes de Seguridad
+@status:proposed
+@type:acceptance
+@domain:general
 Característica: Incident Response (GHE)
   Como responsable de seguridad del proyecto GHE
   Quiero tener un plan de respuesta a incidentes

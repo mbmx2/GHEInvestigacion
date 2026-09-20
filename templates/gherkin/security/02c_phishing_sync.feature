@@ -1,5 +1,8 @@
 # language: es
 Característica: Seguridad de Phishing con IA y Sync
+@status:proposed
+@type:acceptance
+@domain:security
   Como responsable de seguridad del hospital
   Quiero proteger contra phishing avanzado y ataques a sincronización
   Para que datos de pacientes no se comprometan

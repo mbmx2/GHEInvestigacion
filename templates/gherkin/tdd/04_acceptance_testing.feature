@@ -1,5 +1,8 @@
 # language: es
 # TDD - Acceptance Testing
+@status:proposed
+@type:acceptance
+@domain:general
 # PRUEBAS DE ACEPTACIÓN: Tests que validan requisitos desde la perspectiva del usuario
 Característica: Acceptance Testing con TDD (GHE)
   Como stakeholder del proyecto GHE

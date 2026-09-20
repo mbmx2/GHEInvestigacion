@@ -1,5 +1,8 @@
 # language: es
 Característica: Pentest - Reconocimiento y Vulnerabilidades Web
+@status:proposed
+@type:acceptance
+@domain:security
   Como tester de seguridad del hospital
   Quiero simular reconocimiento y ataques web
   Para descubrir vulnerabilidades antes de los atacantes

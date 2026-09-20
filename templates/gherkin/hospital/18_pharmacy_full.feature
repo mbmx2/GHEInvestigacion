@@ -1,5 +1,8 @@
 # language: es
 # Farmacia Completa del Hospital
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Farmacia Hospitalaria (GHE Hospital)
   Como farmacéutico del hospital
   Quiero workflows completos de farmacia hospitalaria

@@ -1,5 +1,8 @@
 # language: es
 # Educación al Paciente - Material en Lenguaje Simple
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Educación Paciente Maternidad (GHE)
   Como paciente embarazada
   Quiero material educativo en lenguaje simple y visual

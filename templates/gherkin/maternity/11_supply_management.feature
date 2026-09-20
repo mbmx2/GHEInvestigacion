@@ -1,5 +1,8 @@
 # language: es
 # Gestión de Suministros Obstétricos
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Gestión de Stock (GHE Maternidad)
   Como administrador de la maternidad
   Quiero gestión automática de inventario de suministros obstétricos

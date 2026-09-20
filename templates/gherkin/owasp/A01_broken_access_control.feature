@@ -1,96 +1,66 @@
 # language: es
-# OWASP Top 10 - A01: Broken Access Control
-# El riesgo #1 en seguridad de aplicaciones web
-Característica: A01 - Control de Acceso Roto (OWASP Top 10)
-  Como responsable de seguridad del proyecto GHE
-  Quiero implementar controles de acceso robustos
-  Para prevenir acceso no autorizado a datos de pacientes
+# @id GHE-SEC-OWASP-A01-001
+# @type security
+# @domain security
+# @layer api
+# @risk s1
+# @owner security-lead
+# @status proposed
+@domain:security @type:security @risk:s1 @status:proposed
+Característica: A01 - Control de Acceso (OWASP Top 10)
+  Como responsable de seguridad del hospital
+  Quiero controles de acceso robustos
+  Para que solo personal autorizado acceda a datos de pacientes
 
-  # ─────────────────────────────────────────────────────────────
-  # 1. AUTORIZACIÓN POR ROLES (RBAC)
-  # ─────────────────────────────────────────────────────────────
+  Contexto:
+    Dado que el sistema tiene RBAC activo
+    Y que existen roles: admin, doctor, nurse, pharmacy, reception
 
-  Escenario: Verificación de RBAC por módulo
-    Dado que el sistema tiene roles definidos
-    Cuando se verifica acceso por módulo
-    Entonces la matriz de acceso es:
-      | Módulo                     | Admin | Doctor | Nurse | Pharmacy | Reception |
-      | Ver expediente completo    | ✅    | ✅     | ⚠️    | ❌       | ❌        |
-      | Ver datos demográficos     | ✅    | ✅     | ✅    | ✅       | ✅        |
-      | Crear consulta             | ❌    | ✅     | ❌    | ❌       | ❌        |
-      | Registrar signos vitales   | ❌    | ✅     | ✅    | ❌       | ❌        |
-      | Prescribir medicamentos    | ❌    | ✅     | ❌    | ❌       | ❌        |
-      | Sur medicamentos           | ❌    | ❌     | ❌    | ✅       | ❌        |
-      | Manejar inventario         | ❌    | ❌     | ❌    | ✅       | ❌        |
-      | Ver reportes               | ✅    | ⚠️     | ⚠️    | ⚠️       | ❌        |
-      | Configurar sistema         | ✅    | ❌     | ❌    | ❌       | ❌        |
-      | Ver auditoría              | ✅    | ❌     | ❌    | ❌       | ❌        |
+  Escenario Outline: Acceso por módulo y rol
+    Dado que un usuario con rol "<rol>" accede a "<módulo>"
+    Entonces el sistema permite: "<resultado>"
+    Y registra en audit log
 
-  Escenario: Denegación de acceso no autorizado
-    Dado que un usuario con rol "reception" intenta acceder
-    Cuando intenta ver expediente completo de paciente
-    Entonces el sistema:
-      | Acción                     | Resultado            |
-      | Verifica rol del usuario   | reception            |
-      | Compara con permisos requeridos | doctor needed  |
-      | Deniega acceso             | 403 Forbidden        |
-      | Registra intento           | Audit log            |
+    Ejemplos:
+      | rol        | módulo                    | resultado |
+      | admin      | Ver expediente completo   | Sí        |
+      | doctor     | Ver expediente completo   | Sí        |
+      | nurse      | Ver expediente completo   | Parcial   |
+      | pharmacy   | Ver expediente completo   | No        |
+      | reception  | Ver expediente completo   | No        |
+      | admin      | Configurar sistema        | Sí        |
+      | doctor     | Prescribir medicamentos   | Sí        |
+      | nurse      | Registrar signos vitales  | Sí        |
+      | pharmacy  | Sur medicamentos          | Sí        |
+      | reception | Registrar paciente        | Sí        |
 
-  Escenario: Control de acceso a nivel de registro
-    Dado que dos doctores atienden pacientes diferentes
-    Cuando el Dr. A intenta ver expediente del paciente del Dr. B
-    Entonces el sistema verifica:
-      | Verificación               | Estado    |
-      | ¿El paciente pertenece al Dr. A? | No  |
-      | ¿El Dr. A tiene permiso especial? | No |
-      | Acceso denegado            | ✅         |
-    Y se registra el intento en auditoría
+  Escenario Outline: Denegación de acceso no autorizado
+    Dado que usuario con rol "<rol>" intenta "<acción>"
+    Entonces sistema retorna "<respuesta>"
 
-  # ─────────────────────────────────────────────────────────────
-  # 2. PREVENCIÓN DE FORBIDDEN DIRECT OBJECT REFERENCES
-  # ─────────────────────────────────────────────────────────────
+    Ejemplos:
+      | rol        | acción                        | respuesta  |
+      | reception  | Ver expediente completo       | 403        |
+      | nurse      | Prescribir medicamentos       | 403        |
+      | pharmacy  | Crear consulta                | 403        |
+      | reception  | Modificar expediente médico   | 403        |
 
   Escenario: Protección contra IDOR
-    Dado que un paciente tiene ID "patient-123"
-    Cuando un usuario no autorizado intenta acceder a /api/patients/patient-456
-    Entonces el sistema:
-      | Verificación               | Estado    |
-      | Valida token del usuario   | ✅         |
-      | Verifica permiso sobre patient-456 | ❌ |
-      | Retorna 403 Forbidden     | ✅         |
-      | No retorna datos del paciente | ✅      |
-
-  Escenario: Protección contra manipulación de IDs
-    Dado que un usuario modifica el ID en la URL
-    Cuando intenta acceder a otro expediente
-    Entonces el sistema:
-      | Verificación               | Estado    |
-      | Detecta ID modificado      | ✅         |
-      | Valida autorización        | ✅         |
-      | Deniega acceso             | ✅         |
-      | Registra intento sospechoso| ✅         |
-
-  # ─────────────────────────────────────────────────────────────
-  # 3. GESTIÓN DE SESIONES
-  # ─────────────────────────────────────────────────────────────
+    Dado que usuario intenta acceder a expediente ajeno vía manipulación de ID
+    Entonces sistema:
+      | Verificación              | Estado  |
+      | Valida token              | ✅       |
+      | Verifica permiso          | ✅       |
+      | Retorna 403               | ✅       |
+      | No retorna datos          | ✅       |
+      | Registra en audit log     | ✅       |
 
   Escenario: Expiración de sesión
-    Dado que un usuario tiene sesión activa
-    Cuando pasan 30 minutos de inactividad
-    Entonces el sistema:
-      | Acción                     |
-      | Detecta inactividad        |
-      | Expira la sesión           |
-      | Redirige a login           |
-      | Registra logout automático |
+    Dado que usuario tiene sesión activa
+    Cuando pasan 30 min de inactividad
+    Entonces sistema expira sesión y redirige a login
 
   Escenario: Logout seguro
-    Dado que un usuario cierra sesión
+    Dado que usuario cierra sesión
     Cuando ejecuta logout
-    Entonces el sistema:
-      | Acción                     |
-      | Invalida token            |
-      | Elimina sesión            |
-      | Limpia cookies            |
-      | Registra evento           |
-    
+    Entonces sistema invalida token, limpia cookies y registra evento

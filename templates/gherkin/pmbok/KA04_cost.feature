@@ -1,5 +1,8 @@
 # language: es
 # PMBOK KA-04: Project Cost Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Costos del Proyecto
 Característica: Gestión de Costos (PMBOK KA-04)
   Como director del proyecto GHE

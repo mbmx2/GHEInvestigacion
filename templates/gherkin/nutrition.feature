@@ -1,5 +1,8 @@
 # language: es
 Característica: Atención Nutricional
+@status:proposed
+@type:acceptance
+@domain:nutrition
   Como nutriólogo
   Quiero evaluar y tratar problemas nutricionales
   Para mejorar estado nutricional y prevenir enfermedades

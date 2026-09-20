@@ -1,5 +1,8 @@
 # language: es
 # Offline-First - Connectivity Detection
+@status:proposed
+@type:acceptance
+@domain:general
 # DETECCIÓN DE CONECTIVIDAD: Saber cuándo hay internet
 Característica: Detección de Conectividad (Offline-First - GHE)
   Como desarrollador del proyecto GHE

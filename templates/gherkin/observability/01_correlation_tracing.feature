@@ -1,5 +1,8 @@
 # language: es
 # Observabilidad y Correlación End-to-End
+@status:proposed
+@type:acceptance
+@domain:general
 Característica: Observabilidad del Sistema (GHE)
   Como responsable de operaciones del hospital
   Quiero que cada operación sea rastreable de extremo a extremo

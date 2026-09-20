@@ -1,5 +1,8 @@
 # language: es
 Característica: Control Prenatal
+@status:proposed
+@type:acceptance
+@domain:maternity
   Como médico de la maternidad
   Quiero dar seguimiento a mujeres embarazadas
   Para detectar complicaciones a tiempo

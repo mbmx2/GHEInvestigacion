@@ -1,5 +1,8 @@
 # language: es
 # Accesibilidad WCAG 2.1 - Robustez
+@status:proposed
+@type:acceptance
+@domain:accessibility
 # PRINCIPIO 4: El contenido debe ser lo suficientemente robusto para ser interpretado por tecnologías de asistencia
 Característica: WCAG 2.1 - Robustez (Accesibilidad - GHE)
   Como responsable de accesibilidad del proyecto GHE

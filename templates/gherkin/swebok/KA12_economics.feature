@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-12: Software Engineering Economics
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Economía de la Ingeniería de Software
 Característica: Economía de la Ingeniería de Software (SWEBOK KA-12)
   Como responsable económico del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # Deuda Técnica - Métricas y Tracking
+@status:proposed
+@type:acceptance
+@domain:general
 # MÉTRICAS: Medir deuda técnica objetivamente
 Característica: Métricas y Tracking de Deuda Técnica (GHE)
   Como tech lead del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # Offline-First - Local Storage (SQLite)
+@status:proposed
+@type:acceptance
+@domain:general
 # ALMACENAMIENTO LOCAL: SQLite como fuente de verdad
 Característica: Almacenamiento Local SQLite (Offline-First - GHE)
   Como desarrollador del proyecto GHE

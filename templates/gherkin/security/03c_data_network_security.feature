@@ -1,5 +1,8 @@
 # language: es
 Característica: Seguridad de Datos y Red
+@status:proposed
+@type:acceptance
+@domain:security
   Como responsable de protección de datos del hospital
   Quiero proteger datos de pacientes y configuración de red
   Para cumplir LFPDPPP y prevenir acceso no autorizado

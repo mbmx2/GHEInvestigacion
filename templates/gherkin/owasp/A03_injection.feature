@@ -1,5 +1,8 @@
 # language: es
 # OWASP Top 10 - A03: Injection
+@status:proposed
+@type:acceptance
+@domain:general
 # Inyección de código malicioso (SQL, NoSQL, OS, LDAP)
 Característica: A03 - Inyección (OWASP Top 10)
   Como responsable de seguridad del proyecto GHE

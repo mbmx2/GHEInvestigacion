@@ -1,5 +1,8 @@
 # language: es
 # Enfermería Obstétrica - Workflows Específicos
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Enfermería en Maternidad (GHE)
   Como enfermera de la maternidad
   Quiero workflows específicos para mi rol

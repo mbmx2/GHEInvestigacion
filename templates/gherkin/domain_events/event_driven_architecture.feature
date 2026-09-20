@@ -1,5 +1,8 @@
 # language: es
 # Event-Driven Architecture
+@status:proposed
+@type:acceptance
+@domain:general
 Característica: Arquitectura Basada en Eventos (GHE)
   Como arquitecto del proyecto GHE
   Quiero usar eventos de dominio para desacoplar componentes

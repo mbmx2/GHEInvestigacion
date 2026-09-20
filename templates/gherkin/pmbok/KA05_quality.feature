@@ -1,5 +1,8 @@
 # language: es
 # PMBOK KA-05: Project Quality Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Calidad del Proyecto
 Característica: Gestión de Calidad (PMBOK KA-05)
   Como director del proyecto GHE

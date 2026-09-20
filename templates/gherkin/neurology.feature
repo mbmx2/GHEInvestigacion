@@ -1,5 +1,8 @@
 # language: es
 Característica: Atención Neurológica
+@status:proposed
+@type:acceptance
+@domain:neurology
   Como neurólogo
   Quiero diagnosticar y tratar enfermedades neurológicas
   Para mejorar calidad de vida

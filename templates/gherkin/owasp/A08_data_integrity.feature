@@ -1,5 +1,8 @@
 # language: es
 # OWASP Top 10 - A08: Software and Data Integrity Failures
+@status:proposed
+@type:acceptance
+@domain:general
 # Fallos de integridad de software y datos
 Característica: A08 - Fallos de Integridad (OWASP Top 10)
   Como responsable de seguridad del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # OWASP Top 10 - A05: Security Misconfiguration
+@status:proposed
+@type:acceptance
+@domain:general
 # Configuración insegura por defecto o incompleta
 Característica: A05 - Configuración Insegura (OWASP Top 10)
   Como responsable de seguridad del proyecto GHE

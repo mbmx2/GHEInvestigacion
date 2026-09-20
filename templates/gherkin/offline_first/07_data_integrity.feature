@@ -1,5 +1,8 @@
 # language: es
 # Offline-First - Data Integrity During Sync
+@status:proposed
+@type:acceptance
+@domain:general
 # INTEGRIDAD DE DATOS: Garantizar que los datos no se corrompen durante sync
 Característica: Integridad de Datos durante Sincronización (Offline-First - GHE)
   Como desarrollador del proyecto GHE

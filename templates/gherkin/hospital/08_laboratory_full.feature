@@ -1,5 +1,8 @@
 # language: es
 # Laboratorio Clínico Completo
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión de Laboratorio (GHE Hospital)
   Como director de laboratorio del hospital
   Quiero workflows completos de laboratorio

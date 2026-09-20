@@ -1,5 +1,8 @@
 # language: es
 # Cuidados Posparto
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Control Posparto (GHE Maternidad)
   Como médico de la maternidad
   Quiero protocolos completos de cuidados posparto

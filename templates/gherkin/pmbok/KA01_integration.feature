@@ -1,5 +1,8 @@
 # language: es
 # PMBOK KA-01: Project Integration Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión Integrada de Proyectos
 Característica: Gestión Integrada de Proyectos (PMBOK KA-01)
   Como director del proyecto GHE

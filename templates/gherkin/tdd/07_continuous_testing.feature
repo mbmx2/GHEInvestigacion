@@ -1,5 +1,8 @@
 # language: es
 # TDD - Continuous Testing
+@status:proposed
+@type:acceptance
+@domain:general
 # TESTING CONTINUO: Tests que se ejecutan durante todo el ciclo de vida
 Característica: Continuous Testing (TDD - GHE)
   Como equipo del proyecto GHE

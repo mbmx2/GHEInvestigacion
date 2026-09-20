@@ -1,5 +1,8 @@
 # language: es
 # PMBOK KA-09: Project Procurement Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Adquisiciones del Proyecto
 Característica: Gestión de Adquisiciones (PMBOK KA-09)
   Como director del proyecto GHE

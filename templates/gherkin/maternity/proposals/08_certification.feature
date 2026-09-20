@@ -1,5 +1,8 @@
 # language: es
 # Propuesta 8: Certificación como Dispositivo Médico
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Certificación NOM-024/IEC 62304 (GHE Maternidad)
   Como director del proyecto GHE
   Quiero certificar GHE como dispositivo médico

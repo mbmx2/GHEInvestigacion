@@ -1,5 +1,8 @@
 # language: es
 Característica: Atención Cardiológica
+@status:proposed
+@type:acceptance
+@domain:cardiology
   Como cardiólogo
   Quiero diagnosticar y tratar enfermedades cardiovasculares
   Para reducir morbilidad y mortalidad

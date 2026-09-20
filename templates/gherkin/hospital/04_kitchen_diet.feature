@@ -1,5 +1,8 @@
 # language: es
 # Cocina y Dieta del Hospital
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión de Cocina y Dietas (GHE Hospital)
   Como nutriólogo/jefe de cocina del hospital
   Quiero workflows para gestión de dietas y cocina

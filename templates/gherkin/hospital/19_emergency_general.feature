@@ -1,5 +1,8 @@
 # language: es
 # Urgencias Generales
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Atención de Urgencias (GHE Hospital)
   Como médico de urgencias del hospital
   Quiero workflows de urgencias generales

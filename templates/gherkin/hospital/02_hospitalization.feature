@@ -1,5 +1,8 @@
 # language: es
 # Hospitalización
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión de Hospitalización (GHE Hospital)
   Como médico internista del hospital
   Quiero workflows de hospitalización

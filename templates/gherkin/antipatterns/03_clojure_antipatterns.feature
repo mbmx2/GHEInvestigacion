@@ -1,5 +1,8 @@
 # language: es
 # Anti-Patrones de Código Clojure
+@status:proposed
+@type:acceptance
+@domain:quality
 Característica: Anti-Patrones de Código (GHE)
   Como desarrollador del proyecto GHE
   Quiero identificar anti-patrones específicos de Clojure

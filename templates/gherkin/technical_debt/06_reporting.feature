@@ -1,5 +1,8 @@
 # language: es
 # Deuda Técnica - Reporting
+@status:proposed
+@type:acceptance
+@domain:general
 # REPORTING: Comunicar estado de deuda técnica a stakeholders
 Característica: Reporting de Deuda Técnica (GHE)
   Como tech lead del proyecto GHE

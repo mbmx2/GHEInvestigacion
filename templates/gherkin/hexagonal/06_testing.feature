@@ -1,5 +1,8 @@
 # language: es
 # Hexagonal Architecture - Testing
+@status:proposed
+@type:acceptance
+@domain:general
 # TESTING: Cómo la arquitectura hexagonal facilita el testing
 Característica: Testing con Arquitectura Hexagonal (GHE)
   Como desarrollador del proyecto GHE

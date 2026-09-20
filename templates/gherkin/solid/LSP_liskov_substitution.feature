@@ -1,5 +1,8 @@
 # language: es
 # SOLID - L: Liskov Substitution Principle
+@status:proposed
+@type:acceptance
+@domain:general
 # PRINCIPIO: Objetos de un subtipo deben ser sustituibles por objetos del supertipo sin alterar comportamiento
 Característica: Principio de Sustitución de Liskov (SOLID - L)
   Como desarrollador del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # Recursos Humanos
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión de Recursos Humanos (GHE Hospital)
   Como jefe de RRHH del hospital
   Quiero workflows de recursos humanos

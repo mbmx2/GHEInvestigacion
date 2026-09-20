@@ -1,5 +1,8 @@
 # language: es
 # Clojure Spec Driven Design - UI Forms
+@status:proposed
+@type:acceptance
+@domain:general
 # FORMULARIOS UI: Usar specs para generar formularios automáticamente
 Característica: Formularios UI con clojure.spec (Spec Driven Design - GHE)
   Como desarrollador frontend del proyecto GHE

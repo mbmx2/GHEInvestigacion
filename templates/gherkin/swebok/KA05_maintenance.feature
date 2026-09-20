@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-05: Software Maintenance
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Mantenimiento de Software
 Característica: Mantenimiento de Software (SWEBOK KA-05)
   Como responsable de mantenimiento del proyecto GHE

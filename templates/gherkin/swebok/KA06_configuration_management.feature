@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-06: Software Configuration Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Configuración de Software
 Característica: Gestión de Configuración (SWEBOK KA-06)
   Como responsable de CM del proyecto GHE

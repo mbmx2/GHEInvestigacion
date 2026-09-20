@@ -1,5 +1,8 @@
 # language: es
 # Disaster Recovery y Business Continuity
+@status:proposed
+@type:acceptance
+@domain:general
 Característica: Recuperación ante Desastres y Continuidad del Negocio (GHE)
   Como responsable de operaciones del proyecto GHE
   Quiero planificar recuperación ante desastres

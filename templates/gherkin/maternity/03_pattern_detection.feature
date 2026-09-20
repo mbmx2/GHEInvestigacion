@@ -1,5 +1,8 @@
 # language: es
 # FASE 3: Detección de Patrones Poblacionales - Módulo Maternidad
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Detección de Patrones (GHE Maternidad)
   Como director médico de la maternidad
   Quiero que el sistema detecte patrones poblacionales

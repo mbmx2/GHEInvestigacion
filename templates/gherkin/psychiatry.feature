@@ -1,5 +1,8 @@
 # language: es
 Característica: Atención Psiquiátrica
+@status:proposed
+@type:acceptance
+@domain:psychiatry
   Como psiquiatra
   Quiero evaluar y tratar trastornos mentales
   Para mejorar salud mental y calidad de vida

@@ -1,5 +1,8 @@
 # language: es
 # Posparto Avanzado: Cesárea, Infección, Trombosis, Ejercicio
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Posparto Avanzado (GHE Maternidad)
   Como médico de la maternidad
   Quiero protocolos completos de posparto avanzado

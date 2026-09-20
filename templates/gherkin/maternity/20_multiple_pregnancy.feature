@@ -1,5 +1,8 @@
 # language: es
 # Embarazo Múltiple
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Embarazo Múltiple (GHE Maternidad)
   Como médico de la maternidad
   Quiero workflows para embarazo múltiple (gemelos, trillizos)

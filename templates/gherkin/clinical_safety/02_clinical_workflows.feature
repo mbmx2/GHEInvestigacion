@@ -1,5 +1,8 @@
 # language: es
 # Clinical Workflow Standardization
+@status:proposed
+@type:acceptance
+@domain:clinical_safety
 Característica: Estandarización de Flujos Clínicos (GHE)
   Como director médico de la maternidad
   Quiero workflows clínicos estandarizados

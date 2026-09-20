@@ -1,5 +1,8 @@
 # language: es
 # OWASP Top 10 - A10: Server-Side Request Forgery (SSRF)
+@status:proposed
+@type:acceptance
+@domain:general
 # Falsificación de peticiones del lado del servidor
 Característica: A10 - SSRF (OWASP Top 10)
   Como responsable de seguridad del proyecto GHE

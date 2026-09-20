@@ -1,5 +1,8 @@
 # language: es
 Característica: Referencia y Contrarreferencia
+@status:proposed
+@type:acceptance
+@domain:referral
   Como médico
   Quiero gestionar referencias a especialistas y hospitales
   Para garantizar continuidad de la atención del paciente

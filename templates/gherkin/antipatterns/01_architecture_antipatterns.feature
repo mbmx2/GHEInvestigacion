@@ -1,5 +1,8 @@
 # language: es
 # Anti-Patrones de Arquitectura de Software
+@status:proposed
+@type:acceptance
+@domain:quality
 Característica: Anti-Patrones Arquitectónicos (GHE)
   Como arquitecto del proyecto GHE
   Quiero identificar y prevenir anti-patrones arquitectónicos

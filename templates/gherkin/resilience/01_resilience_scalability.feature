@@ -1,5 +1,8 @@
 # language: es
 # Resiliencia y Escalabilidad
+@status:proposed
+@type:acceptance
+@domain:general
 Característica: Resiliencia del Sistema (GHE)
   Como arquitecto del proyecto GHE
   Quiero que el sistema tolere fallos y escale correctamente

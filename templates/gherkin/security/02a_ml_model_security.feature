@@ -1,5 +1,8 @@
 # language: es
 Característica: Seguridad de Modelos de IA
+@status:proposed
+@type:acceptance
+@domain:security
   Como responsable de seguridad del proyecto GHE
   Quiero proteger modelos de predicción contra ataques adversariales
   Para que las predicciones clínicas sean confiables

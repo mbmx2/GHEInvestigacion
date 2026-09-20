@@ -1,5 +1,8 @@
 # language: es
 # Propuesta 7: Red de Maternidades GHE
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Red Conectada de Maternidades (GHE Maternidad)
   Como director de salud regional
   Quiero que múltiples maternidades usen GHE conectadas

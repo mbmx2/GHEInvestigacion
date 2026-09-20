@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-07: Software Engineering Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Ingeniería de Software
 Característica: Gestión de Ingeniería de Software (SWEBOK KA-07)
   Como líder técnico del proyecto GHE

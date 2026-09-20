@@ -1,5 +1,8 @@
 # language: es
 # ISO 14971 - Gestión de Riesgos para Dispositivos Médicos
+@status:proposed
+@type:acceptance
+@domain:general
 Característica: ISO 14971 - Gestión de Riesgos (GHE)
   Como responsable de riesgos del proyecto GHE
   Quiero implementar ISO 14971 para software médico

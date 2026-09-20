@@ -1,5 +1,8 @@
 # language: es
 Característica: Emergencias Obstétricas
+@status:proposed
+@type:acceptance
+@domain:maternity
   Como médico de emergencias
   Quiero protocolos paso a paso para cada emergencia
   Para actuar rápido cuando hay vidas en riesgo

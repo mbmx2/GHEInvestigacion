@@ -1,5 +1,8 @@
 # language: es
 # Limpieza y Desinfección Hospitalaria
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión de Limpieza (GHE Hospital)
   Como coordinador de limpieza del hospital
   Quiero workflows para limpieza y desinfección

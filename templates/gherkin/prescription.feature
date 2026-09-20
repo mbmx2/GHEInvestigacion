@@ -1,5 +1,8 @@
 # language: es
 Característica: Receta Electrónica
+@status:proposed
+@type:acceptance
+@domain:pharmacy
   Como médico de la maternidad
   Quiero generar recetas seguras
   Para que el paciente reciba tratamiento correcto

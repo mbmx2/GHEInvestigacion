@@ -1,5 +1,8 @@
 # language: es
 # Accesibilidad WCAG 2.1 - Comprensibilidad
+@status:proposed
+@type:acceptance
+@domain:accessibility
 # PRINCIPIO 3: La información y el funcionamiento de la interfaz deben ser comprensibles
 Característica: WCAG 2.1 - Comprensibilidad (Accesibilidad - GHE)
   Como responsable de accesibilidad del proyecto GHE

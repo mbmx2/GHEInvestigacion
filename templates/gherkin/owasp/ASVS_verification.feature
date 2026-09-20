@@ -1,5 +1,8 @@
 # language: es
 # OWASP ASVS - Application Security Verification Standard
+@status:proposed
+@type:acceptance
+@domain:general
 # Estándar de verificación de seguridad de aplicaciones
 Característica: OWASP ASVS - Verificación de Seguridad (GHE)
   Como responsable de seguridad del proyecto GHE

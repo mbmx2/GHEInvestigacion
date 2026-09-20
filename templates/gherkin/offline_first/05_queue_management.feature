@@ -1,5 +1,8 @@
 # language: es
 # Offline-First - Queue Management
+@status:proposed
+@type:acceptance
+@domain:general
 # GESTIÓN DE COLA: Administrar operaciones pendientes de sync
 Característica: Gestión de Cola de Sincronización (Offline-First - GHE)
   Como desarrollador del proyecto GHE

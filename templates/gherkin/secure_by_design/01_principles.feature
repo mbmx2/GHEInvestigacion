@@ -1,5 +1,8 @@
 # language: es
 # Secure by Design - Principios Fundamentales
+@status:proposed
+@type:acceptance
+@domain:general
 # FILOSOFÍA: La seguridad se integra desde el diseño, no se agrega después
 Característica: Principios Fundamentales de Secure by Design (GHE)
   Como arquitecto de seguridad del proyecto GHE

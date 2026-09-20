@@ -1,5 +1,8 @@
 # language: es
 # Propuesta 4: Telemedicina Obstétrica
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Telemedicina para Embarazo (GHE Maternidad)
   Como paciente embarazada en zona remota
   Quiero consultar con mi médico por video

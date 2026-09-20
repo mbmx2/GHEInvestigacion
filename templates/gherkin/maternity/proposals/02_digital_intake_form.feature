@@ -1,5 +1,8 @@
 # language: es
 # Propuesta 2: Formulario Digital de Primera Visita
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Formulario Digital Pre-Consulta (GHE Maternidad)
   Como paciente embarazada
   Quiero llenar un formulario en mi celular antes de llegar

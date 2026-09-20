@@ -1,5 +1,8 @@
 # language: es
 # Offline-First - Conflict Resolution
+@status:proposed
+@type:acceptance
+@domain:general
 # RESOLUCIÓN DE CONFLICTOS: Manejar cuando los datos cambian en ambos lados
 Característica: Resolución de Conflictos (Offline-First - GHE)
   Como desarrollador del proyecto GHE

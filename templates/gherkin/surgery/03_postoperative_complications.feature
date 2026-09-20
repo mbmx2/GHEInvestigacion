@@ -1,5 +1,8 @@
 # language: es
 Característica: Postoperatorio y Complicaciones
+@status:proposed
+@type:acceptance
+@domain:surgery
   Como cirujano del hospital
   Quiero documentar postoperatorio y detectar complicaciones
   Para asegurar recuperación segura del paciente

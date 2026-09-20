@@ -1,5 +1,8 @@
 # language: es
 # Supply Chain y Gestión de Inventario
+@status:proposed
+@type:acceptance
+@domain:clinical_safety
 Característica: Cadena de Suministros (GHE Maternidad)
   Como administrador de la maternidad
   Quiero gestión integral de inventario y suministros

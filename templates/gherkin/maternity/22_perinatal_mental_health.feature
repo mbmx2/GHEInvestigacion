@@ -1,5 +1,8 @@
 # language: es
 # Salud Mental Perinatal Completa
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Salud Mental Perinatal (GHE Maternidad)
   Como psiquiatra perinatal
   Quiero workflows completos de salud mental en el ciclo perinatal

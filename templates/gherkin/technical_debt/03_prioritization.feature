@@ -1,5 +1,8 @@
 # language: es
 # Deuda Técnica - Priorización
+@status:proposed
+@type:acceptance
+@domain:general
 # PRIORIZACIÓN: Decidir qué deuda reducir primero
 Característica: Priorización de Deuda Técnica (GHE)
   Como tech lead del proyecto GHE

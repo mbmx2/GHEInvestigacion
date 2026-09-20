@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-08: Software Engineering Process
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Proceso de Ingeniería de Software
 Característica: Proceso de Ingeniería de Software (SWEBOK KA-08)
   Como responsable de proceso del proyecto GHE

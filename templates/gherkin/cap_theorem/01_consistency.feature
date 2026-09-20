@@ -1,5 +1,8 @@
 # language: es
 # CAP Theorem - Consistencia
+@status:proposed
+@type:acceptance
+@domain:general
 # CONSISTENCIA: Todos los nodos ven los mismos datos al mismo tiempo
 Característica: Consistencia (CAP Theorem - GHE)
   Como arquitecto del proyecto GHE

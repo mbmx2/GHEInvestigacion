@@ -1,5 +1,8 @@
 # language: es
 # GUIX User First - Formularios
+@status:proposed
+@type:acceptance
+@domain:general
 # FORMULARIOS: Entrada de datos eficiente y sin errores
 Característica: Formularios (GUIX User First - GHE)
   Como usuario de GHE

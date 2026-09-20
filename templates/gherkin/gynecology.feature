@@ -1,5 +1,8 @@
 # language: es
 Característica: Atención Ginecológica
+@status:proposed
+@type:acceptance
+@domain:gynecology
   Como ginecólogo
   Quiero atender la salud de la mujer de forma integral
   Para prevenir, diagnosticar y tratar patologías ginecológicas

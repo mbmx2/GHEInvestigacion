@@ -1,5 +1,8 @@
 # language: es
 # TDD - Ciclo Red-Green-Refactor
+@status:proposed
+@type:acceptance
+@domain:general
 # EL CICLO FUNDAMENTAL: Escribir test → Falla → Escribir código → Pasa → Refactorizar
 Característica: Ciclo Red-Green-Refactor (TDD)
   Como desarrollador del proyecto GHE

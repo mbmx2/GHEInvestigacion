@@ -1,5 +1,8 @@
 # language: es
 # Cálculos Médicos - Química Sanguínea
+@status:proposed
+@type:acceptance
+@domain:general
 # BIOQUÍMICA: Análisis de química sanguínea completa
 Característica: Química Sanguínea Completa (GHE)
   Como médico del proyecto GHE

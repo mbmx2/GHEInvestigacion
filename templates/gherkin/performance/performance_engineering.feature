@@ -1,5 +1,8 @@
 # language: es
 # Performance Engineering
+@status:proposed
+@type:acceptance
+@domain:general
 Característica: Ingeniería de Rendimiento (GHE)
   Como responsable de rendimiento del proyecto GHE
   Quiero garantizar rendimiento aceptable

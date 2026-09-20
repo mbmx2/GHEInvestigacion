@@ -1,5 +1,8 @@
 # language: es
 # OWASP Top 10 - A04: Insecure Design
+@status:proposed
+@type:acceptance
+@domain:general
 # Diseño inseguro que no considera amenazas desde el inicio
 Característica: A04 - Diseño Inseguro (OWASP Top 10)
   Como arquitecto de seguridad del proyecto GHE

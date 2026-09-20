@@ -1,5 +1,8 @@
 # language: es
 # Hexagonal Architecture - Ports (Interfaces)
+@status:proposed
+@type:acceptance
+@domain:general
 # PUERTOS: Contratos que define el dominio para interactuar con el exterior
 Característica: Ports - Contratos del Dominio (Arquitectura Hexagonal)
   Como arquitecto del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-11: Software Engineering Professional Practice
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Práctica Profesional de Ingeniería de Software
 Característica: Práctica Profesional (SWEBOK KA-11)
   Como profesional de ingeniería de software

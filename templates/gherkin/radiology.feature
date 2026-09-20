@@ -1,5 +1,8 @@
 # language: es
 Característica: Gestión de Imagenología
+@status:proposed
+@type:acceptance
+@domain:imaging
   Como radiólogo
   Quiero gestionar estudios de imagen de forma eficiente
   Para diagnosticar con precisión y rapidez

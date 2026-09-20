@@ -1,5 +1,8 @@
 # language: es
 # Propuesta 3: Reportes Automáticos COFEPRIS
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Generación Automática de Reportes (GHE Maternidad)
   Como administrador de la maternidad
   Quiero que los reportes se generen automáticamente

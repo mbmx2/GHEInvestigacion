@@ -1,5 +1,8 @@
 # language: es
 # HL7 FHIR R4 - Interoperabilidad en Salud
+@status:proposed
+@type:acceptance
+@domain:general
 Característica: HL7 FHIR R4 - Interoperabilidad (GHE)
   Como desarrollador de interoperabilidad del proyecto GHE
   Quiero implementar endpoints FHIR R4

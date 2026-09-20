@@ -1,5 +1,8 @@
 # language: es
 # Ginecología (no obstétrica)
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Consulta Ginecológica (GHE Hospital)
   Como ginecólogo del hospital
   Quiero workflows para patologías ginecológicas

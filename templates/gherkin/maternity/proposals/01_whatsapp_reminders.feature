@@ -1,5 +1,8 @@
 # language: es
 # Propuesta 1: App de Recordatorios WhatsApp
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Bot de Recordatorios WhatsApp (GHE Maternidad)
   Como paciente embarazada de la maternidad
   Quiero recibir recordatorios por WhatsApp

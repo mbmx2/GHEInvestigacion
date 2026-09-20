@@ -1,5 +1,8 @@
 # language: es
 # PMBOK KA-06: Project Resource Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Recursos del Proyecto
 Característica: Gestión de Recursos (PMBOK KA-06)
   Como director del proyecto GHE

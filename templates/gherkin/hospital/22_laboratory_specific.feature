@@ -1,5 +1,8 @@
 # language: es
 # Laboratorio - Estudios Específicos
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Estudios de Laboratorio (GHE Hospital)
   Como biólogo clínico del hospital
   Quiero workflows para estudios específicos de laboratorio

@@ -1,5 +1,8 @@
 # language: es
 # Cocina - Dietas Específicas y HACCP
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Dietas Específicas (GHE Hospital)
   Como nutriólogo del hospital
   Quiero workflows para dietas específicas por patología

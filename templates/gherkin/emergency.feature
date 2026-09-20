@@ -1,5 +1,8 @@
 # language: es
 Característica: Atención de Urgencias
+@status:proposed
+@type:acceptance
+@domain:emergency
   Como médico de urgencias
   Quiero atender emergencias de forma rápida
   Para estabilizar y salvar vidas

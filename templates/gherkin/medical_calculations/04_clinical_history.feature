@@ -1,5 +1,8 @@
 # language: es
 # Cálculos Médicos - Historia Clínica
+@status:proposed
+@type:acceptance
+@domain:general
 # HISTORIA CLÍNICA: Template completo de historia clínica SOAP
 Característica: Historia Clínica Completa (GHE)
   Como médico del proyecto GHE

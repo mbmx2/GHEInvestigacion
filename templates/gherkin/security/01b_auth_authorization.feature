@@ -1,5 +1,8 @@
 # language: es
 Característica: Pentest - Autenticación y Autorización
+@status:proposed
+@type:acceptance
+@domain:security
   Como tester de seguridad del hospital
   Quiero probar autenticación y autorización
   Para asegurar que solo usuarios autorizados acceden a datos de pacientes

@@ -1,5 +1,8 @@
 # language: es
 Característica: Gestión de Laboratorio Clínico
+@status:proposed
+@type:acceptance
+@domain:laboratory
   Como director de laboratorio
   Quiero gestionar el flujo completo de laboratorio
   Para garantizar resultados precisos y oportunos

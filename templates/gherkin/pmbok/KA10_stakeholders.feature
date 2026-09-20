@@ -1,5 +1,8 @@
 # language: es
 # PMBOK KA-10: Project Stakeholder Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Interesados del Proyecto
 Característica: Gestión de Interesados (PMBOK KA-10)
   Como director del proyecto GHE

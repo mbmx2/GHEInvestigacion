@@ -1,5 +1,8 @@
 # language: es
 # FASE 2: Guía Clínica Automatizada - Módulo Maternidad
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Guía Clínica para Embarazo (GHE Maternidad)
   Como médico del proyecto GHE
   Quiero que el sistema me guíe paso a paso en cada situación clínica

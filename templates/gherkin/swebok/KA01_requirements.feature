@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-01: Software Requirements
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Requisitos de Software
 Característica: Gestión de Requisitos de Software (SWEBOK KA-01)
   Como ingeniero de software del proyecto GHE

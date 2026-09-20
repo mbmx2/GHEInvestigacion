@@ -1,5 +1,8 @@
 # language: es
 # Hexagonal Architecture - Dependency Injection / Composition Root
+@status:proposed
+@type:acceptance
+@domain:general
 # RAÍZ DE COMPOSICIÓN: Ensambla adaptadores con puertos
 Característica: Dependency Injection - Raíz de Composición (Arquitectura Hexagonal)
   Como desarrollador del proyecto GHE

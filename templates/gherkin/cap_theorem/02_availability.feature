@@ -1,5 +1,8 @@
 # language: es
 # CAP Theorem - Disponibilidad
+@status:proposed
+@type:acceptance
+@domain:general
 # DISPONIBILIDAD: Cada petición recibe una respuesta (éxito o error)
 Característica: Disponibilidad (CAP Theorem - GHE)
   Como arquitecto del proyecto GHE

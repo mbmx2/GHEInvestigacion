@@ -1,5 +1,8 @@
 # language: es
 # OWASP Top 10 - A06: Vulnerable and Outdated Components
+@status:proposed
+@type:acceptance
+@domain:general
 # Uso de componentes con vulnerabilidades conocidas
 Característica: A06 - Componentes Vulnerables (OWASP Top 10)
   Como responsable de seguridad del proyecto GHE

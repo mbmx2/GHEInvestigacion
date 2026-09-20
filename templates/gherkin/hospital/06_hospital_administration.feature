@@ -1,5 +1,8 @@
 # language: es
 # Administración Hospitalaria
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión Administrativa (GHE Hospital)
   Como director administrativo del hospital
   Quiero workflows de gestión administrativa

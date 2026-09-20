@@ -1,5 +1,8 @@
 # language: es
 # Secure by Design - Input/Output Security
+@status:proposed
+@type:acceptance
+@domain:general
 # SEGURIDAD EN ENTRADA/SALIDA: Validar entrada, codificar salida
 Característica: Seguridad de Entrada/Salida (Secure by Design - GHE)
   Como desarrollador del proyecto GHE

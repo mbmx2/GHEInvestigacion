@@ -1,5 +1,8 @@
 # language: es
 # Anti-Patrones de Software Médico
+@status:proposed
+@type:acceptance
+@domain:quality
 Característica: Anti-Patrones Médicos (GHE)
   Como responsable de calidad del proyecto GHE
   Quiero identificar anti-patrones específicos de software médico

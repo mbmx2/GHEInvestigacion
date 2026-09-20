@@ -1,5 +1,8 @@
 # language: es
 Característica: Pentest - Información, Datos e Infraestructura
+@status:proposed
+@type:acceptance
+@domain:security
   Como tester de seguridad del hospital
   Quiero verificar que no se exponga información ni datos sensibles
   Para proteger privacidad de pacientes y seguridad del hospital

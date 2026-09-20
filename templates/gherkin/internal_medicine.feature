@@ -1,5 +1,8 @@
 # language: es
 Característica: Medicina Interna y Enfermedades Crónicas
+@status:proposed
+@type:acceptance
+@domain:internal_medicine
   Como internista
   Quiero gestionar enfermedades crónicas
   Para mejorar calidad de vida y prevenir complicaciones

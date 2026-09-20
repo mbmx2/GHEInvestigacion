@@ -1,5 +1,8 @@
 # language: es
 Característica: Registro de Paciente
+@status:proposed
+@type:acceptance
+@domain:patient
   Como recepcionista de la maternidad
   Quiero registrar pacientes de forma rápida
   Para que tengan expediente desde su primera consulta

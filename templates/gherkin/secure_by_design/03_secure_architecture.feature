@@ -1,5 +1,8 @@
 # language: es
 # Secure by Design - Secure Architecture
+@status:proposed
+@type:acceptance
+@domain:general
 # ARQUITECTURA SEGURA: Diseñar seguridad en la estructura del sistema
 Característica: Arquitectura Segura (Secure by Design - GHE)
   Como arquitecto del proyecto GHE

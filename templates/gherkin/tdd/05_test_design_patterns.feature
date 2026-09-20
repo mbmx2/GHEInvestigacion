@@ -1,5 +1,8 @@
 # language: es
 # TDD - Test Design Patterns
+@status:proposed
+@type:acceptance
+@domain:general
 # PATRONES DE DISEÑO DE TESTS: Estrategias para tests mantenibles
 Característica: Patrones de Diseño de Tests (TDD - GHE)
   Como desarrollador del proyecto GHE

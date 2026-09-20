@@ -1,5 +1,8 @@
 # language: es
 # Secure by Design - Threat Modeling
+@status:proposed
+@type:acceptance
+@domain:general
 # MODELADO DE AMENAZAS: Identificar amenazas ANTES de implementar
 Característica: Threat Modeling (Secure by Design - GHE)
   Como arquitecto de seguridad del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # GUIX User First - Responsive Design
+@status:proposed
+@type:acceptance
+@domain:general
 # DISEÑO RESPONSIVO: Que funcione en cualquier tamaño de pantalla
 Característica: Responsive Design (GUIX User First - GHE)
   Como desarrollador frontend del proyecto GHE

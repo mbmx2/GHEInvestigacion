@@ -1,5 +1,8 @@
 # language: es
 Característica: Percepción - WCAG 2.1
+@status:proposed
+@type:acceptance
+@domain:accessibility
   Como responsable de accesibilidad del proyecto GHE
   Quiero que toda la información sea perceptible
   Para que personas con discapacidad visual usen el sistema

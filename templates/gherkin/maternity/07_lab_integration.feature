@@ -1,5 +1,8 @@
 # language: es
 # Laboratorio Integrado - Interpretación Automática
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Integración de Laboratorio (GHE Maternidad)
   Como médico de la maternidad
   Quiero que el sistema interprete automáticamente resultados de laboratorio

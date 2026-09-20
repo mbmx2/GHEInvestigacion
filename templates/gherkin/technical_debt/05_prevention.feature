@@ -1,5 +1,8 @@
 # language: es
 # Deuda Técnica - Prevención
+@status:proposed
+@type:acceptance
+@domain:general
 # PREVENCIÓN: Evitar que se acumule más deuda técnica
 Característica: Prevención de Deuda Técnica (GHE)
   Como equipo del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-02: Software Design
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Diseño de Software
 Característica: Diseño de Software (SWEBOK KA-02)
   Como arquitecto de software del proyecto GHE

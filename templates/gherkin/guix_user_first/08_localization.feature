@@ -1,5 +1,8 @@
 # language: es
 # GUIX User First - Localización e Internacionalización
+@status:proposed
+@type:acceptance
+@domain:general
 # i18n y l10n: Adaptar el sistema a locale del usuario
 Característica: Localización e Internacionalización (GUIX User First - GHE)
   Como desarrollador de GHE

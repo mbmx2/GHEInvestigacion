@@ -1,5 +1,8 @@
 # language: es
 # Propuesta 5: Kit de Diagnóstico Rápido Integrado
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Dispositivos Point-of-Care Integrados (GHE Maternidad)
   Como médico de la maternidad
   Quiero que los dispositivos diagnósticos se conecten automáticamente con GHE

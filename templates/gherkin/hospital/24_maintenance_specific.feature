@@ -1,5 +1,8 @@
 # language: es
 # Mantenimiento - Equipos Específicos
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Mantenimiento de Equipos (GHE Hospital)
   Como ingeniero de mantenimiento del hospital
   Quiero workflows para mantenimiento de equipos específicos

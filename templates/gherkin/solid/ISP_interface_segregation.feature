@@ -1,5 +1,8 @@
 # language: es
 # SOLID - I: Interface Segregation Principle
+@status:proposed
+@type:acceptance
+@domain:general
 # PRINCIPIO: No forzar a los clientes a depender de interfaces que no usan
 Característica: Principio de Segregación de Interfaces (SOLID - I)
   Como desarrollador del proyecto GHE

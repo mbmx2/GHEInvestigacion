@@ -1,5 +1,8 @@
 # language: es
 # Lavandería Hospitalaria
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión de Lavandería (GHE Hospital)
   Como jefe de lavandería del hospital
   Quiero workflows para lavandería hospitalaria

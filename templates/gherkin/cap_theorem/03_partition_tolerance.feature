@@ -1,5 +1,8 @@
 # language: es
 # CAP Theorem - Tolerancia a Particiones
+@status:proposed
+@type:acceptance
+@domain:general
 # PARTITION TOLERANCE: El sistema funciona cuando hay separación de red
 Característica: Tolerancia a Particiones (CAP Theorem - GHE)
   Como arquitecto del proyecto GHE

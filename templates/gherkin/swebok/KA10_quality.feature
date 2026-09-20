@@ -1,5 +1,8 @@
 # language: es
 # SWEBOK KA-10: Software Quality
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Calidad de Software
 Característica: Calidad de Software (SWEBOK KA-10)
   Como responsable de calidad del proyecto GHE

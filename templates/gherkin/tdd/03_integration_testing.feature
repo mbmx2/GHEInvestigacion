@@ -1,5 +1,8 @@
 # language: es
 # TDD - Integration Testing
+@status:proposed
+@type:acceptance
+@domain:general
 # PRUEBAS DE INTEGRACIÓN: Tests de componentes trabajando juntos
 Característica: Integration Testing con TDD (GHE)
   Como desarrollador del proyecto GHE

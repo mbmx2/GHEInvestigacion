@@ -1,5 +1,8 @@
 # language: es
 # Anestesiología
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión de Anestesia (GHE Hospital)
   Como anestesiólogo del hospital
   Quiero workflows de anestesia

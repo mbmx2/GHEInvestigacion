@@ -1,5 +1,8 @@
 # language: es
 # Compras y Contrataciones
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión de Compras (GHE Hospital)
   Como jefe de compras del hospital
   Quiero workflows para compras y contrataciones

@@ -1,5 +1,8 @@
 # language: es
 Característica: Atención Odontológica
+@status:proposed
+@type:acceptance
+@domain:dentistry
   Como odontólogo
   Quiero diagnosticar y tratar patologías dentales
   Para mantener la salud bucal integral del paciente

@@ -1,5 +1,8 @@
 # language: es
 Característica: Preoperatorio y Checklist Quirúrgico
+@status:proposed
+@type:acceptance
+@domain:surgery
   Como cirujano del hospital
   Quiero evaluar pacientes preoperatoriamente y seguir checklists
   Para prevenir errores antes de la cirugía

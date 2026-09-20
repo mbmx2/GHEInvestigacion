@@ -1,5 +1,8 @@
 # language: es
 # Contabilidad y Finanzas
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión Contable (GHE Hospital)
   Como contador del hospital
   Quiero workflows contables

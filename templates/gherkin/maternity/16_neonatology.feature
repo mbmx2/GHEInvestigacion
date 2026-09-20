@@ -1,5 +1,8 @@
 # language: es
 # Neonatología: Cuidados del Recién Nacido
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Neonatología (GHE Maternidad)
   Como pediatra neonatólogo
   Quiero workflows para el cuidado del recién nacido

@@ -1,5 +1,8 @@
 # language: es
 # Mantenimiento de Equipo e Infraestructura
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Mantenimiento (GHE Hospital)
   Como jefe de mantenimiento del hospital
   Quiero workflows de mantenimiento

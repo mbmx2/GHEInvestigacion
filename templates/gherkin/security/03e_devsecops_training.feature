@@ -1,5 +1,8 @@
 # language: es
 Característica: DevSecOps y Seguridad Operativa
+@status:proposed
+@type:acceptance
+@domain:security
   Como ingeniero DevOps del hospital
   Quiero integrar seguridad en CI/CD y operaciones
   Para que cada despliegue sea seguro

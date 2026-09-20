@@ -1,5 +1,8 @@
 # language: es
 Característica: Gestión de Enfermedades Crónicas
+@status:proposed
+@type:acceptance
+@domain:chronic
   Como médico de atención primaria
   Quiero gestionar enfermedades crónicas de forma integral
   Para prevenir complicaciones y mejorar calidad de vida

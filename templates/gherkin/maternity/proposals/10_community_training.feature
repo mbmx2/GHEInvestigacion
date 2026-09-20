@@ -1,5 +1,8 @@
 # language: es
 # Propuesta 10: Capacitación Comunitaria
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Programa de Capacitación (GHE Maternidad)
   Como director de la maternidad
   Quiero capacitar a promotoras de salud en uso de GHE

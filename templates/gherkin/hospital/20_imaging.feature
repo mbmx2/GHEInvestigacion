@@ -1,5 +1,8 @@
 # language: es
 # Imagenología / Diagnóstico por Imagen
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión de Imagenología (GHE Hospital)
   Como radiólogo del hospital
   Quiero workflows de imagenología

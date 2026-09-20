@@ -1,5 +1,8 @@
 # language: es
 # Staff Competency & Training
+@status:proposed
+@type:acceptance
+@domain:clinical_safety
 Característica: Competencias y Capacitación del Personal (GHE)
   Como director de la maternidad
   Quiero evaluar y mejorar las competencias del equipo

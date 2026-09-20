@@ -1,5 +1,8 @@
 # language: es
 # Pre-Embarazo: Planificación Familiar y Salud Preconcepcional
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Atención Preconcepcional (GHE Maternidad)
   Como médico de la maternidad
   Quiero workflows de pre-embarazo

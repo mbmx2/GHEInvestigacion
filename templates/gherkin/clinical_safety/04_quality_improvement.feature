@@ -1,5 +1,8 @@
 # language: es
 # Quality Improvement (CQI)
+@status:proposed
+@type:acceptance
+@domain:clinical_safety
 Característica: Mejora Continua de Calidad (GHE Maternidad)
   Como director de calidad de la maternidad
   Quiero herramientas de mejora continua

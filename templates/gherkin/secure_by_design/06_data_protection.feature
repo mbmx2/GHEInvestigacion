@@ -1,5 +1,8 @@
 # language: es
 # Secure by Design - Data Protection
+@status:proposed
+@type:acceptance
+@domain:general
 # PROTECCIÓN DE DATOS: Cifrar, proteger y gestionar datos sensibles
 Característica: Protección de Datos (Secure by Design - GHE)
   Como responsable de seguridad del proyecto GHE

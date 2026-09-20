@@ -1,5 +1,8 @@
 # language: es
 # Clojure Spec Driven Design - Fundamentos
+@status:proposed
+@type:acceptance
+@domain:general
 # FILOSOFÍA: Los specs definen la forma de los datos ANTES de escribir código
 Característica: Fundamentos de clojure.spec (Spec Driven Design - GHE)
   Como desarrollador Clojure del proyecto GHE

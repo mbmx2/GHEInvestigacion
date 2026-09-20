@@ -1,5 +1,8 @@
 # language: es
 # Nutrición en Embarazo
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Asesoría Nutricional (GHE Maternidad)
   Como nutriólogo de la maternidad
   Quiero planes alimentarios específicos por trimestre

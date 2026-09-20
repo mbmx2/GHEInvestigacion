@@ -1,5 +1,8 @@
 # language: es
 # Lactancia Materna
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Apoyo a Lactancia (GHE Maternidad)
   Como enfermera de lactancia
   Quiero herramientas para apoyar la lactancia materna

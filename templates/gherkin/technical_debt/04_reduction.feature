@@ -1,5 +1,8 @@
 # language: es
 # Deuda Técnica - Reducción
+@status:proposed
+@type:acceptance
+@domain:general
 # REDUCCIÓN: Estrategias para eliminar deuda técnica
 Característica: Reducción de Deuda Técnica (GHE)
   Como equipo del proyecto GHE

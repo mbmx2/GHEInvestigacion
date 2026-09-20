@@ -1,5 +1,8 @@
 # language: es
 # Embarazo Adolescente
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Embarazo en Adolescentes (GHE Maternidad)
   Como médico de la maternidad
   Quiero workflows específicos para embarazo adolescente

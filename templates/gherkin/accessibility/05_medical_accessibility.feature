@@ -1,5 +1,8 @@
 # language: es
 # Accesibilidad - Prácticas Específicas para Software Médico
+@status:proposed
+@type:acceptance
+@domain:accessibility
 # ACCESIBILIDAD CLÍNICA: Adaptaciones para entorno médico
 Característica: Accesibilidad en Software Médico (GHE)
   Como desarrollador de GHE

@@ -1,5 +1,8 @@
 # language: es
 # Seguridad de Datos y Privacidad
+@status:proposed
+@type:acceptance
+@domain:security
 Característica: Protección de Datos (GHE Security)
   Como oficial de protección de datos del proyecto GHE
   Quiero garantizar la privacidad y seguridad de datos de pacientes

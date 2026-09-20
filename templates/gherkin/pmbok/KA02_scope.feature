@@ -1,5 +1,8 @@
 # language: es
 # PMBOK KA-02: Project Scope Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión del Alcance del Proyecto
 Característica: Gestión del Alcance (PMBOK KA-02)
   Como director del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 Característica: Privacidad de Datos (Resumen Ejecutivo)
+@status:proposed
+@type:acceptance
+@domain:general
   Como oficial de protección de datos del hospital
   Quiero verificar cumplimiento de privacidad
   Para proteger datos de pacientes y cumplir LFPDPPP

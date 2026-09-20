@@ -1,5 +1,8 @@
 # language: es
 # Cirugía Ginecológica
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Procedimientos Quirúrgicos Ginecológicos (GHE Hospital)
   Como cirujano ginecólogo del hospital
   Quiero workflows para cirugías ginecológicas

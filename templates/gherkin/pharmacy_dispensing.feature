@@ -1,5 +1,8 @@
 # language: es
 Característica: Dispensación de Medicamentos
+@status:proposed
+@type:acceptance
+@domain:pharmacy
   Como personal de farmacia
   Quiero surtir medicamentos de forma segura
   Para que el paciente reciba el tratamiento correcto

@@ -1,5 +1,8 @@
 # language: es
 # Almacén General del Hospital
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Gestión de Almacén (GHE Hospital)
   Como jefe de almacén del hospital
   Quiero workflows para gestión de almacén general

@@ -1,5 +1,8 @@
 # language: es
 Característica: Calidad - ISO 13485 (Resumen Ejecutivo)
+@status:proposed
+@type:acceptance
+@domain:general
   Como director de calidad del hospital
   Quiero verificar que el software cumple ISO 13485
   Para certificar como dispositivo médico

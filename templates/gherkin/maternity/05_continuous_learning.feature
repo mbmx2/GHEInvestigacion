@@ -1,5 +1,8 @@
 # language: es
 # FASE 5: Aprendizaje Continuo - Módulo Maternidad
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Aprendizaje Continuo (GHE Maternidad)
   Como responsable de calidad de la maternidad
   Quiero que el sistema aprenda de cada paciente atendido

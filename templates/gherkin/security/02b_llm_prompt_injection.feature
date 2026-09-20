@@ -1,5 +1,8 @@
 # language: es
 Característica: Seguridad de LLM y Prompt Injection
+@status:proposed
+@type:acceptance
+@domain:security
   Como responsable de seguridad del proyecto GHE
   Quiero proteger contra prompt injection y uso inseguro de LLM
   Para que la IA no comprometa datos ni seguridad

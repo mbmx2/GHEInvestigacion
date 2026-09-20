@@ -1,5 +1,8 @@
 # language: es
 # GUIX User First - Accesibilidad (WCAG)
+@status:proposed
+@type:acceptance
+@domain:general
 # ACCESIBILIDAD: Que TODOS puedan usar el sistema
 Característica: Accesibilidad WCAG (GUIX User First - GHE)
   Como responsable de UX del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # Cálculos Médicos - Calculadoras de Salud
+@status:proposed
+@type:acceptance
+@domain:general
 # CALCULADORAS: Cálculos clínicos automáticos
 Característica: Calculadoras de Salud (GHE)
   Como médico del proyecto GHE

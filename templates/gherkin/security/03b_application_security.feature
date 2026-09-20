@@ -1,5 +1,8 @@
 # language: es
 Característica: Seguridad de Aplicación
+@status:proposed
+@type:acceptance
+@domain:security
   Como desarrollador del proyecto GHE
   Quiero que el código sea seguro por diseño
   Para que cada línea proteja datos de pacientes

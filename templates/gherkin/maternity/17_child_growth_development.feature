@@ -1,5 +1,8 @@
 # language: es
 # Crecimiento y Desarrollo Infantil (0-5 años)
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Pediatría de Desarrollo (GHE Maternidad)
   Como pediatra de la maternidad
   Quiero workflows de crecimiento y desarrollo infantil

@@ -1,5 +1,8 @@
 # language: es
 Característica: Intraoperatorio y Anestesia
+@status:proposed
+@type:acceptance
+@domain:surgery
   Como equipo quirúrgico
   Quiero registrar datos intraoperatorios y de anestesia
   Para documentar el procedimiento de forma completa

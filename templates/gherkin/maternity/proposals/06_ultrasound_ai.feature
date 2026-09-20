@@ -1,5 +1,8 @@
 # language: es
 # Propuesta 6: Ecografía con IA
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Análisis IA de Ecografía Obstétrica (GHE Maternidad)
   Como médico de la maternidad
   Quiero que el sistema analice automáticamente imágenes de ecografía

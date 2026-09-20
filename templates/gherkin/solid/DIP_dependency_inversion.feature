@@ -1,5 +1,8 @@
 # language: es
 # SOLID - D: Dependency Inversion Principle
+@status:proposed
+@type:acceptance
+@domain:general
 # PRINCIPIO: Los módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones.
 Característica: Principio de Inversión de Dependencias (SOLID - D)
   Como desarrollador del proyecto GHE

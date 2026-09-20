@@ -1,5 +1,8 @@
 # language: es
 # Anestesiología - Técnicas Específicas
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Técnicas Anestésicas (GHE Hospital)
   Como anestesiólogo del hospital
   Quiero workflows para técnicas anestésicas específicas

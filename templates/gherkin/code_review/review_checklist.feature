@@ -1,5 +1,8 @@
 # language: es
 # Code Review
+@status:proposed
+@type:acceptance
+@domain:general
 Característica: Revisión de Código (GHE)
   Como tech lead del proyecto GHE
   Quiero revisar código antes de merge

@@ -1,5 +1,8 @@
 # language: es
 Característica: Rehabilitación y Terapia Física
+@status:proposed
+@type:acceptance
+@domain:rehabilitation
   Como fisioterapeuta
   Quiero evaluar y tratar pacientes con problemas musculoesqueléticos
   Para restaurar función y mejorar calidad de vida

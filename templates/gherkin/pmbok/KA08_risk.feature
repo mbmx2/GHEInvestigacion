@@ -1,5 +1,8 @@
 # language: es
 # PMBOK KA-08: Project Risk Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Riesgos del Proyecto
 Característica: Gestión de Riesgos (PMBOK KA-08)
   Como director del proyecto GHE

@@ -1,5 +1,8 @@
 # language: es
 # CRAP Index y Métricas de Riesgo de Cambio
+@status:proposed
+@type:acceptance
+@domain:quality
 Característica: Análisis CRAP y Métricas de Riesgo (GHE)
   Como tech lead del proyecto GHE
   Quiero medir el riesgo de cambio en el código

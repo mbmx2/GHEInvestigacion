@@ -1,5 +1,8 @@
 # language: es
 # Enfermedades Comunes en Infancia (0-5 años)
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Enfermedades Infantiles (GHE Maternidad)
   Como pediatra de la maternidad
   Quiero workflows para las enfermedades más comunes en infancia

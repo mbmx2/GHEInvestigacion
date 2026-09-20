@@ -1,5 +1,8 @@
 # language: es
 # Patient Safety: Never Events y Sentinel Events
+@status:proposed
+@type:acceptance
+@domain:clinical_safety
 Característica: Seguridad del Paciente - Eventos Prevenibles (GHE)
   Como responsable de seguridad del paciente
   Quiero protocols para eventos que NUNCA deberían ocurrir

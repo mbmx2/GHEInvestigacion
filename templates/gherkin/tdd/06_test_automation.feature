@@ -1,5 +1,8 @@
 # language: es
 # TDD - Test Automation
+@status:proposed
+@type:acceptance
+@domain:general
 # AUTOMATIZACIÓN DE TESTS: Ejecución automática en cada commit
 Característica: Automatización de Tests (TDD - GHE)
   Como desarrollador del proyecto GHE

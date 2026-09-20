@@ -1,5 +1,8 @@
 # language: es
 # GUIX User First - Prevención de Errores
+@status:proposed
+@type:acceptance
+@domain:general
 # PREVENCIÓN DE ERRORES: Evitar que el usuario cometa errores
 Característica: Prevención de Errores (GUIX User First - GHE)
   Como usuario de GHE

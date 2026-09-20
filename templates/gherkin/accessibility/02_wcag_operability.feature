@@ -1,5 +1,8 @@
 # language: es
 # Accesibilidad WCAG 2.1 - Operabilidad
+@status:proposed
+@type:acceptance
+@domain:accessibility
 # PRINCIPIO 2: Los componentes de la interfaz deben ser operables
 Característica: WCAG 2.1 - Operabilidad (Accesibilidad - GHE)
   Como responsable de accesibilidad del proyecto GHE

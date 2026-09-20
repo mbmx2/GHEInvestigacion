@@ -1,5 +1,8 @@
 # language: es
 # Salud Mental Infantil y Desarrollo Socioemocional
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Salud Mental Infantil (GHE Maternidad)
   Como pediatra del proyecto GHE
   Quiero workflows de salud mental infantil

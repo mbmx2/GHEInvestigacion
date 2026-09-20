@@ -1,5 +1,8 @@
 # language: es
 # OWASP Top 10 - A09: Security Logging and Monitoring Failures
+@status:proposed
+@type:acceptance
+@domain:general
 # Fallos en logging y monitoreo de seguridad
 Característica: A09 - Fallos de Logging y Monitoreo (OWASP Top 10)
   Como responsable de seguridad del proyecto GHE

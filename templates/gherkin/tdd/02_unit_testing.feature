@@ -1,5 +1,8 @@
 # language: es
 # TDD - Unit Testing
+@status:proposed
+@type:acceptance
+@domain:general
 # PRUEBAS UNITARIAS: Tests de funciones aisladas del dominio
 Característica: Unit Testing con TDD (GHE)
   Como desarrollador del proyecto GHE

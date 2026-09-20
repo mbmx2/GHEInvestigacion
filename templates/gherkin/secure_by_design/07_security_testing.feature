@@ -1,5 +1,8 @@
 # language: es
 # Secure by Design - Security Testing
+@status:proposed
+@type:acceptance
+@domain:general
 # TESTING DE SEGURIDAD: Verificar que la seguridad funciona
 Característica: Testing de Seguridad (Secure by Design - GHE)
   Como responsable de seguridad del proyecto GHE

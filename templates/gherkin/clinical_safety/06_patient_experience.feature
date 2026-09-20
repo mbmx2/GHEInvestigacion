@@ -1,5 +1,8 @@
 # language: es
 # Patient Experience
+@status:proposed
+@type:acceptance
+@domain:clinical_safety
 Característica: Experiencia del Paciente (GHE Maternidad)
   Como paciente de la maternidad
   Quiero que mi experiencia sea positiva y respetuosa

@@ -1,5 +1,8 @@
 # language: es
 Característica: Triaje Obstétrico
+@status:proposed
+@type:acceptance
+@domain:nursing
   Como personal de enfermería
   Quiero clasificar el riesgo de cada paciente
   Para priorizar la atención según gravedad

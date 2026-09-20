@@ -1,5 +1,8 @@
 # language: es
 # CI/CD Pipeline
+@status:proposed
+@type:acceptance
+@domain:general
 Característica: Pipeline de Integración Continua y Despliegue Continuo (GHE)
   Como responsable de DevOps del proyecto GHE
   Quiero automatizar build, test y deploy

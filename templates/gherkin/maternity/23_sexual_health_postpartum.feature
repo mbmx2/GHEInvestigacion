@@ -1,5 +1,8 @@
 # language: es
 # Salud Sexual y Reproductiva Postparto
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Salud Sexual Postparto (GHE Maternidad)
   Como médico de la maternidad
   Quiero workflows de salud sexual postparto

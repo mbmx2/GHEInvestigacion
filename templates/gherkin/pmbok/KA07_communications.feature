@@ -1,5 +1,8 @@
 # language: es
 # PMBOK KA-07: Project Communications Management
+@status:proposed
+@type:acceptance
+@domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Comunicaciones del Proyecto
 Característica: Gestión de Comunicaciones (PMBOK KA-07)
   Como director del proyecto GHE

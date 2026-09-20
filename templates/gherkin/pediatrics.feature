@@ -1,5 +1,8 @@
 # language: es
 Característica: Atención Pediátrica
+@status:proposed
+@type:acceptance
+@domain:pediatrics
   Como pediatra
   Quiero seguimiento completo de crecimiento y desarrollo
   Para prevenir enfermedades y detectar problemas a tiempo

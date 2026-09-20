@@ -1,5 +1,8 @@
 # language: es
 # Propuesta 9: GHE Predict - Suite de IA
+@status:proposed
+@type:acceptance
+@domain:maternity
 Característica: Suite de Modelos Predictivos (GHE Maternidad)
   Como director médico
   Quiero acceder a modelos predictivos de alta precisión

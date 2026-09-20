@@ -1,5 +1,8 @@
 # language: es
 # Cirugía - Procedimientos Específicos
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Procedimientos Quirúrgicos (GHE Hospital)
   Como cirujano del hospital
   Quiero workflows para procedimientos quirúrgicos específicos

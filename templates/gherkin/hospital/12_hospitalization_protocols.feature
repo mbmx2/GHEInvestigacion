@@ -1,5 +1,8 @@
 # language: es
 # Hospitalización - Protocolos por Patología
+@status:proposed
+@type:acceptance
+@domain:hospital
 Característica: Protocolos de Hospitalización (GHE Hospital)
   Como médico internista del hospital
   Quiero protocolos específicos por patología para hospitalización

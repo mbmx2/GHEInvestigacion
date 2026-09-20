@@ -1,5 +1,8 @@
 # language: es
 # GUIX User First - Navegación
+@status:proposed
+@type:acceptance
+@domain:general
 # NAVEGACIÓN: Encontrar lo que necesitas rápidamente
 Característica: Navegación (GUIX User First - GHE)
   Como usuario de GHE

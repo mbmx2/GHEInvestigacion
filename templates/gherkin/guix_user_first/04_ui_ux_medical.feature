@@ -1,5 +1,8 @@
 # language: es
 # GUIX User First - UI/UX para Software Médico
+@status:proposed
+@type:acceptance
+@domain:general
 # DISEÑO ESPECÍFICO PARA ENTORNO CLÍNICO
 Característica: UI/UX para Software Médico (GUIX User First - GHE)
   Como diseñador de GHE

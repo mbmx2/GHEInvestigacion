@@ -1,5 +1,8 @@
 # language: es
 # Cálculos Médicos - Gasometría Arterial
+@status:proposed
+@type:acceptance
+@domain:general
 # ACIDO-BASE: Equilibrio ácido-base
 Característica: Gasometría Arterial (GHE)
   Como médico del proyecto GHE

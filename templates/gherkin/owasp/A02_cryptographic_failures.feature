@@ -1,5 +1,8 @@
 # language: es
 # OWASP Top 10 - A02: Cryptographic Failures
+@status:proposed
+@type:acceptance
+@domain:general
 # Fallos en criptografía que exponen datos sensibles
 Característica: A02 - Fallos Criptográficos (OWASP Top 10)
   Como responsable de seguridad del proyecto GHE
