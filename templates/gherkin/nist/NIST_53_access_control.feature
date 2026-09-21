@@ -20,37 +20,48 @@ Característica: NIST 800-53 - Control de Acceso (AC)
     Escenario: Cuentas gestionadas
       Dado que se gestionan cuentas
       Cuando se verifica
-      Entonces:
-        | Verificación              |
-        | Cuentas individuales      |
-        | Sin cuentas compartidas  |
-        | Cuentas inactivas se deshabilitan |
-        | Auditoría de cuentas     |
+      Entonces: cuentas individuales, sin compartidas, inactivas deshabilitadas, auditoría
+      # @evidence EVID-NIST-53-AC-001
 
-  Regla: AC-3: Control de acceso de acceso
+    Escenario: Cuenta compartida detectada
+      Dado que se detecta cuenta compartida
+      Cuando se audita
+      Entonces se deshabilita y se asigna cuenta individual
+      # @evidence EVID-NIST-53-AC-001-N
 
-    Escenario: Acceso basado en roles
+  Regla: AC-3: Control de acceso basado en roles
+
+    Escenario: RBAC implementado
       Dado que se verifica control de acceso
       Cuando se evalúa
-      Entonces: RBAC implementado, mínimo privilegio, denegación por defecto
+      Entonces: mínimo privilegio, denegación por defecto, auditoría
+      # @evidence EVID-NIST-53-AC-002
 
-  Regla: AC-4: Control de acceso de acceso a datos
+    Escenario: Acceso sin RBAC
+      Dado que se detecta acceso sin verificación de rol
+      Cuando se audita
+      Entonces: acceso denegado y se registra intento
+      # @evidence EVID-NIST-53-AC-002-N
 
-    Escenario: Acceso a datos de pacientes
-      Dado que usuario accede a datos
+  Regla: AC-4: Control de acceso a datos de pacientes
+
+    Escenario: Acceso a datos asignados
+      Dado que usuario accede a datos de pacientes
       Cuando se verifica
-      Entonces: solo accede a datos de pacientes asignados
+      Entonces: solo accede a pacientes asignados
+      # @evidence EVID-NIST-53-AC-003
 
-  Regla: AC-6: Restricciones de acceso
-
-    Escenario: Restricciones documentadas
-      Dado que se definen restricciones
+    Escenario: Acceso a datos no asignados
+      Dado que usuario accede a datos de paciente no asignado
       Cuando se verifica
-      Entonces: cada rol tiene permisos explícitos
+      Entonces: acceso denegado + audit log
+      # @evidence EVID-NIST-53-AC-003-N
 
-  Regla: AC-7: Prevención de acceso no autorizado
+  # @invariante INV-53-AC-001: Todo acceso se registra
+  Regla: Todo acceso se audita
 
-    Escenario: Acceso denegado
-      Dado que usuario sin permiso accede
-      Cuando se detecta
-      Entonces: acceso denegado, audit log, notificación
+    Escenario: Auditoría de acceso
+      Dado que se accede a recurso
+      Cuando se registra
+      Entonces: user ID, acción, entidad, resultado, timestamp, IP
+      # @evidence EVID-NIST-53-AC-004
