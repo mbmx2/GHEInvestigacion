@@ -144,21 +144,69 @@ Que cada hospital rural de México tenga acceso a tecnología de gestión hospit
 
 ---
 
-## 8. Aprobación
+## 8. Presupuesto Estimado
 
-| Rol | Nombre | Firma | Fecha |
-|---|---|---|---|
-| Director del proyecto | | | |
-| Director médico | | | |
-| Director de TI | | | |
-| Patrocinador | | | |
+| Concepto | Costo estimado | Notas |
+|---|---|---|
+| Desarrollo de software | $0 (open source) | Equipo interno |
+| Hardware (computadora + UPS) | $15,000 MXN | Computadora robusta |
+| Certificación NOM-024 | $50,000 MXN | Consultor externo |
+| Certificación IEC 62304 | $80,000 MXN | Proceso largo |
+| Capacitación del equipo | $20,000 MXN | 40 horas × 10 personas |
+| Mantenimiento anual | $30,000 MXN | Soporte + actualizaciones |
+| **Total estimado año 1** | **$195,000 MXN** | |
+
+> **Nota:** Estos son estimados. Los costos reales requieren cotización.
 
 ---
 
-## Referencias
+## 9. Criterios de Éxito Medibles
+
+| # | Criterio | Métrica | Meta |
+|---|---|---|---|
+| 1 | Disponibilidad del sistema | Uptime | >99.9% offline |
+| 2 | Calidad del código | Cobertura tests | >85% |
+| 3 | Seguridad | Pentest | 0 vulnerabilidades críticas |
+| 4 | Satisfacción del usuario | Encuesta | >85% |
+| 5 | Cumplimiento normativo | Auditoría NOM-024 | 100% |
+| 6 | Tiempo de respuesta | Latencia | <200ms |
+| 7 | Errores de prescripción | Incidentes | 0 |
+| 8 | Cobertura de features | % implementado | 100% |
+
+---
+
+## 10. Control de Cambios
+
+| Tipo de cambio | Proceso |
+|---|---|
+| Feature nuevo | Ticket → Revisión tech lead → Aprobación |
+| Cambio de alcance | Solicitud → Análisis impacto → Aprobación patrocinador |
+| Cambio normativo | Evaluación → Impacto → Adaptación |
+| Bug crítico (S1) | Inmediato → Hotfix → Verificación |
+| Bug alto (S2) | Sprint → Fix → Review |
+| Bug medio (S3) | Backlog → Priorización → Sprint |
+
+---
+
+## 11. Proceso de Escalamiento
+
+| Nivel | Situación | Acción | Responsable |
+|---|---|---|---|
+| 1 | Duda técnica | Resolver internamente | Tech lead |
+| 2 | Decisión clínica | Consultar director médico | Director médico |
+| 3 | Decisión presupuestal | Consultar patrocinador | Director proyecto |
+| 4 | Incidente de seguridad S1 | Activar protocolo | Security lead + director |
+| 5 | Conflicto interpersonal | Mediación directiva | Director proyecto |
+
+---
+
+## 12. Referencias
 
 - ADR-001 a ADR-007 (Decisiones arquitectónicas)
-- docs/quality/IEC62304_CLASS_C.md (Especificaciones IEC 62304)
-- docs/quality/ISO14971_RISK.md (Gestión de riesgos)
+- docs/compliance/IEC62304_CLASS_C.md (Especificaciones IEC 62304)
+- docs/compliance/ISO14971_RISK.md (Gestión de riesgos)
 - docs/compliance/NOM_STANDARDS.md (Normativas mexicanas)
 - docs/PLAN/ROADMAP.md (Cronograma)
+- docs/PLAN/PLAN_CONTRACT.md (Contrato interno)
+- docs/requirements/SRS.md (Requisitos)
+- docs/quality/CMMI_SEI_ALIGNMENT.md (Alineación CMMI)
