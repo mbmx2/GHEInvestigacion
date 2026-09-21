@@ -1,103 +1,73 @@
 # language: es
-# OWASP Top 10 - A02: Cryptographic Failures
-@status:proposed
-@type:acceptance
-@domain:general
-# Fallos en criptografía que exponen datos sensibles
-Característica: A02 - Fallos Criptográficos (OWASP Top 10)
-  Como responsable de seguridad del proyecto GHE
-  Quiero implementar criptografía robusta
-  Para proteger datos sensibles de pacientes
+# @id GHE-SEC-OWASP-A02-001
+# @type security
+# @domain security
+# @layer infrastructure
+# @risk s1
+# @owner security-lead
+# @status proposed
+# @requirement OWASP-A02
+# @risk-control CTRL-OWASP-A02
+# @regulation NOM-024
+@domain:security @type:security @risk:s1 @status:proposed
+Característica: OWASP A02 - Fallos Criptográficos
+  Como responsable de seguridad del hospital
+  Quiero criptografía robusta
+  Para que datos de pacientes no se expongan sin autorización
 
-  # ─────────────────────────────────────────────────────────────
-  # 1. CIFRADO DE DATOS EN REPOSO
-  # ─────────────────────────────────────────────────────────────
+  Regla: Datos en reposo se cifran con AES-256
 
-  Escenario: Cifrado de base de datos SQLite
-    Dado que la base de datos contiene datos de pacientes
-    Cuando se almacena información
-    Entonces los datos están cifrados:
-      | Capa                       | Método              | Estado |
-      | Base de datos completa     | SQLCipher AES-256   | ✅     |
-      | Tabla patients             | Columnas sensibles  | ✅     |
-      | Tabla consultations        | Notas clínicas      | ✅     |
-      | Tabla prescriptions        | Medicamentos        | ✅     |
-      | Backups                    | Archivos cifrados   | ✅     |
+    Escenario: Cifrado de base de datos
+      Dado que se almacenan datos de pacientes
+      Cuando se verifica cifrado
+      Entonces:
+        | Capa                      | Método         | Estado |
+        | Base de datos             | AES-256 (SQLCipher) | ✅  |
+        | Backups                   | AES-256         | ✅     |
+        | Archivos temporales       | Cifrado al eliminar | ✅  |
+      # @evidence EVID-ASVS-V6-001
 
-  Escenario: Cifrado de datos sensibles específicos
-    Dado que se almacenan datos clasificados como sensibles
-    Cuando se guarda cada tipo
-    Entonces:
-      | Tipo de dato               | Cifrado             | Estado |
-      | CURP                       | AES-256             | ✅     |
-      | Nombre completo            | AES-256             | ✅     |
-      | Datos de salud             | AES-256             | ✅     |
-      | Historial médico           | AES-256             | ✅     |
-      | Alergias                   | AES-256             | ✅     |
-      | Diagnósticos               | AES-256             | ✅     |
+  Regla: Datos en tránsito se cifran con TLS 1.3
 
-  # ─────────────────────────────────────────────────────────────
-  # 2. CIFRADO DE DATOS EN TRÁNSITO
-  # ─────────────────────────────────────────────────────────────
+    Escenario: Comunicaciones cifradas
+      Dado que se transmiten datos
+      Cuando se verifica
+      Entonces:
+        | Canal                      | Protocolo  | Estado |
+        | Cliente-Servidor          | TLS 1.3    | ✅     |
+        | Sync-Cloud                | HTTPS      | ✅     |
+      # @evidence EVID-ASVS-V6-002
 
-  Escenario: Comunicaciones cifradas
-    Dado que el sistema se comunica vía red
-    Cuando se transmiten datos
-    Entonces:
-      | Capa                       | Protocolo           | Estado |
-      | Cliente → Servidor         | TLS 1.3             | ✅     |
-      | Servidor → Base de datos   | Local (SQLite)      | ✅ N/A |
-      | Sync → Cloud               | HTTPS + TLS 1.3     | ✅     |
-      | WhatsApp → Paciente        | Envelope encryption  | ✅     |
+  Regla: Passwords se almacenan con bcrypt
 
-  Escenario: Certificados TLS
-    Dado que se usan certificados TLS
-    Cuando se verifica configuración
-    Entonces:
-      | Verificación               | Estado    |
-      | Certificado válido         | ✅         |
-      | No expirado                | ✅         |
-      | Firma SHA-256 o superior   | ✅         |
-      | HSTS habilitado            | ✅         |
-      | Redirección HTTP → HTTPS   | ✅         |
+    Escenario: Hash seguro de contraseñas
+      Dado que se crea o cambia contraseña
+      Cuando se almacena
+      Entonces:
+        | Verificación              | Estado |
+        | bcrypt work factor ≥12   | ✅      |
+        | Salt único               | ✅      |
+        | Sin texto plano          | ✅      |
+      # @evidence EVID-ASVS-V6-003
 
-  # ─────────────────────────────────────────────────────────────
-  # 3. HASH DE PASSWORDS
-  # ─────────────────────────────────────────────────────────────
+  Regla: Claves de cifrado se gestionan de forma segura
 
-  Escenario: Almacenamiento seguro de passwords
-    Dado que se almacenan passwords de usuarios
-    Cuando se guarda un password
-    Entonces:
-      | Verificación               | Estado    |
-      | NUNCA en texto plano       | ✅         |
-      | Hash con bcrypt            | ✅         |
-      | Work factor >= 12          | ✅         |
-      | Salt único por password    | ✅         |
-      | Sin reversión posible      | ✅         |
+    Escenario: Gestión de claves
+      Dado que se gestionan claves
+      Cuando se verifica
+      Entonces:
+        | Medida                     | Estado |
+        | No hardcodeadas           | ✅      |
+        | En variables de entorno   | ✅      |
+        | Rotación periódica        | ⚠️ Futuro |
+        | Backup seguro             | ✅      |
+      # @evidence EVID-ASVS-V6-004
 
-  Escenario: Verificación de password
-    Dado que un usuario inicia sesión
-    Cuando se verifica el password
-    Entonces:
-      | Verificación               | Estado    |
-      | Se compara contra hash     | ✅         |
-      | Tiempo constante (bcrypt)  | ✅         |
-      | No se retorna hash         | ✅         |
-      | No se almacena en logs     | ✅         |
+  Regla: Números aleatorios son criptográficamente seguros
 
-  # ─────────────────────────────────────────────────────────────
-  # 4. GESTIÓN DE CLAVES
-  # ─────────────────────────────────────────────────────────────
-
-  Escenario: Gestión de claves de cifrado
-    Dado que se gestionan claves de cifrado
-    Cuando se implementa gestión
-    Entonces:
-      | Práctica                   | Estado    |
-      | Claves no hardcodeadas     | ✅         |
-      | Claves en variables de entorno | ✅     |
-      | Claves rotadas periódicamente | ⚠️ Pendiente |
-      | Claves diferentes por entorno | ✅       |
-      | Backup de claves seguro    | ✅         |
-  
+    Escenario: Generador criptográfico
+      Dado que se generan tokens, IDs, salts
+      Cuando se crean
+      Entonces se usa cryptographically secure random
+      Y no se usa Math.random() ni equivalentes
+      # @evidence EVID-ASVS-V6-005

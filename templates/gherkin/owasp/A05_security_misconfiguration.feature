@@ -1,91 +1,64 @@
 # language: es
-# OWASP Top 10 - A05: Security Misconfiguration
-@status:proposed
-@type:acceptance
-@domain:general
-# Configuración insegura por defecto o incompleta
-Característica: A05 - Configuración Insegura (OWASP Top 10)
-  Como responsable de seguridad del proyecto GHE
-  Quiero configurar el sistema de forma segura
-  Para eliminar vectores de ataque por configuración
+# @id GHE-SEC-OWASP-A05-001
+# @type security
+# @domain security
+# @layer infrastructure
+# @risk s2
+# @owner security-lead
+# @status proposed
+# @requirement OWASP-A05
+# @risk-control CTRL-OWASP-A05
+# @regulation NOM-024
+@domain:security @type:security @risk:s2 @status:proposed
+Característica: OWASP A05 - Configuración Insegura
+  Como responsable de seguridad del hospital
+  Quiero configuración segura por defecto
+  Para que no haya configuraciones que comprometan el sistema
 
-  # ─────────────────────────────────────────────────────────────
-  # 1. CONFIGURACIÓN SEGURA POR DEFECTO
-  # ─────────────────────────────────────────────────────────────
+  Regla: Seguridad por defecto al instalar
 
-  Escenario: Configuración segura al instalar
-    Dado que se instala GHE por primera vez
-    Cuando se ejecuta configuración inicial
-    Entonces:
-      | Configuración              | Valor seguro          |
-      | Puerto por defecto         | 3000 (no expuesto)    |
-      | Bind address               | 127.0.0.1 (local)     |
-      | Debug mode                 | false en producción   |
-      | Admin password             | Requiere cambio inmediato |
-      | TLS habilitado             | true                  |
-      | CORS restrictivo           | Solo origins permitidos |
-      | Headers de seguridad       | Habilitados           |
+    Escenario: Configuración segura
+      Dado que se instala GHE
+      Cuando se configura
+      Entonces:
+        | Configuración             | Valor seguro |
+        | Puerto                    | 3000 (no expuesto) |
+        | Debug mode                | Off en producción |
+        | Admin password            | Requiere cambio |
+        | TLS                       | Habilitado |
+        | CORS                      | Restrictivo |
+      # @evidence EVID-ASVS-V13-001
 
-  Escenario: Deshabilitar funcionalidades innecesarias
-    Dado que se evalúa attack surface
-    Cuando se revisa configuración
-    Entonces:
-      | Funcionalidad              | Estado                |
-      | Debug endpoints            | Deshabilitados        |
-      | Stack traces en errores    | Ocultos en producción |
-      | Default credentials        | Eliminadas            |
-      | Directorio listing         | Deshabilitado         |
-      | Server version header      | Oculto                |
-      | Email de error expuesto    | Oculto                |
+  Regla: Se deshabilitan funcionalidades innecesarias
 
-  # ─────────────────────────────────────────────────────────────
-  # 2. HEADERS DE SEGURIDAD HTTP
-  # ─────────────────────────────────────────────────────────────
+    Escenario: Attack surface reducido
+      Dado que se evalúa attack surface
+      Entonces NO se expone:
+        | Información               |
+        | Stack traces              |
+        | Version del software      |
+        | Rutas internas            |
+        | Datos de debug            |
+        | Default credentials       |
 
-  Escenario: Headers de seguridad HTTP
-    Dado que se configuran headers de seguridad
-    Cuando se verifica
-    Entonces:
-      | Header                     | Valor                 |
-      | Strict-Transport-Security  | max-age=31536000; includeSubDomains |
-      | X-Content-Type-Options     | nosniff               |
-      | X-Frame-Options            | DENY                  |
-      | X-XSS-Protection           | 1; mode=block         |
-      | Content-Security-Policy     | default-src 'self'    |
-      | Referrer-Policy             | strict-origin-when-cross-origin |
-      | Permissions-Policy          | camera=(), microphone=() |
-      | Cache-Control              | no-store, no-cache    |
+  Regla: Headers de seguridad HTTP configurados
 
-  # ─────────────────────────────────────────────────────────────
-  # 3. CONFIGURACIÓN DE BASE DE DATOS
-  # ─────────────────────────────────────────────────────────────
+    Escenario: Headers presentes
+      Dado que se verifican headers
+      Entonces:
+        | Header                    | Valor |
+        | Strict-Transport-Security | max-age=31536000 |
+        | X-Content-Type-Options    | nosniff |
+        | X-Frame-Options           | DENY |
+        | Content-Security-Policy   | default-src 'self' |
+        | X-XSS-Protection          | 1; mode=block |
+      # @evidence EVID-ASVS-V13-002
 
-  Escenario: Configuración segura de SQLite
-    Dado que se configura SQLite
-    Cuando se establece configuración
-    Entonces:
-      | Parámetro                  | Valor seguro          |
-      | WAL mode                   | Habilitado            |
-      | Encryption                 | AES-256 (SQLCipher)   |
-      | Foreign keys               | Habilitadas           |
-      | Journal mode               | WAL                   |
-      | Busy timeout               | 5000ms                |
-      | Archivo de BD              | Permisos restrictivos |
-      | Directorio                 | Fuera de web root     |
+  Regla: Dependencias actualizadas
 
-  # ─────────────────────────────────────────────────────────────
-  # 4. CONFIGURACIÓN DE SERVIDOR
-  # ─────────────────────────────────────────────────────────────
-
-  Escenario: Configuración de servidor de aplicación
-    Dado que se configura el servidor
-    Cuando se verifica
-    Entonces:
-      | Parámetro                  | Valor seguro          |
-      | Worker threads             | Limitado              |
-      | Timeouts                   | Configurados          |
-      | Max request size           | Limitado              |
-      | Graceful shutdown          | Habilitado            |
-      | Access logs                | Habilitados           |
-      | Error logs                 | Habilitados           |
-  
+    Escenario: Sin vulnerabilidades en dependencias
+      Dado que se escanean dependencias
+      Cuando se verifica
+      Entonces no hay vulnerabilidades críticas
+      Y lockfile está committeado
+      # @evidence EVID-ASVS-V13-003

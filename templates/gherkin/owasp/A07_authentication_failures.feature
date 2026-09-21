@@ -2,47 +2,70 @@
 # @id GHE-SEC-OWASP-A07-001
 # @type security
 # @domain security
-# @layer api
-# @risk s1
+# @layer domain
+# @risk s2
 # @owner security-lead
 # @status proposed
-@domain:security @type:security @risk:s1 @status:proposed
-Característica: A07 - Fallos de Autenticación (OWASP Top 10)
+# @requirement OWASP-A07
+# @risk-control CTRL-OWASP-A07
+# @regulation NOM-024
+@domain:security @type:security @risk:s2 @status:proposed
+Característica: OWASP A07 - Fallos de Autenticación
   Como responsable de seguridad del hospital
   Quiero autenticación robusta
-  Para prevenir acceso no autorizado a datos de pacientes
+  Para prevenir acceso no autorizado
 
-  Contexto:
-    Dado que el sistema tiene autenticación activa
+  Regla: Rate limiting en login
 
-  Escenario Outline: Rate limiting por intentos fallidos
-    Dado que usuario falla login <intentos> veces
-    Entonces sistema "<acción>"
+    Escenario: Bloqueo por intentos fallidos
+      Dado que usuario falla 5 intentos de login
+      Cuando se verifica
+      Entonces:
+        | Intentos | Acción |
+        | 5        | Bloqueo 15 minutos |
+        | 10       | Bloqueo 1 hora + notificar admin |
+        | 20       | Bloqueo 24 horas + notificar admin |
+      # @evidence EVID-ASVS-V2-001
 
-    Ejemplos:
-      | intentos | acción                              |
-      | 1        | Permite siguiente intento          |
-      | 3        | Muestra warning                     |
-      | 5        | Bloquea 15 minutos                  |
-      | 10       | Bloquea 1 hora + notifica admin     |
-      | 20       | Bloquea 24 horas + notifica admin   |
+  Regla: Sesiones seguras
 
-  Escenario Outline: Token de sesión
-    Dado que se evalúa token de sesión
-    Entonces verifica "<criterio>" → "<estado>"
+    Escenario: Token de sesión seguro
+      Dado que se genera sesión
+      Cuando se verifica
+      Entonces:
+        | Verificación              | Estado |
+        | Token aleatorio (crypto) | ✅      |
+        | Expiración 30 min        | ✅      |
+        | HttpOnly                  | ✅      |
+        | Secure                    | ✅      |
+        | SameSite                  | ✅      |
+      # @evidence EVID-ASVS-V3-001
 
-    Ejemplos:
-      | criterio                  | estado    |
-      | Expiración                | 30 min    |
-      | HttpOnly                  | ✅         |
-      | Secure                    | ✅         |
-      | SameSite                  | Strict    |
-      | No en URL                 | ✅         |
+    Escenario: Session fixation prevenido
+      Dado que usuario inicia sesión
+      Cuando se autentica
+      Entonces sistema genera token nuevo (no reutiliza anterior)
 
-  Escenario: Fuerza bruta desde misma IP
-    Dado que se detectan múltiples intentos desde misma IP
-    Entonces sistema bloquea IP con fail2ban
+  Regla: Passwords seguros
 
-  Escenario: Session fixation
-    Dado que usuario inicia sesión
-    Entonces sistema genera token nuevo (no reutiliza token anterior)
+    Escenario: Almacenamiento seguro
+      Dado que se crea contraseña
+      Cuando se almacena
+      Entonces:
+        | Medida                     |
+        | bcrypt work factor ≥12   |
+        | Salt único               |
+        | Sin texto plano          |
+      # @evidence EVID-ASVS-V2-002
+
+    Escenario: Políticas de contraseña
+      Dado que usuario crea contraseña
+      Cuando se valida
+      Entonces requiere: ≥8 caracteres, mayúscula, minúscula, número, especial
+
+  Regla: Autenticación de factores múltiples (recomendado)
+
+    Escenario: MFA para acceso administrativo
+      Dado que administrador accede al sistema
+      Entonces se recomienda MFA
+      # @evidence EVID-ASVS-V2-003

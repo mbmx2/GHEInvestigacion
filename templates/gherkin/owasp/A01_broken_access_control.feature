@@ -6,61 +6,72 @@
 # @risk s1
 # @owner security-lead
 # @status proposed
+# @requirement OWASP-A01
+# @risk-control CTRL-OWASP-A01
+# @regulation NOM-024
 @domain:security @type:security @risk:s1 @status:proposed
-Característica: A01 - Control de Acceso (OWASP Top 10)
+Característica: OWASP A01 - Control de Acceso Roto
   Como responsable de seguridad del hospital
   Quiero controles de acceso robustos
   Para que solo personal autorizado acceda a datos de pacientes
 
-  Contexto:
-    Dado que el sistema tiene RBAC activo
-    Y que existen roles: admin, doctor, nurse, pharmacy, reception
+  Regla: Todo usuario tiene un rol asignado que determina su acceso
 
-  Escenario Outline: Acceso por módulo y rol
-    Dado que un usuario con rol "<rol>" accede a "<módulo>"
-    Entonces el sistema permite: "<resultado>"
-    Y registra en audit log
+    Escenario: Acceso por módulo y rol
+      Dado que un usuario con rol "<rol>" accede a "<módulo>"
+      Entonces sistema permite: "<resultado>"
+      Y registra en audit log
 
-    Ejemplos:
-      | rol        | módulo                    | resultado |
-      | admin      | Ver expediente completo   | Sí        |
-      | doctor     | Ver expediente completo   | Sí        |
-      | nurse      | Ver expediente completo   | Parcial   |
-      | pharmacy   | Ver expediente completo   | No        |
-      | reception  | Ver expediente completo   | No        |
-      | admin      | Configurar sistema        | Sí        |
-      | doctor     | Prescribir medicamentos   | Sí        |
-      | nurse      | Registrar signos vitales  | Sí        |
-      | pharmacy  | Sur medicamentos          | Sí        |
-      | reception | Registrar paciente        | Sí        |
+      Ejemplos:
+        | rol        | módulo                | resultado |
+        | admin      | Ver expediente        | Sí        |
+        | doctor     | Ver expediente        | Sí        |
+        | nurse      | Ver expediente        | Parcial   |
+        | pharmacy   | Ver expediente        | No        |
+        | reception  | Ver expediente        | No        |
+        | doctor     | Prescribir            | Sí        |
+        | pharmacy  | Sur medicamentos      | Sí        |
+        | reception | Registrar paciente    | Sí        |
 
-  Escenario Outline: Denegación de acceso no autorizado
-    Dado que usuario con rol "<rol>" intenta "<acción>"
-    Entonces sistema retorna "<respuesta>"
+    Escenario: Denegación de acceso no autorizado
+      Dado que usuario con rol "<rol>" intenta "<acción>"
+      Entonces sistema retorna "<respuesta>"
 
-    Ejemplos:
-      | rol        | acción                        | respuesta  |
-      | reception  | Ver expediente completo       | 403        |
-      | nurse      | Prescribir medicamentos       | 403        |
-      | pharmacy  | Crear consulta                | 403        |
-      | reception  | Modificar expediente médico   | 403        |
+      Ejemplos:
+        | rol        | acción                    | respuesta  |
+        | reception  | Ver expediente completo   | 403        |
+        | nurse      | Prescribir medicamentos   | 403        |
+        | pharmacy  | Crear consulta            | 403        |
+        | reception  | Modificar expediente      | 403        |
+      # @evidence EVID-ASVS-A01-001
 
-  Escenario: Protección contra IDOR
-    Dado que usuario intenta acceder a expediente ajeno vía manipulación de ID
-    Entonces sistema:
-      | Verificación              | Estado  |
-      | Valida token              | ✅       |
-      | Verifica permiso          | ✅       |
-      | Retorna 403               | ✅       |
-      | No retorna datos          | ✅       |
-      | Registra en audit log     | ✅       |
+  Regla: El acceso a nivel de registro se verifica
 
-  Escenario: Expiración de sesión
-    Dado que usuario tiene sesión activa
-    Cuando pasan 30 min de inactividad
-    Entonces sistema expira sesión y redirige a login
+    Escenario: Protección contra IDOR
+      Dado que usuario intenta acceder a expediente ajeno vía manipulación de ID
+      Entonces sistema:
+        | Verificación              | Estado  |
+        | Valida token              | ✅       |
+        | Verifica permiso          | ✅       |
+        | Retorna 403               | ✅       |
+        | No retorna datos          | ✅       |
+        | Registra en audit log     | ✅       |
+      # @evidence EVID-ASVS-A01-002
+      # @invariante INV-A01-001
 
-  Escenario: Logout seguro
-    Dado que usuario cierra sesión
-    Cuando ejecuta logout
-    Entonces sistema invalida token, limpia cookies y registra evento
+  Regla: La sesión expira por inactividad
+
+    Escenario: Expiración de sesión
+      Dado que usuario tiene sesión activa
+      Cuando pasan 30 minutos sin actividad
+      Entonces sistema expira sesión y redirige a login
+      Y registra el evento de expiración
+
+    Escenario: Logout seguro
+      Dado que usuario cierra sesión
+      Cuando ejecuta logout
+      Entonces:
+        | Acción                    |
+        | Invalida token           |
+        | Limpia cookies           |
+        | Registra evento          |

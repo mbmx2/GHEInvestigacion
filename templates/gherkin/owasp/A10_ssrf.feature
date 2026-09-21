@@ -1,51 +1,50 @@
 # language: es
-# OWASP Top 10 - A10: Server-Side Request Forgery (SSRF)
-@status:proposed
-@type:acceptance
-@domain:general
-# Falsificación de peticiones del lado del servidor
-Característica: A10 - SSRF (OWASP Top 10)
-  Como responsable de seguridad del proyecto GHE
+# @id GHE-SEC-OWASP-A10-001
+# @type security
+# @domain security
+# @layer infrastructure
+# @risk s2
+# @owner security-lead
+# @status proposed
+# @requirement OWASP-A10
+# @risk-control CTRL-OWASP-A10
+# @regulation NOM-024
+@domain:security @type:security @risk:s2 @status:proposed
+Característica: OWASP A10 - SSRF (Falsificación de Peticiones del Lado del Servidor)
+  Como responsable de seguridad del hospital
   Quiero prevenir SSRF
-  Para que el sistema no haga peticiones a recursos internos no deseados
+  Para que el sistema no acceda a recursos internos no deseados
 
-  # ─────────────────────────────────────────────────────────────
-  # 1. PREVENCIÓN DE SSRF
-  # ─────────────────────────────────────────────────────────────
+  Regla: URLs internas están bloqueadas
 
-  Escenario: Validación de URLs en inputs
-    Dado que el sistema procesa URLs proporcionadas por usuarios
-    Cuando se valida URL
-    Entonces:
-      | Verificación               | Estado    |
-      | URLs internas bloqueadas   | ✅         |
-      | localhost bloqueado        | ✅         |
-      | 127.0.0.1 bloqueado        | ✅         |
-      | 10.x.x.x bloqueado        | ✅         |
-      | 192.168.x.x bloqueado     | ✅         |
-      | 172.16-31.x.x bloqueado  | ✅         |
-      | file:// bloqueado          | ✅         |
-      | gopher:// bloqueado        | ✅         |
-      | dict:// bloqueado          | ✅         |
+    Escenario: Bloqueo de URLs internas
+      Dado que se procesa URL proporcionada por usuario
+      Cuando se valida
+      Entonces se bloquea:
+        | URL bloqueada             |
+        | localhost                 |
+        | 127.0.0.1                |
+        | 10.x.x.x                |
+        | 192.168.x.x             |
+        | 169.254.169.254 (metadata)|
+        | file://                  |
+        | gopher://                |
+      # @evidence EVID-ASVS-A10-001
 
-  Escenario: Allowlist de dominios permitidos
-    Dado que se usa allowlist para peticiones externas
-    Cuando el sistema hace petición
-    Entonces:
-      | Dominio                    | Permitido? |
-      | api.fda.gov                | ✅ (futuro)|
-      | api.humanitarianresponse.info | ⚠️ Pendiente |
-      | localhost                  | ❌         |
-      | 169.254.169.254           | ❌ (metadata AWS) |
-      | internal.company.com       | ❌         |
+  Regla: Solo dominios permitidos en peticiones externas
 
-  Escenario: Network segmentation
-    Dado que se segmenta la red
-    Cuando se configura
-    Entonces:
-      | Segmento                   | Acceso    |
-      | Aplicación (GHE)           | Solo DB local |
-      | Base de datos              | Solo desde app |
-      | Internet                   | Solo HTTPS saliente |
-      | Red interna                | No accesible desde app |
-  
+    Escenario: Allowlist de dominios
+      Dado que se envía petición externa
+      Cuando se verifica dominio
+      Entonces solo se permiten dominios en allowlist
+      Y se rechazan todos los demás
+
+  Regla: Network segmentation
+
+    Escenario: Segmentación de red
+      Dado que se configura red
+      Entonces:
+        | Segmento                   | Acceso |
+        | Aplicación (GHE)          | Solo DB local |
+        | Base de datos             | Solo desde app |
+        | Internet                  | Solo HTTPS saliente |
