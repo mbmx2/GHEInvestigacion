@@ -1,62 +1,67 @@
 # language: es
 # @id GHE-AGENDA-RDD-001
-# @type contract
+# @type acceptance
 # @domain agenda
 # @layer development
 # @risk s2
 # @owner dev-lead
 # @status proposed
-@domain:agenda @type:contract @risk:s2 @status:proposed
+# @requirement REQ-AGENDA-005
+# @regulation N/A
+@domain:agenda @type:acceptance @risk:s2 @status:proposed
 Característica: REPL-Driven Development para la Agenda
-  Como desarrollador Clojure del proyecto GHE
-  Quiero iterar sobre la lógica de la agenda en el REPL
-  Para probar comportamientos de agentes sin reiniciar el sistema
+  Como desarrollador del proyecto GHE
+  Quiero iterar sobre la lógica de la agenda en entorno interactivo
+  Para probar comportamientos sin reiniciar el sistema
 
-  Contexto:
-    Dado que Clojure tiene REPL nativo
-    Y que la agenda es un mapa de datos inmutable
+  # ─────────────────────────────────────────────────────────────
+  # REGLA 1: Toda lógica de agente debe ser probable en entorno vivo
+  # ─────────────────────────────────────────────────────────────
 
-  Escenario: Probar comportamiento de agente en REPL
-    Dado que se tiene estado actual de la agenda en el REPL
-    Cuando se escribe función para optimizar huecos
-    Entonces se puede evaluar:
-      | Paso                       |
-      | 1. Cargar estado actual    |
-      | 2. Escribir función        |
-      | 3. Evaluar con eval        |
-      | 4. Ver resultado inmediato |
-      | 5. Modificar y re-evaluar  |
-    Y no se necesita reiniciar el servidor
+  Regla: El comportamiento de la agenda debe ser evaluable en tiempo real
 
-  Escenario: Simular escenario completo en REPL
-    Dado que se simula un día completo de agenda
-    Cuando se ejecuta en REPL
-    Entonces se puede:
-      | Acción                    |
-      | Cargar agenda del día     |
-      | Simular llegada de paciente|
-      | Evaluar respuesta del agente |
-      | Verificar cascada de tareas |
-      | Modificar escenario       |
-      | Re-evaluar                |
+    Escenario: Probar función de reprogramación en entorno vivo
+      Dado que se tiene el estado actual de la agenda
+      Cuando se evalúa una función de reprogramación
+      Entonces se puede ver el resultado inmediatamente
+      Y si el resultado es incorrecto se modifica y re-evalúa
+      Y no se necesita reiniciar el sistema
+      # @evidence EVID-AGENDA-040
 
-  Escenario: Probar edge cases en REPL
-    Dado que se quiere probar qué pasa si dos cirugías se solapan
-    Cuando se crea escenario en REPL
-    Entonces se verifica:
-      | Verificación              |
-      | Detección del solapamiento |
-      | Alerta generada           |
-      | Sugerencia de resolución  |
-      | Sin corrupción de datos   |
+    Escenario: Simular escenario completo
+      Dado que se simula un día completo de agenda
+      Cuando se ejecuta en entorno vivo
+      Entonces se puede observar:
+        | Paso                       |
+        | Carga del estado actual   |
+        | Simulación de llegadas    |
+        | Respuesta del sistema     |
+        | Cascada de tareas         |
+        | Resultado final           |
+      Y se puede modificar el escenario y re-ejecutar
 
-  Escenario: Probar integración con LLM en REPL
-    Dado que se tiene un agente que llama a un LLM
-    Cuando se prueba en REPL
-    Entonces se puede:
-      | Acción                    |
-      | Llamar al LLM con prompt  |
-      | Ver respuesta cruda       |
-      | Modificar prompt          |
-      | Re-evaluar                |
-      | Sin reiniciar el sistema  |
+    Escenario: Probar edge case de dos cirugías simultáneas
+      Dado que se quiere probar qué pasa si dos cirugías se solapan
+      Cuando se crea el escenario en entorno vivo
+      Entonces se verifica:
+        | Verificación              |
+        | Detección del solapamiento |
+        | Alerta generada           |
+        | Sugerencia de resolución  |
+        | Sin corrupción de datos   |
+
+  # ─────────────────────────────────────────────────────────────
+  # REGLA 2: Las pruebas en entorno vivo no deben afectar datos reales
+  # ─────────────────────────────────────────────────────────────
+
+  Regla: Las simulaciones usan datos ficticios
+
+    Escenario: Simulación con datos de prueba
+      Dado que se ejecuta una simulación
+      Cuando se verifica
+      Entonces:
+        | Verificación              | Estado  |
+        | Datos son ficticios       | ✅       |
+        | No modifican producción   | ✅       |
+        | Se pueden repetir         | ✅       |
+        | Son reversibles           | ✅       |

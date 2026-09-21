@@ -1,58 +1,64 @@
 # language: es
 # @id GHE-AGENDA-DDD-001
-# @type contract
+# @type acceptance
 # @domain agenda
 # @layer development
 # @risk s2
 # @owner dev-lead
 # @status proposed
-@domain:agenda @type:contract @risk:s2 @status:proposed
+# @requirement REQ-AGENDA-006
+# @regulation N/A
+@domain:agenda @type:acceptance @risk:s2 @status:proposed
 Característica: Data-Driven Development para la Agenda
-  Como desarrollador Clojure del proyecto GHE
-  Quiero que la agenda se defina como datos puros
+  Como desarrollador del proyecto GHE
+  Quiero que la agenda se defina como estructuras de datos puras
   Para que los agentes de IA puedan procesar el estado de forma funcional
 
-  Contexto:
-    Dado que Clojure representa todo como estructuras de datos inmutables
-    Y que los agentes de IA necesitan leer y transformar estado
+  # ─────────────────────────────────────────────────────────────
+  # REGLA 1: La agenda se representa como datos inmutables
+  # ─────────────────────────────────────────────────────────────
 
-  Escenario: Agenda como mapa de datos puros
-    Dado que se representa la agenda como mapa Clojure
-    Cuando se inspecciona
-    Entonces contiene:
-      | Campo                      | Tipo |
-      | :agenda/date              | inst |
-      | :agenda/appointments      | vector de maps |
-      | :agenda/resources         | map de recursos |
-      | :agenda/constraints       | map de restricciones |
+  Regla: La agenda es un mapa de datos que se transforma, no se muta
 
-  Escenario: Agente lee estado de la agenda
-    Dado que un agente necesita ver la agenda
-    Cuando accede al estado
-    Entonces puede:
-      | Acción                    |
-      | Obtener mapa completo     |
-      | Filtrar por médico        |
-      | Filtrar por tipo           |
-      | Filtrar por estado         |
-      | Calcular métricas         |
+    Escenario: La agenda es inmutable
+      Dado que la agenda tiene un estado
+      Cuando se aplica una transformación
+      Entonces el estado original se preserva
+      Y se crea un nuevo estado con el cambio
+      Y el estado anterior queda accesible
+      # @invariante "El estado anterior de la agenda nunca se pierde"
 
-  Escenario: Agente modifica estado de la agenda
-    Dado que un agente necesita reprogramar una cita
-    Cuando modifica el estado
-    Entonces usa operaciones puras:
-      | Operación                  | Resultado |
-      | assoc-in [:agenda/appointments 0 :status] :cancelled | Nuevo mapa |
-      | update-in [:agenda/statistics :cancellations] inc | Contador +1 |
-      | conj [:agenda/events] {:type :cancellation | Nuevo evento |
+  # ─────────────────────────────────────────────────────────────
+  # REGLA 2: Los datos se validan con especificaciones formales
+  # ─────────────────────────────────────────────────────────────
 
-  Escenario: Validación de estado con clojure.spec
-    Dado que se valida el estado de la agenda
-    Cuando se ejecuta s/valid?
-    Entonces:
-      | Verificación              | Estado  |
-      | Cada cita tiene campos requeridos | ✅ |
-      | Estados son keywords válidos | ✅     |
-      | Horarios no se solapan    | ✅       |
-      | Recursos asignados existen | ✅       |
-  
+  Regla: Cada campo de la agenda tiene una especificación
+
+    Escenario: Validación de estructura de cita
+      Dado que se valida una cita
+      Cuando se verifica contra la especificación
+      Entonces se confirma:
+        | Campo                      | Requisito |
+        | ID                         | UUID único |
+        | Estado                     | Keyword válido del conjunto permitido |
+        | Hora inicio                | Antes de hora fin |
+        | Recursos asignados        |-existentes en el catálogo |
+        | Paciente                   | Registrado en el sistema |
+
+    Escenario: Rechazo de dato inválido
+      Dado que se intenta crear una cita con hora fin anterior a hora inicio
+      Cuando se valida
+      Entonces la creación es rechazada
+      Y se informa: "La hora de fin debe ser posterior a la hora de inicio"
+
+  # ─────────────────────────────────────────────────────────────
+  # REGLA 3: El comportamiento del agente se define como datos
+  # ─────────────────────────────────────────────────────────────
+
+  Regla: Las reglas de comportamiento del agente son datos, no código
+
+    Escenario: Regla de comportamiento modificable
+      Dado que se tiene una regla "agente sugiere alternativas ante conflicto"
+      Cuando se cambia la regla a "agente rechaza automáticamente conflictos"
+      Entonces el cambio se aplica sin modificar el motor del agente
+      Y el comportamiento nuevo se observa inmediatamente
