@@ -1,39 +1,40 @@
 # language: es
-# PMBOK KA-07: Project Communications Management
-@status:proposed
-# @requirement:PRACTICE-GHE-001
-@type:acceptance
-@domain:general
-# ÁREA DE CONOCIMIENTO: Gestión de Comunicaciones del Proyecto
-Característica: Gestión de Comunicaciones (PMBOK KA-07)
+# @id GHE-PMBOK-KA07-001
+# @type practice
+# @domain management
+# @layer governance
+# @risk s2
+# @owner project-manager
+# @status proposed
+# @requirement PRACTICE-GHE-PMBOK-007
+# @risk-control CTRL-PMBOK-KA07
+# @regulation N/A
+@domain:management @type:practice @risk:s2 @status:proposed
+Característica: PMBOK KA-07 - Gestión de Comunicaciones
   Como director del proyecto GHE
-  Quiero gestionar comunicaciones de forma efectiva
+  Quiero que las comunicaciones sean claras y oportunas
   Para que todos los stakeholders estén informados
 
-  # ─────────────────────────────────────────────────────────────
-  # 1. PLANIFICACIÓN DE COMUNICACIONES
-  # ─────────────────────────────────────────────────────────────
+  Regla: La matriz de comunicaciones está definida
 
-  Escenario: Matriz de comunicaciones
-    Dado que se define matriz de comunicaciones
-    Cuando se documenta
-    Entonces se establece:
-      | Comunicación               | Audiencia           | Frecuencia | Canal       | Responsable |
-      | Daily standup              | Equipo técnico      | Diaria     | Reunión/Virtual | Scrum Master |
-      | Sprint review              | Stakeholders        | Quincenal  | Demo        | Director    |
-      | Retrospectiva              | Equipo técnico      | Quincenal  | Reunión     | Scrum Master |
-      | Reporte de avance          | Patrocinador        | Mensual    | Documento   | Director    |
-      | Reporte de calidad         | Director proyecto   | Semanal    | Dashboard   | QA Lead     |
-      | Actualización normativa    | Equipo + stakeholders| Trimestral| Documento   | Compliance  |
-      | Estado de bugs             | Equipo técnico      | Continua   | Issue tracker | Dev Lead  |
+    Escenario: Matriz documentada
+      Dado que se define matriz de comunicaciones
+      Cuando se verifica
+      Entonces cada comunicación tiene: audiencia, canal, frecuencia, responsable
+      # @evidence EVID-PMBOK-KA07-001
 
-  Escenario: Comunicación con stakeholders clínicos
-    Dado que se necesita comunicar con equipo clínico
-    Cuando se prepara comunicación
-    Entonces se adapta formato:
-      | Audiencia                  | Formato              | Contenido |
-      | Médicos                    | Demo + papel         | Beneficios clínicos, flujos |
-      | Enfermeras                 | Capacitación hands-on| Cómo usar sistema día a día |
-      | Farmacéuticos              | Reunión + guía       | Inventario, dispensación    |
-      | Administración             | Dashboard ejecutivo  | KPIs, ROI, cumplimiento    |
-    
+  Regla: Los stakeholders reciben información
+
+    Escenario: Stakeholders informados
+      Dado que hay cambios significativos
+      Cuando se notifica
+      Entonces todos los stakeholders relevantes reciben información
+      # @evidence EVID-PMBOK-KA07-002
+
+  Regla: Las comunicaciones se documentan
+
+    Escenario: Comunicaciones registradas
+      Dado que se comunica una decisión
+      Cuando se registra
+      Entonces: qué, quién, cuándo, por qué
+      # @evidence EVID-PMBOK-KA07-003

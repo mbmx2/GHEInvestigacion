@@ -1,34 +1,46 @@
 # language: es
-# PMBOK KA-01: Project Integration Management
-@status:proposed
-# @requirement:PRACTICE-GHE-001
-@type:acceptance
-@domain:general
-# ÁREA DE CONOCIMIENTO: Gestión Integrada de Proyectos
-Característica: Gestión Integrada de Proyectos (PMBOK KA-01)
+# @id GHE-PMBOK-KA01-001
+# @type practice
+# @domain management
+# @layer governance
+# @risk s2
+# @owner project-manager
+# @status proposed
+# @requirement PRACTICE-GHE-PMBOK-001
+# @risk-control CTRL-PMBOK-KA01
+# @regulation N/A
+@domain:management @type:practice @risk:s2 @status:proposed
+Característica: PMBOK KA-01 - Gestión Integrada de Proyectos
   Como director del proyecto GHE
-  Quiero integrar todas las áreas de gestión del proyecto
-  Para garantizar coherencia y unidad de propósito
+  Quiero integrar todas las áreas de gestión
+  Para que cada entregable sea coherente y trazable
 
-  # ─────────────────────────────────────────────────────────────
-  # 1. DESARROLLO DEL CHARTER DEL PROYECTO
-  # ─────────────────────────────────────────────────────────────
+  Regla: Todo proyecto tiene charter aprobado
 
-  Escenario: Creación del Charter del proyecto GHE
-    Dado que se inicia el proyecto GHE
-    Cuando se elabora el Charter
-    Entonces el documento incluye:
-      | Sección                    |
-      | Nombre del proyecto        |
-      | Justificación del proyecto |
-      | Objetivos medibles         |
-      | Alcance de alto nivel      |
-      | Riesgos principales        |
-      | Stakeholders clave         |
-      | Presupuesto de alto nivel  |
-      | Cronograma de alto nivel   |
-      | Patrocinador del proyecto  |
-      | Director del proyecto      |
-      | Fecha de aprobación        |
-    Y el Charter es aprobado por el patrocinador
-  
+    Escenario: Charter completo
+      Dado que se inicia proyecto
+      Cuando se documenta
+      Entonces incluye: propósito, alcance, hitos, riesgos, stakeholders
+      # @evidence EVID-PMBOK-KA01-001
+
+    Escenario: Sin charter
+      Dado que no existe charter
+      Cuando se verifica
+      Entonces se bloquea hasta crear y aprobar
+      # @evidence EVID-PMBOK-KA01-001-N
+
+  Regla: Todo cambio se gestiona
+
+    Escenario: Control de cambios
+      Dado que se solicita cambio
+      Cuando se evalúa
+      Entonces: análisis de impacto, aprobación, actualización de documentos
+      # @evidence EVID-PMBOK-KA01-002
+
+  Regla: Las decisiones se documentan
+
+    Escenario: Decisiones registradas
+      Dado que se toma decisión
+      Cuando se documenta
+      Entonces: qué, por qué, alternativas, consecuencias, responsable
+      # @evidence EVID-PMBOK-KA01-003

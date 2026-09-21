@@ -1,107 +1,48 @@
 # language: es
-# SWEBOK KA-05: Software Maintenance
-@status:proposed
-# @requirement:PRACTICE-GHE-001
-@type:acceptance
-@domain:general
-# ÁREA DE CONOCIMIENTO: Mantenimiento de Software
-Característica: Mantenimiento de Software (SWEBOK KA-05)
+# @id GHE-SWEBOK-KA05-001
+# @type practice
+# @domain engineering
+# @layer development
+# @risk s2
+# @owner qa-lead
+# @status proposed
+# @requirement PRACTICE-GHE-005
+# @risk-control CTRL-SWEBOK-KA05
+# @regulation N/A
+@domain:engineering @type:practice @risk:s2 @status:proposed
+Característica: SWEBOK KA-05 - Mantenimiento de Software
   Como responsable de mantenimiento del proyecto GHE
-  Quiero mantener el software de forma estructurada
-  Para garantizar continuidad operativa y corrección de defectos
+  Quiero procesos de mantenimiento estructurados
+  Para que el software evolucione sin acumular deuda técnica
 
-  # ─────────────────────────────────────────────────────────────
-  # 1. TIPOS DE MANTENIMIENTO
-  # ─────────────────────────────────────────────────────────────
+  Regla: Todo cambio tiene clasificación
 
-  Escenario: Mantenimiento correctivo
-    Dado que se reporta un defecto en producción
-    Cuando se recibe el reporte
-    Entonces se sigue proceso:
-      | Paso                       | Detalle             |
-      | 1. Registro del defecto    | ID, severidad, pasos|
-      | 2. Reproducción           | Confirmar en entorno dev |
-      | 3. Diagnóstico            | Identificar causa raíz |
-      | 4. Corrección             | Fix con test que falle |
-      | 5. Verificación           | Todos los tests pasan |
-      | 6. Code review            | Otro desarrollador revisa |
-      | 7. Despliegue             | A producción con rollback plan |
-    Y se documenta en changelog
+    Escenario: Clasificación de cambios
+      Dado que se solicita un cambio
+      Cuando se evalúa
+      Entonces se clasifica en: correctivo, adaptativo, perfectivo, preventivo
+      # @evidence EVID-SWEBOK-KA05-001
 
-  Escenario: Mantenimiento adaptativo
-    Dado que cambia la normativa (NOM-004 actualizada)
-    Cuando se detecta el cambio
-    Entonces se sigue proceso:
-      | Paso                       | Detalle             |
-      | 1. Análisis del cambio    | Qué requisitos cambian |
-      | 2. Impacto                | Qué módulos se afectan |
-      | 3. Plan de adaptación     | Tareas y estimación  |
-      | 4. Implementación         | Código + tests       |
-      | 5. Validación normativa   | Verificar cumplimiento |
-      | 6. Documentación          | Actualizar SRS       |
+  Regla: Cambios se verifican antes de implementar
 
-  Escenario: Mantenimiento perfectivo
-    Dado que se identifica oportunidad de mejora
-    Cuando se aprueba la mejora
-    Entonces se sigue proceso:
-      | Paso                       | Detalle             |
-      | 1. Propuesta              | Descripción + beneficio |
-      | 2. Evaluación             | Costo-beneficio      |
-      | 3. Diseño                 | Especificación       |
-      | 4. Implementación         | Código + tests       |
-      | 5. Revisión               | Code review          |
-      | 6. Despliegue             | Release notes        |
+    Escenario: Verificación de cambio
+      Dado que se implementa un cambio
+      Cuando se verifica
+      Entonces: tests pasan, no hay regresiones, documentación actualizada
+      # @evidence EVID-SWEBOK-KA05-002
 
-  Escenario: Mantenimiento preventivo
-    Dado que se detecta deuda técnica
-    Cuando se planifica reducción
-    Entonces se registra:
-      | Deuda técnica              | Impacto | Esfuerzo | Prioridad |
-      | Tests sin cobertura        | Alto    | Medio    | Alta      |
-      | Código duplicado           | Medio   | Bajo     | Media     |
-      | Dependencias desactualizadas| Alto   | Bajo     | Alta      |
-      | Documentación incompleta   | Medio   | Medio    | Media     |
+  Regla: Deuda técnica se gestiona
 
-  # ─────────────────────────────────────────────────────────────
-  # 2. PROCESO DE MANTENIMIENTO
-  # ─────────────────────────────────────────────────────────────
+    Escenario: Deuda técnica registrada
+      Dado que se detecta deuda técnica
+      Cuando se registra
+      Entonces tiene: severidad, esfuerzo estimado, prioridad, responsable
+      # @evidence EVID-SWEBOK-KA05-003
 
-  Escenario: Gestión de solicitudes de cambio
-    Dado que se recibe solicitud de cambio
-    Cuando se evalúa
-    Entonces se clasifica:
-      | Clasificación              | Acción              |
-      | S1 - Crítico               | Fix inmediato       |
-      | S2 - Alto                  | Próximo sprint      |
-      | S3 - Medio                 | Backlog priorizado  |
-      | S4 - Bajo                  | Siguiente release   |
-    Y se registra en sistema de tracking
+  Regla: 20% del sprint se dedica a deuda técnica
 
-  Escenario: Control de versiones en mantenimiento
-    Dado que se mantiene múltiples versiones
-    Cuando se trabaja en fix
-    Entonces se sigue flujo:
-      | Paso                       |
-      | Crear branch desde main    |
-      | Fix + test que reproduzca  |
-      | Code review                |
-      | Merge a develop            |
-      | Merge a main (si es urgente)|
-      | Tag de versión             |
-      | Push a remote              |
-
-  # ─────────────────────────────────────────────────────────────
-  # 3. MÉTRICAS DE MANTENIMIENTO
-  # ─────────────────────────────────────────────────────────────
-
-  Escenario: Seguimiento de métricas de mantenimiento
-    Dado que se miden métricas de mantenimiento
-    Cuando se genera reporte
-    Entonces se incluyen:
-      | Métrica                    | Objetivo            |
-      | Tiempo medio de reparación (MTTR) | <4 horas     |
-      | Tiempo medio entre fallos (MTBF) | >30 días      |
-      | Tasa de defectos por release| <5%                |
-      | Cambios rechazados          | <10%               |
-      | Tiempo de revisión de código| <1 día             |
-    
+    Escenario: Presupuesto de deuda
+      Dado que se planifica sprint
+      Cuando se asigna capacidad
+      Entonces máximo 20% para deuda técnica
+      # @evidence EVID-SWEBOK-KA05-004

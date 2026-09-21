@@ -1,77 +1,40 @@
 # language: es
-# SWEBOK KA-07: Software Engineering Management
-@status:proposed
-# @requirement:PRACTICE-GHE-001
-@type:acceptance
-@domain:general
-# ÁREA DE CONOCIMIENTO: Gestión de Ingeniería de Software
-Característica: Gestión de Ingeniería de Software (SWEBOK KA-07)
-  Como líder técnico del proyecto GHE
-  Quiero gestionar el proyecto de forma efectiva
-  Para entregar valor dentro de alcance, tiempo y presupuesto
+# @id GHE-SWEBOK-KA07-001
+# @type practice
+# @domain engineering
+# @layer governance
+# @risk s2
+# @owner project-manager
+# @status proposed
+# @requirement PRACTICE-GHE-007
+# @risk-control CTRL-SWEBOK-KA07
+# @regulation N/A
+@domain:engineering @type:practice @risk:s2 @status:proposed
+Característica: SWEBOK KA-07 - Gestión de Ingeniería
+  Como director del proyecto GHE
+  Quiero gestión de ingeniería estructurada
+  Para que cada sprint entregue valor medible
 
-  # ─────────────────────────────────────────────────────────────
-  # 1. GESTIÓN DE PROYECTO
-  # ─────────────────────────────────────────────────────────────
+  Regla: El trabajo se planifica por sprints
 
-  Escenario: Planificación del proyecto
-    Dado que se inicia el proyecto GHE
-    Cuando se planifica
-    Entonces se documenta:
-      | Elemento                   |
-      | Alcance del proyecto       |
-      | Restricciones (offline, normativas) |
-      | Supuestos                 |
-      | Hitos y entregables       |
-      | Presupuesto               |
-      | Equipo y roles             |
-      | Riesgos identificados     |
-    Y se crea roadmap de alto nivel
+    Escenario: Sprint planificado
+      Dado que se planifica sprint
+      Cuando se selecciona trabajo
+      Entonces: historias priorizadas, capacidad definida, dependencias identificadas
+      # @evidence EVID-SWEBOK-KA07-001
 
-  Escenario: Gestión de alcance
-    Dado que se define alcance del proyecto
-    Cuando se gestiona
-    Entonces se documenta:
-      | Dentro del alcance         | Fuera del alcance    |
-      | Expediente clínico         | Facturación CFDI     |
-      | Farmacia                   | Laboratorio externo  |
-      | Receta electrónica         | Telemedicina         |
-      | Reportes SUIVE             | App móvil nativa     |
-      | Offline-first              | Multi-tenant         |
-    Y todo cambio de alcance pasa por control de cambios
+  Regla: El avance se mide diariamente
 
-  Escenario: Estimación de esfuerzo
-    Dado que se estiman tareas del proyecto
-    Cuando se usa estimación
-    Entonces se aplica:
-      | Técnica                    | Aplicación           |
-      | Planning Poker            | Historias de usuario |
-      | T-Shirt Sizing            | Features grandes     |
-      | Velocity                  | Sprints futuros      |
-      | Three-Point Estimation    | Tareas complejas     |
+    Escenario: Daily standup
+      Dado que se ejecuta daily
+      Cuando se reporta
+      Entonces: qué hice, qué haré, impedimentos
+      # @evidence EVID-SWEBOK-KA07-002
 
-  # ─────────────────────────────────────────────────────────────
-  # 2. GESTIÓN DE PLANIFICACIÓN
-  # ─────────────────────────────────────────────────────────────
+  Regla: La retrospectiva mejora el proceso
 
-  Escenario: Planificación de sprints
-    Dado que se planifica sprint de 2 semanas
-    Cuando se seleccionan historias
-    Entonces se considera:
-      | Criterio                   |
-      | Historias aprobadas por prioridad |
-      | Capacidad del equipo       |
-      | Dependencias identificadas |
-      | Riesgos del sprint         |
-      | Buffer para imprevistos (20%) |
-
-  Escenario: Seguimiento de progreso
-    Dado que el sprint está en curso
-    Cuando se hace daily standup
-    Entonces se reporta:
-      | Pregunta                   |
-      | ¿Qué hice ayer?           |
-      | ¿Qué haré hoy?            |
-      | ¿Hay impedimentos?        |
-    Y se actualiza tablero Kanban
-  
+    Escenario: Retrospectiva
+      Dado que se completa sprint
+      Cuando se retrospectiva
+      Entonces: qué salió bien, qué mejorar, acciones concretas
+      # @evidence EVID-SWEBOK-KA07-003

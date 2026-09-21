@@ -1,85 +1,49 @@
 # language: es
-# PMBOK KA-02: Project Scope Management
-@status:proposed
-# @requirement:PRACTICE-GHE-001
-@type:acceptance
-@domain:general
-# ÁREA DE CONOCIMIENTO: Gestión del Alcance del Proyecto
-Característica: Gestión del Alcance (PMBOK KA-02)
+# @id GHE-PMBOK-KA02-001
+# @type practice
+# @domain management
+# @layer governance
+# @risk s2
+# @owner project-manager
+# @status proposed
+# @requirement PRACTICE-GHE-PMBOK-002
+# @risk-control CTRL-PMBOK-KA02
+# @regulation N/A
+@domain:management @type:practice @risk:s2 @status:proposed
+Característica: PMBOK KA-02 - Gestión del Alcance
   Como director del proyecto GHE
-  Quiero definir y controlar el alcance del proyecto
-  Para entregar todo lo requerido y solo lo requerido
+  Quiero que el alcance esté claramente definido
+  Para que no se incluyan funcionalidades no deseadas
 
-  # ─────────────────────────────────────────────────────────────
-  # 1. PLANIFICACIÓN DEL ALCANCE
-  # ─────────────────────────────────────────────────────────────
+  Regla: El alcance se documenta en scope
 
-  Escenario: Definición del alcance del proyecto GHE
-    Dado que se define el alcance
-    Cuando se documenta
-    Entonces se establece:
-      | Dentro del alcance (IN)    | Fuera del alcance (OUT) |
-      | Expediente clínico         | Facturación CFDI        |
-      | Farmacia integrada         | Laboratorio externo     |
-      | Receta electrónica         | Telemedicina            |
-      | Triaje obstétrico          | Cirugía programada      |
-      | Reportes SUIVE             | App móvil nativa        |
-      | Offline-first              | Multi-tenant            |
-      | 1 maternidad               | Red de hospitales       |
-    Y todo cambio de alcance pasa por control de cambios
+    Escenario: Alcance documentado
+      Dado que se define alcance
+      Cuando se documenta
+      Entonces incluye: incluido, excluido, supuestos, restricciones
+      # @evidence EVID-PMBOK-KA02-001
 
-  Escenario: Estructura de Desglose del Trabajo (EDT/WBS)
-    Dado que se crea la EDT del proyecto
-    Cuando se desglosa el trabajo
-    Entonces se estructura:
-      | Nivel 1                    | Nivel 2                |
-      | 1. Gestión del proyecto    | 1.1 Planificación      |
-      |                            | 1.2 Ejecución          |
-      |                            | 1.3 Monitoreo y control|
-      | 2. Expediente Clínico      | 2.1 Registro pacientes |
-      |                            | 2.2 Consulta médica    |
-      |                            | 2.3 Notas SOAP         |
-      | 3. Farmacia                | 3.1 Inventario         |
-      |                            | 3.2 Dispensación       |
-      |                            | 3.3 Alertas            |
-      | 4. Receta Electrónica      | 4.1 Prescripción       |
-      |                            | 4.2 CDS                |
-      |                            | 4.3 Firma digital      |
-      | 5. Obstetricia             | 5.1 Control prenatal   |
-      |                            | 5.2 Triaje             |
-      |                            | 5.3 Emergencias        |
-      | 6. Reportes                | 6.1 SUIVE              |
-      |                            | 6.2 Dashboard          |
-      |                            | 6.3 Estadísticas       |
-      | 7. Infraestructura         | 7.1 Offline-first      |
-      |                            | 7.2 Seguridad          |
-      |                            | 7.3 Sync               |
+  Regla: EDT/WBS está definida
 
-  Escenario: Definición de criterios de aceptación
-    Dado que se definen criterios de aceptación por entregable
-    Cuando se documenta
-    Entonces cada entregable tiene:
-      | Entregable                 | Criterio de aceptación |
-      | Expediente clínico         | Cumple NOM-004, 95% campos obligatorios |
-      | Farmacia                   | Inventario preciso 100%, 0 errores dispensación |
-      | Receta electrónica         | Firma válida, sin errores CDS |
-      | Triaje                     | Clasificación correcta 100% |
-      | Reportes                   | Datos precisos vs. manual |
+    Escenario: EDT completa
+      Dado que se descompone el trabajo
+      Cuando se verifica
+      Entonces cada paquete tiene dueño, duración, dependencias
+      # @evidence EVID-PMBOK-KA02-002
 
-  # ─────────────────────────────────────────────────────────────
-  # 2. CONTROL DE CAMBIOS
-  # ─────────────────────────────────────────────────────────────
+  Regla: Los cambios de alcance se controlan
 
-  Escenario: Proceso de control de cambios
-    Dado que se solicita cambio en alcance
-    Cuando se evalúa
-    Entonces se sigue proceso:
-      | Paso                       |
-      | 1. Solicitud formal de cambio |
-      | 2. Análisis de impacto     |
-      | 3. Revisión por comité de cambios |
-      | 4. Decisión (aprobar/rechazar) |
-      | 5. Actualizar EDT y documentos |
-      | 6. Notificar a stakeholders|
-    Y todo cambio se registra en bitácora
-  
+    Escenario: Cambio controlado
+      Dado que se solicita cambio de alcance
+      Cuando se evalúa
+      Entonces: análisis de impacto, aprobación del patrocinador, actualización EDT
+      # @evidence EVID-PMBOK-KA02-003
+
+  # @invariante INV-KA02-001: No se agrega funcionalidad sin aprobación
+  Regla: No se agrega sin aprobación
+
+    Escenario: Feature sin aprobación
+      Dado que se detecta feature no aprobado
+      Cuando se audita
+      Entonces se marca como fuera de alcance y se solicita aprobación
+      # @evidence EVID-PMBOK-KA02-004

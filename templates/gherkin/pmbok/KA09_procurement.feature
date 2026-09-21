@@ -1,70 +1,40 @@
 # language: es
-# PMBOK KA-09: Project Procurement Management
-@status:proposed
-# @requirement:PRACTICE-GHE-001
-@type:acceptance
-@domain:general
-# ÁREA DE CONOCIMIENTO: Gestión de Adquisiciones del Proyecto
-Característica: Gestión de Adquisiciones (PMBOK KA-09)
+# @id GHE-PMBOK-KA09-001
+# @type practice
+# @domain management
+# @layer governance
+# @risk s2
+# @owner project-manager
+# @status proposed
+# @requirement PRACTICE-GHE-PMBOK-009
+# @risk-control CTRL-PMBOK-KA09
+# @regulation N/A
+@domain:management @type:practice @risk:s2 @status:proposed
+Característica: PMBOK KA-09 - Gestión de Adquisiciones
   Como director del proyecto GHE
-  Quiero gestionar adquisiciones de forma eficiente
+  Quiero que las adquisiciones se gestionen eficientemente
   Para obtener los mejores recursos al menor costo
 
-  # ─────────────────────────────────────────────────────────────
-  # 1. PLANIFICACIÓN DE ADQUISICIONES
-  # ─────────────────────────────────────────────────────────────
+  Regla: Toda compra tiene proceso documentado
 
-  Escenario: Identificación de necesidades de adquisición
-    Dado que se identifican recursos a adquirir
-    Cuando se evalúa_make or buy
-    Entonces se decide:
-      | Elemento                    | Decisión   | Justificación |
-      | Software de base (Clojure)  | Open source| Sin costo, comunidad activa |
-      | Base de datos (SQLite)      | Open source| Sin costo, offline-first |
-      | Server de desarrollo        | Open source| Linux, sin costo |
-      | Herramienta de testing      | Open source| clojure.test, sin costo |
-      | Certificación NOM-024       | Comprar    | Consultor externo especializado |
-      | Servicio de hosting cloud   | Comprar    | Para sync cuando haya internet |
-      | Hardware para maternidad    | Comprar    | Computadora + impresora |
+    Escenario: Compra documentada
+      Dado que se adquiere un bien
+      Cuando se procesa
+      Entonces: solicitud, cotización, aprobación, recepción, registro
+      # @evidence EVID-PMBOK-KA09-001
 
-  Escenario: Documento de adquisición
-    Dado que se prepara documento de adquisición
-    Cuando se solicita cotización
-    Entonces se incluye:
-      | Sección                    |
-      | Descripción del servicio/producto |
-      | Especificaciones técnicas  |
-      | Requisitos de entrega      |
-      | Criterios de evaluación    |
-      | Condiciones de pago        |
-      | Calendario de entrega      |
-      | Garantías                  |
+  Regla: Proveedores se evalúan
 
-  # ─────────────────────────────────────────────────────────────
-  # 2. CONDUCTA DE ADQUISICIONES
-  # ─────────────────────────────────────────────────────────────
+    Escenario: Evaluación de proveedor
+      Dado que se evalúa proveedor
+      Cuando se califica
+      Entonces: calidad, precio, servicio, cumplimiento
+      # @evidence EVID-PMBOK-KA09-002
 
-  Escenario: Evaluación de proveedores
-    Dado que se reciben cotizaciones de proveedores
-    Cuando se evalúan
-    Entonces se usa matriz:
-      | Proveedor                  | Precio | Calidad | Soporte | Puntaje |
-      | Proveedor A (cert NOM)     | $50,000| Alta    | 24/7    | 9/10    |
-      | Proveedor B (cert NOM)     | $35,000| Media   | horario | 7/10    |
-      | Proveedor C (cert NOM)     | $60,000| Alta    | dedicado| 8/10    |
-    Y se selecciona según ponderación de criterios
+  Regla: Contratos se gestionan
 
-  # ─────────────────────────────────────────────────────────────
-  # 3. CONTROL DE ADQUISICIONES
-  # ─────────────────────────────────────────────────────────────
-
-  Escenario: Seguimiento de contratos
-    Dado que hay contratos activos
-    Cuando se monitorea
-    Entonces se verifica:
-      | Contrato                   | Proveedor | Estado    | Vencimiento |
-      | Certificación NOM-024     | Prov. A   | En proceso| 30/12/2024  |
-      | Hosting cloud             | AWS       | Activo    | Renovación anual |
-      | Hardware maternidad       | Prov. D   | Entregado | Garantía 1 año |
-    Y se verifica cumplimiento de SLAs
-  
+    Escenario: Contrato documentado
+      Dado que se firma contrato
+      Cuando se registra
+      Entonces: alcance, costos, SLA, vigencia
+      # @evidence EVID-PMBOK-KA09-003
