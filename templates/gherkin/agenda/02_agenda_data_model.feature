@@ -5,19 +5,15 @@
 # @layer domain
 # @risk s2
 # @owner architect
-# @status proposed
+# @status review
 # @requirement REQ-AGENDA-004
 # @risk-control CTRL-AGENDA-004
 # @regulation NOM-024
-@domain:agenda @type:business-rule @risk:s2 @status:proposed
-Característica: Modelo de Datos de la Agenda
+@domain:agenda @type:business-rule @risk:s2 @status:review
+Característica: Modelo de Datos de la Agenda con Estados e Invariantes
   Como arquitecto del sistema
   Quiero que la agenda tenga estados, transiciones e invariantes definidos
   Para que el comportamiento sea predecible y seguro
-
-  # ─────────────────────────────────────────────────────────────
-  # REGLA 1: Toda cita tiene estados permitidos y transiciones definidas
-  # ─────────────────────────────────────────────────────────────
 
   Regla: Una cita solo puede transitar por estados válidos
 
@@ -31,8 +27,7 @@ Característica: Modelo de Datos de la Agenda
         | confirmada       | Inicio               | en_progreso      |
         | confirmada       | Cancelación          | cancelada        |
         | en_progreso      | Finalización         | completada       |
-        | completada      | —                    | — (terminal)     |
-        | cancelada       | —                    | — (terminal)     |
+      # @evidence EVID-AGENDA-020: Transiciones documentadas
 
     Escenario: Transición prohibida
       Dado que una cita tiene estado "completada"
@@ -40,47 +35,37 @@ Característica: Modelo de Datos de la Agenda
       Entonces la transición es rechazada
       Y la cita permanece en "completada"
       Y se registra el intento inválido
-      # @invariante "Una cita completada no puede volver atrás"
-
-  # ─────────────────────────────────────────────────────────────
-  # REGLA 2: La agenda como mapa de datos
-  # ─────────────────────────────────────────────────────────────
+      # @evidence EVID-AGENDA-021: Rechazo + intento registrado
 
   Regla: La agenda se representa como estructura de datos inmutable
 
-    Escenario: Modificación de la agenda preserva historial
+    Escenario: Modificación preserva historial
       Dado que la agenda tiene 5 citas para el martes
       Cuando se modifica la hora de una cita
-      Entonces el mapa original se preserva como versión anterior
-      Y se crea un nuevo mapa con el cambio
+      Entonces el estado anterior se preserva
+      Y se crea un nuevo estado con el cambio
       Y el timestamp se actualiza
-      # @invariante "La agenda nunca pierde información anterior"
+      # @evidence EVID-AGENDA-022: Estado anterior accesible + nuevo estado creado
 
-  # ─────────────────────────────────────────────────────────────
-  # REGLA 3: Los datos tienen invariantes que nunca deben romperse
-  # ─────────────────────────────────────────────────────────────
+  Regla: La agenda tiene invariantes que nunca deben romperse
 
-  Regla: Una misma sala no puede tener dos procedimientos simultáneos
-
-    Escenario: Se rechaza asignación incompatible
+    Escenario: Una sala no puede tener dos procedimientos simultáneos
       Dado que la sala 1 está ocupada de 10:00 a 12:00
       Cuando se intenta asignar otra cirugía en ese intervalo
       Entonces la asignación es rechazada
       Y la cirugía original permanece sin cambios
-      Y se informa el conflicto
-      # @invariante "Una sala no puede tener dos procedimientos simultáneos"
+      # @evidence EVID-AGENDA-023: Rechazo + cirugía original intacta
+      # @invariante INV-AGENDA-004
 
-  Regla: Un paciente no puede tener dos registros activos incompatibles
-
-    Escenario: Se rechaza duplicidad de registro
+    Escenario: Un paciente no puede tener dos registros incompatibles
       Dado que el paciente "Juan Pérez" tiene una cirugía activa
       Cuando se intenta crear otra cirugía para el mismo paciente en el mismo momento
       Entonces la creación es rechazada
       Y se informa que el paciente ya tiene un procedimiento activo
+      # @evidence EVID-AGENDA-024: Rechazo + información al usuario
+      # @invariante INV-AGENDA-005
 
-  Regla: Toda modificación preserva el estado anterior
-
-    Escenario: Modificación deja rastro
+    Escenario: Toda modificación preserva estado anterior
       Dado que se modifica la hora de una cita
       Cuando se verifica el historial
       Entonces se puede ver:
@@ -90,26 +75,39 @@ Característica: Modelo de Datos de la Agenda
         | Quién modificó            |
         | Cuándo modificó           |
         | Motivo del cambio         |
-      # @invariante "Ninguna modificación elimina el estado anterior"
+      # @evidence EVID-AGENDA-025: Historial completo visible
+      # @invariante INV-AGENDA-006
 
-  # ─────────────────────────────────────────────────────────────
-  # REGLA 4: Los datos offline se sincronizan al reconectar
-  # ─────────────────────────────────────────────────────────────
-
-  Regla: Los cambios locales se sincronizan cuando hay conectividad
+  Regla: Los datos offline se sincronizan al reconectar
 
     Escenario: Sincronización automática
       Dado que hay 3 cambios locales pendientes
       Cuando se recupera la conexión
       Entonces los cambios se sincronizan automáticamente
       Y se verifica integridad de cada cambio
-      Y si hay conflicto se resuelve según protocolo
-      # @evidence EVID-AGENDA-030
+      # @evidence EVID-AGENDA-026: 3 cambios sincronizados
 
     Escenario: Conflicto entre cambios locales y cloud
       Dado que una cita fue modificada localmente y en cloud
       Cuando se sincroniza
       Entonces se detecta el conflicto
-      Y se aplica resolución de conflicto (última escritura gana)
+      Y se aplica resolución (última escritura gana)
       Y ambas versiones se conservan para auditoría
-      # @evidence EVID-AGENDA-031
+      # @evidence EVID-AGENDA-027: Conflicto detectado + ambas versiones
+
+  Regla: Los estados de la agenda sonYPREDECIBLES
+
+  Esquema del escenario: Transiciones de estado válidas
+    Dado que una cita tiene estado "<estado_actual>"
+    Y ocurre el evento "<evento>"
+    Entonces el estado resultante es "<estado_resultado>"
+
+    Ejemplos:
+      | estado_actual | evento          | estado_resultado |
+      | programada    | Confirmación    | confirmada       |
+      | programada    | Cancelación     | cancelada        |
+      | confirmada     | Inicio          | en_progreso      |
+      | confirmada     | Cancelación     | cancelada        |
+      | en_progreso    | Finalización    | completada       |
+      | programada    | Recurso faltante | programada (sin cambio) |
+      | completada     | Cualquier cosa  | completada (sin cambio) |
