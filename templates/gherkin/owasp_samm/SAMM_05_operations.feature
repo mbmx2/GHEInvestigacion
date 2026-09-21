@@ -12,123 +12,127 @@
 @domain:security @type:compliance @risk:s1 @status:proposed
 Característica: SAMM Operations - Penetration Testing, Environment y Configuration
   Como responsable de operaciones del hospital
-  Quiero que las operaciones de seguridad sean continuas
+  Quiero operaciones de seguridad continuas
   Para detectar y responder a amenazas en tiempo real
-
-  # ─────────────────────────────────────────────────────────────
-  # PRÁCTICA 1: Penetration Testing
-  # ─────────────────────────────────────────────────────────────
 
   Regla: Se ejecutan pruebas de penetración periódicas
 
     Escenario: Pentest semestral
       Dado que se ejecuta pentest
       Cuando se completa
-      Entonces se verifica:
-        | Verificación              | Frecuencia |
-        | Pruebas automatizadas    | Mensual    |
-        | Pruebas manuales         | Semestral  |
-        | Reporte de hallazgos     | Semestral  |
-        | Remediación de findings  | Según severidad |
+      Entonces se genera reporte con hallazgos, severidad y remediación
       # @evidence EVID-SAMM-OPS-001
 
-    Escenario: Clasificación de hallazgos
-      Dado que se reciben hallazgos de pentest
-      Cuando se clasifican
-      Entonces:
-        | Severidad                  | Plazo de remediación |
-        | Crítica                    | 24 horas             |
-        | Alta                       | 7 días               |
-        | Media                      | 30 días              |
-        | Baja                       | Siguiente release   |
+    Escenario: Pentest no realizado
+      Dado que NO se ha ejecutado pentest en 6 meses
+      Cuando se detecta
+      Entonces se programa pentest inmediato
+      Y se escala a dirección
+      # @evidence EVID-SAMM-OPS-001-N
 
-  # ─────────────────────────────────────────────────────────────
-  # PRÁCTICA 2: Software Environment
-  # ─────────────────────────────────────────────────────────────
+  # @invariante INV-OPS-001: Todo hallazgo de pentest tiene fecha de remediación
+  Regla: Hallazgos de pentest tienen fecha de remediación
+
+    Escenario: Hallazgo remediado a tiempo
+      Dado que se recibe hallazgo de pentest
+      Cuando se clasifica
+      Entonces tiene fecha de remediación según severidad:
+        | Severidad | Plazo |
+        | Crítica | 24 horas |
+        | Alta | 7 días |
+        | Media | 30 días |
+        | Baja | Siguiente release |
+      # @evidence EVID-SAMM-OPS-002
+
+    Escenario: Hallazgo sin remediación
+      Dado que un hallazgo no se remedió a tiempo
+      Cuando se detecta
+      Entonces se escala a dirección
+      Y se documenta el retraso
+      # @evidence EVID-SAMM-OPS-002-N
 
   Regla: El entorno de producción es seguro
 
-    Escenario: Hardening de producción
-      Dado que se configura entorno de producción
-      Cuando se verifica
-      Entonces:
-        | Verificación              | Estado |
-        | SO actualizado            | ✅      |
-        | Servicios innecesarios off| ✅      |
-        | Firewall configurado      | ✅      |
-        | Monitoreo activo          | ✅      |
-        | Backup automático         | ✅      |
-      # @evidence EVID-SAMM-OPS-002
+    Escenario: Hardening verificado
+      Dado que se verifica entorno
+      Cuando se audita
+      Entonces: SO actualizado, servicios innecesarios off, firewall, monitoreo, backup
+      # @evidence EVID-SAMM-OPS-003
 
-    Escenario: Segregación de entornos
-      Dado que se separan entornos
-      Cuando se verifica
-      Entonces:
-        | Entorno                    | Acceso |
-        | Producción                | Solo producción |
-        | Staging                   | Solo dev/qa |
-        | Desarrollo                | Solo dev |
-      Y no hay acceso cruzado
+    Escenario: Entorno inseguro detectado
+      Dado que se detecta configuración insegura
+      Cuando se audita
+      Entonces se genera alerta y se remedia inmediatamente
+      # @evidence EVID-SAMM-OPS-003-N
 
-  # ─────────────────────────────────────────────────────────────
-  # PRÁCTICA 3: Configuration Management y Vulnerability Mgmt
-  # ─────────────────────────────────────────────────────────────
+  # @invariante INV-OPS-002: Los entornos están segregados
+  Regla: Entornos segregados
+
+    Escenario: Segregación verificada
+      Dado que se verifican entornos
+      Cuando se audita
+      Entonces: producción, staging y desarrollo están separados sin acceso cruzado
+      # @evidence EVID-SAMM-OPS-004
+
+    Escenario: Acceso cruzado detectado
+      Dado que un usuario de desarrollo accede a producción
+      Cuando se detecta
+      Entonces se bloquea acceso y se investiga
+      # @evidence EVID-SAMM-OPS-004-N
 
   Regla: La configuración se gestiona como código
 
     Escenario: Configuración versionada
       Dado que se modifica configuración
       Cuando se aplica
-      Entonces:
-        | Verificación              | Estado |
-        | Versionado en Git         | ✅      |
-        | Code review               | ✅      |
-        | Testing de configuración  | ✅      |
-        | Rollback posible          | ✅      |
+      Entonces se versiona en Git, se hace review, se testea
+      # @evidence EVID-SAMM-OPS-005
+
+    Escenario: Configuración sin versionar
+      Dado que se detecta cambio sin versionar
+      Cuando se audita
+      Entonces se genera alerta y se versiona retroactivamente
+      # @evidence EVID-SAMM-OPS-005-N
 
   Regla: Vulnerabilidades se gestionan activamente
 
-    Escenario: Gestión de vulnerabilidades
+    Escenario: Vulnerabilidad remediada a tiempo
       Dado que se detecta vulnerabilidad
       Cuando se gestiona
-      Entonces:
-        | Severidad                  | Tiempo máximo |
-        | Crítica                    | 24 horas     |
-        | Alta                       | 7 días       |
-        | Media                      | 30 días      |
-        | Baja                       | Siguiente release |
+      Entonces tiene fecha de remediación según severidad
+      # @evidence EVID-SAMM-OPS-006
 
-    Escenario: Registro de vulnerabilidades
-      Dado que se gestiona vulnerabilidad
-      Cuando se registra
-      Entonces incluye:
-        | Campo                      |
-        | CVE ID (si aplica)        |
-        | Componente afectado       |
-        | Severidad                 |
-        | Fecha de detección        |
-        | Fecha de remediación      |
-        | Estado                    |
+    Escenario: Vulnerabilidad sin remediación
+      Dado que vulnerabilidad no se remedió a tiempo
+      Cuando se detecta
+      Entonces se escala a dirección
+      # @evidence EVID-SAMM-OPS-006-N
 
   Regla: Monitoreo continuo de seguridad
 
-    Escenario: Alertas automáticas de seguridad
+    Escenario: Alertas activas
       Dado que se monitorea seguridad
-      Cuando se detecta anomalía
-      Entonces:
-        | Condición                  | Acción |
-        | Login fallido >5 veces    | Alerta |
-        | Acceso fuera de horario   | Alerta |
-        | Vulnerabilidad nueva      | Alerta |
-        | Cambio de configuración   | Alerta |
+      Cuando se verifica
+      Entonces alertas de: login fallido >5, acceso fuera horario, vulnerabilidad nueva
+      # @evidence EVID-SAMM-OPS-007
 
-    Escenario: Dashboard de seguridad
-      Dado que se consulta dashboard
-      Cuando se genera
-      Entonces incluye:
-        | Métrica                    |
-        | Vulnerabilidades abiertas |
-        | Pentest pendientes       |
-        | Incidencias activas       |
-        | Estado de auditoría       |
-        | Último review de código   |
+    Escenario: Monitoreo inactivo
+      Dado que el monitoreo está deshabilitado
+      Cuando se detecta
+      Entonces se reactiva inmediatamente
+      # @evidence EVID-SAMM-OPS-007-N
+
+  # @invariante INV-OPS-003: Todo incidente de seguridad tiene post-mortem
+  Regla: Todo incidente tiene análisis post-mortem
+
+    Escenario: Post-mortem completado
+      Dado que ocurre incidente de seguridad
+      Cuando se resuelve
+      Entonces se ejecuta post-mortem con: causa raíz, acciones correctivas, lecciones
+      # @evidence EVID-SAMM-OPS-008
+
+    Escenario: Incidente sin post-mortem
+      Dado que un incidente no tiene post-mortem
+      Cuando se detecta
+      Entonces se programa post-mortem urgente
+      # @evidence EVID-SAMM-OPS-008-N

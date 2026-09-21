@@ -15,64 +15,76 @@ Característica: SAMM Design - Requisitos y Arquitectura de Seguridad
   Quiero que la seguridad esté integrada en el diseño
   Para que cada componente sea seguro por construcción
 
-  # ─────────────────────────────────────────────────────────────
-  # PRÁCTICA 1: Requisitos de Seguridad
-  # ─────────────────────────────────────────────────────────────
-
   Regla: Cada feature tiene requisitos de seguridad
 
-    Escenario: Requisitos de seguridad en features
+    Escenario: Requisitos documentados
       Dado que se define un feature
       Cuando se documenta
-      Entonces incluye requisitos de seguridad:
-        | Requisito                  |
-        | Autenticación requerida   |
-        | Nivel de autorización     |
-        | Cifrado de datos          |
-        | Auditoría                 |
+      Entonces incluye: autenticación, autorización, cifrado, auditoría
       # @evidence EVID-SAMM-DES-001
 
-    Escenario: Requisitos de seguridad trazables
-      Dado que se tiene un requisito de seguridad
+    Escenario: Feature sin requisitos de seguridad
+      Dado que se define un feature SIN requisitos de seguridad
+      Cuando se detecta
+      Entonces se bloquea la implementación
+      Y se solicitan requisitos de seguridad antes de continuar
+      # @evidence EVID-SAMM-DES-001-N
+
+  Regla: Los requisitos de seguridad son trazables
+
+    Escenario: Trazabilidad completa
+      Dado que se tiene requisito de seguridad
       Cuando se verifica trazabilidad
-      Entonces se puede rastrear:
-        | Cadena                     |
-        | Requisito → Feature       |
-        | Feature → Test de seguridad |
-        | Test → Evidencia          |
+      Entonces se rastrea: requisito → feature → test → evidencia
+      # @evidence EVID-SAMM-DES-002
 
-  # ─────────────────────────────────────────────────────────────
-  # PRÁCTICA 2: Arquitectura de Seguridad
-  # ─────────────────────────────────────────────────────────────
+    Escenario: Trazabilidad rota
+      Dado que un requisito NO tiene test asociado
+      Cuando se detecta
+      Entonces se genera gap de trazabilidad
+      Y se solicita crear el test
+      # @evidence EVID-SAMM-DES-002-N
 
+  # @invariante INV-DES-001: Toda arquitectura debe documentar decisiones de seguridad
   Regla: La arquitectura documenta decisiones de seguridad
 
     Escenario: ADRs de seguridad
-      Dado que se toma decisión arquitectónica de seguridad
-      Cuando se documenta como ADR
-      Entonces incluye:
-        | Campo                      |
-        | Contexto de seguridad     |
-        | Alternativas evaluadas    |
-        | Decisión tomada           |
-        | Controles implementados   |
-        | Riesgos residuales        |
-      # @evidence EVID-SAMM-DES-002
+      Dado que se toma decisión arquitectónica
+      Cuando se documenta
+      Entonces incluye: contexto, alternativas, decisión, controles, riesgos residuales
+      # @evidence EVID-SAMM-DES-003
 
-    Escenario: Segregación por confianza
+    Escenario: Decisión sin documentar
+      Dado que se toma decisión de seguridad SIN documentar
+      Cuando se detecta
+      Entonces se genera alerta y se solicita documentar
+      # @evidence EVID-SAMM-DES-003-N
+
+  Regla: La segregación por confianza se verifica
+
+    Escenario: Segregación correcta
       Dado que se separan componentes
       Cuando se verifica
-      Entonces:
-        | Nivel                      | Componentes |
-        | Alto (dominio)            | Lógica de negocio |
-        | Medio (aplicación)        | APIs, validación  |
-        | Bajo (infraestructura)    | SQLite, sync       |
-      Y no hay dependencias de bajo a alto
+      Entonces no hay dependencias de bajo a alto nivel
+      # @evidence EVID-SAMM-DES-004
 
-  Regla: La arquitectura considera amenazas
+    Escenario: Segregación violada
+      Dado que un componente de bajo nivel depende de uno de alto
+      Cuando se detecta
+      Entonces se genera alerta y se refactorea
+      # @evidence EVID-SAMM-DES-004-N
 
-    Escenario: Threat modeling documentado
-      Dado que se diseña componente
-      Cuando se evalúa
+  # @invariante INV-DES-002: Toda amenaza STRIDE debe tener un control asignado
+  Regla: Cada amenaza tiene un control
+
+    Escenario: Threat modeling completo
+      Dado que se evalúa componente
+      Cuando se hace threat modeling
       Entonces cada amenaza STRIDE tiene un control asignado
-      # @evidence EVID-SAMM-DES-003
+      # @evidence EVID-SAMM-DES-005
+
+    Escenario: Amenaza sin control
+      Dado que se detecta amenaza sin control
+      Cuando se verifica
+      Entonces se genera alerta y se diseña control antes de avanzar
+      # @evidence EVID-SAMM-DES-005-N

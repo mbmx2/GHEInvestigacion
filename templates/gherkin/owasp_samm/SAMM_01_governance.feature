@@ -15,82 +15,111 @@ Característica: SAMM Governance - Estrategia, Métricas y Cumplimiento
   Quiero que la gobernanza de seguridad sea documentada y medible
   Para que cada decisión de seguridad sea trazable y auditable
 
-  # ─────────────────────────────────────────────────────────────
-  # PRÁCTICA 1: Estrategia y Métricas
-  # ─────────────────────────────────────────────────────────────
-
   Regla: La organización define una estrategia de seguridad
 
-    Escenario: Estrategia de seguridad documentada
+    Escenario: Estrategia documentada
       Dado que se define estrategia de seguridad para GHE
       Cuando se documenta
-      Entonces incluye:
-        | Elemento                    |
-        | Objetivos de seguridad     |
-        | Métricas de seguridad      |
-        | Periodo de revisión        |
-        | Responsables               |
+      Entonces incluye objetivos, métricas, periodo de revisión y responsables
       # @evidence EVID-SAMM-GOV-001
 
-    Escenario: Métricas de seguridad definidas
+    Escenario: Estrategia no documentada
+      Dado que NO existe estrategia de seguridad
+      Cuando se verifica
+      Entonces se detecta el vacío
+      Y se genera alerta de gobernanza
+      # @evidence EVID-SAMM-GOV-001-N
+
+  Regla: Las métricas de seguridad se definen y miden
+
+    Escenario: Métricas definidas
       Dado que se definen métricas
       Cuando se evalúa
-      Entonces:
-        | Métrica                    | Objetivo  | Frecuencia |
-        | Tiempo de respuesta a vulnerabilidades | <24h crítico | Continua |
-        | % features con tests de seguridad | >95% | Mensual |
-        | Incidencias de seguridad   | 0          | Mensual |
-        | Cobertura de auditoría     | 100%       | Trimestral |
+      Entonces cada métrica tiene objetivo y frecuencia
+      # @evidence EVID-SAMM-GOV-002
 
-  # ─────────────────────────────────────────────────────────────
-  # PRÁCTICA 2: Política y Cumplimiento
-  # ─────────────────────────────────────────────────────────────
+    Escenario: Métricas no definidas
+      Dado que NO existen métricas de seguridad
+      Cuando se verifica
+      Entonces se detecta el vacío y se prioriza definirlas
+      # @evidence EVID-SAMM-GOV-002-N
+
+  Regla: Las métricas se revisan periódicamente
+
+    Esquema del escenario: Revisión de métricas por frecuencia
+      Dado que se revisan métricas de seguridad
+      Cuando se ejecuta revisión cada "<frecuencia>"
+      Entonces se compara contra "<objetivo>"
+      Y se documenta "<resultado>"
+
+      Ejemplos:
+        | frecuencia | objetivo | resultado |
+        | Semanal   | 0 incidencias | Verificar |
+        | Mensual   | 100% tests pasar | Verificar |
+        | Trimestral| >90% cobertura | Verificar |
+
+  # @invariante INV-GOV-001: Siempre debe existir una estrategia de seguridad documentada
+  Regla: La estrategia debe existir y estar actualizada
+
+    Escenario: Verificación de existencia de estrategia
+      Dado que se revisa gobernanza
+      Cuando se verifica
+      Entonces la estrategia existe, está fechada y tiene responsable asignado
+      # @evidence EVID-SAMM-GOV-003
 
   Regla: Existe una política de seguridad documentada
 
-    Escenario: Política de seguridad
-      Dado que se define política de seguridad
-      Cuando se documenta
-      Entonces incluye:
-        | Elemento                    |
-        | Política de acceso         |
-        | Política de cifrado        |
-        | Política de logging        |
-        | Política de respuesta a incidentes |
-        | Política de privacidad     |
-      # @evidence EVID-SAMM-GOV-002
+    Escenario: Política completa
+      Dado que se documenta política
+      Cuando se verifica
+      Entonces incluye: acceso, cifrado, logging, incidentes, privacidad
+      # @evidence EVID-SAMM-GOV-004
 
-    Escenario: Cumplimiento normativo verificado
+    Escenario: Política incompleta
+      Dado que la política falta un componente
+      Cuando se verifica
+      Entonces se identifica el componente faltante
+      Y se genera acción correctiva
+      # @evidence EVID-SAMM-GOV-004-N
+
+  Regla: El cumplimiento normativo se verifica
+
+    Escenario: Cumplimiento verificado
       Dado que se verifica cumplimiento
       Cuando se evalúa
-      Entonces:
-        | Norma                      | Estado |
-        | NOM-024                    | ✅      |
-        | LFPDPPP                    | ✅      |
-        | OWASP ASVS Nivel 2        | En proceso |
+      Entonces cada norma tiene estado documentado
+      # @evidence EVID-SAMM-GOV-005
 
-  # ─────────────────────────────────────────────────────────────
-  # PRÁCTICA 3: Educación y Orientación
-  # ─────────────────────────────────────────────────────────────
+    Escenario: Incumplimiento detectado
+      Dado que una norma no se cumple
+      Cuando se detecta
+      Entonces se genera plan de remediación con fecha límite
+      # @evidence EVID-SAMM-GOV-005-N
 
   Regla: El personal recibe capacitación en seguridad
 
-    Escenario: Programa de capacitación
-      Dado que se planifica capacitación
-      Cuando se ejecuta
-      Entonces incluye:
-        | Módulo                     | Frecuencia |
-        | Seguridad de contraseñas  | Anual      |
-        | Phishing                  | Trimestral |
-        | Uso seguro del sistema    | Al ingreso |
-        | Reporte de incidentes     | Anual      |
-      # @evidence EVID-SAMM-GOV-003
+    Escenario: Programa de capacitación completo
+      Dado que se ejecuta programa
+      Cuando se verifica
+      Entonces cada módulo tiene frecuencia y evidencia
+      # @evidence EVID-SAMM-GOV-006
 
-    Escenario: Simulacros de respuesta
+    Escenario: Capacitación incompleta
+      Dado que un módulo no se ha ejecutado
+      Cuando se verifica
+      Entonces se detecta el vacío y se reprograma
+      # @evidence EVID-SAMM-GOV-006-N
+
+  Regla: Simulacros se ejecutan según calendario
+
+    Escenario: Simulacros completos
       Dado que se ejecutan simulacros
-      Cuando se evalúa
-      Entonces:
-        | Tipo                       | Frecuencia |
-        | Simulacro de phishing     | Trimestral |
-        | Simulacro de incidente    | Semestral  |
-        | Simulacro de continuidad  | Anual      |
+      Cuando se verifica
+      Entonces cada tipo tiene frecuencia y resultado documentado
+      # @evidence EVID-SAMM-GOV-007
+
+    Escenario: Simulacros pendientes
+      Dado que un simulacro no se ha ejecutado
+      Cuando se detecta
+      Entonces se reprograma inmediatamente
+      # @evidence EVID-SAMM-GOV-007-N
