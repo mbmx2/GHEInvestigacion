@@ -10,146 +10,162 @@
 # @risk-control CTRL-AGENDA-003
 # @regulation NOM-024
 @domain:agenda @type:business-rule @risk:s1 @status:review
-Característica: Agentes de IA en la Agenda Digital
+Característica: Agentes de IA como Consultores Exclusivamente Informativos
   Como director del hospital
-  Quiero agentes de IA que monitoreen y asistan con la agenda
-  Para automatizar tareas repetitivas sin comprometer seguridad
+  Quiero agentes de IA que informen y asistan con la agenda
+  Para que el personal humano tome decisiones mejor informadas
 
-  Regla: El agente puede consultar el estado de la agenda
+  Regla: El agente de IA no puede modificar el estado del sistema
 
-    Escenario: Agente consulta disponibilidad de quirófanos
-      Dado que hay 3 quirófanos registrados
-      Cuando el agente verifica disponibilidad
-      Entonces puede ver:
-        | Quirófano | Estado actual | Próxima cirugía |
-        | Sala 1    | Ocupada       | Colectomía 10:00 |
-        | Sala 2    | Disponible    | Ninguna          |
-        | Sala 3    | En limpieza   | Apendicectomía 14:00 |
-      # @evidence EVID-AGENDA-050: Agente accede a datos de disponibilidad
+    Escenario: El agente informa sobre disponibilidad
+      Dado que existen quirófanos con diferentes estados
+      Cuando el usuario solicita conocer la disponibilidad
+      Entonces el agente muestra la información autorizada
+      Y no modifica ningún dato
+      Y registra la consulta realizada
+      # @evidence EVID-AGENDA-050
 
-    Escenario: Agente no puede acceder a datos clínicos
-      Dado que se consulta al agente de agenda
-      Cuando se le pide información de diagnósticos
-      Entonces responde que no tiene acceso a esa información
-      # @evidence EVID-AGENDA-051: Acceso denegado + respuesta informativa
-      # @invariante INV-AGENDA-008
+    Escenario: El agente propone una reprogramación
+      Dado que existe un conflicto de agenda
+      Cuando el agente analiza el conflicto
+      Entonces presenta una o más alternativas
+      Y explica las consecuencias de cada alternativa
+      Y no reprograma la cita
+      Y no modifica la agenda
+      Y deja la decisión al personal autorizado
+      # @evidence EVID-AGENDA-051
 
-  Regla: El agente puede sugerir pero no ejecutar acciones críticas
+  Regla: Las decisiones críticas pertenecen al personal humano
 
-    Escenario: Agente sugiere reprogramación
-      Dado que hay dos cirugías programadas en el mismo quirófano
-      Cuando el agente detecta el conflicto
-      Entonces presenta alternativas al personal autorizado
-      Y no modifica la agenda automáticamente
-      Y espera aprobación explícita antes de ejecutar
-      # @evidence EVID-AGENDA-052: Alternativas presentadas + sin modificación automática
+    Escenario: El agente detecta cirugía que requiere revisión
+      Dado que una cirugía presenta conflicto o condición crítica
+      Cuando el agente analiza la información
+      Entonces informa el problema
+      Y genera propuesta para revisión
+      Y no confirma la cirugía
+      Y no cancela la cirugía
+      Y no modifica su programación
+      Y notifica al responsable humano autorizado
+      # @evidence EVID-AGENDA-052
 
-    Escenario: Agente ejecuta acción de bajo riesgo
-      Dado que una cita fue cancelada por el paciente
-      Cuando el agente detecta la cancelación
-      Entonces puede automáticamente liberar el espacio en agenda
-      Y notificar la cancelación
-      Y registra la acción ejecutada
-      # @evidence EVID-AGENDA-053: Acción de bajo riesgo ejecutada + registrada
-
-    Escenario: Agente rechaza ejecutar acción crítica
-      Dado que el agente detecta una cirugía con riesgo
-      Cuando se le pide cancelar la cirugía
-      Entonces el agente no ejecuta la cancelación
-      Y solicita aprobación de una persona autorizada
-      Y documenta la solicitud
-      # @evidence EVID-AGENDA-054: Acción rechazada + aprobación solicitada
-
-  Regla: Los datos clínicos solo los modifica personal autorizado
-
-    Escenario: Agente no modifica expediente clínico
-      Dado que un agente detecta un resultado de laboratorio crítico
-      Cuando notifica al médico
-      Entonces el agente notifica y muestra el resultado
+    Escenario: El agente informa resultado crítico
+      Dado que un resultado de laboratorio es crítico
+      Cuando el agente lo detecta
+      Entonces genera alerta con el resultado
+      Y explica implicaciones
+      Y recomienda acciones
       Y no modifica diagnóstico ni tratamiento
-      Y solo el personal clínico autorizado puede modificar datos clínicos
-      # @evidence EVID-AGENDA-055: Notificación sin modificación
+      # @evidence EVID-AGENDA-053
 
-    Escenario: Agente sugiere acción que requiere aprobación clínica
-      Dado que un agente detecta que un paciente necesita referencia
-      Cuando el agente presenta la recomendación
-      Entonces el agente no ejecuta la referencia
-      Y solicita aprobación del médico tratante
-      # @evidence EVID-AGENDA-056: Recomendación + solicitud de aprobación
+  Regla: El agente no puede comprometer recursos
 
-  Regla: Toda interacción del agente queda registrada
+    Escenario: El agente identifica necesidad de compra
+      Dado que faltan insumos para procedimiento
+      Cuando el agente analiza inventario
+      Entonces informa la faltante
+      Y puede generar propuesta de reposición
+      Y no asigna presupuesto
+      Y no aprueba la compra
+      Y no crea orden de compra
+      # @evidence EVID-AGENDA-054
 
-    Escenario: Agente procesa solicitud de usuario
-      Dado que la recepcionista pide al agente buscar un hueco
-      Cuando el agente procesa la solicitud
+  Regla: Una propuesta de IA nunca constituye una decisión ejecutada
+
+    Escenario: El usuario solicita acción al agente
+      Dado que la acción modificaría información o recursos
+      Cuando el agente recibe la solicitud
+      Entonces explica que no puede ejecutar la acción
+      Y presenta información para que un humano decida
+      Y no genera cambios persistentes
+      # @evidence EVID-AGENDA-055
+
+  Regla: El agente puede informar pero no ejecutar
+
+    Escenario: Capacidades del agente
+      Dado que el agente opera en el sistema
+      Entonces puede:
+        | Capacidad permitida        |
+        | Consultar información      |
+        | Informar resultados        |
+        | Mostrar disponibilidad     |
+        | Generar reportes           |
+        | Detectar conflictos        |
+        | Proponer horarios/recursos |
+        | Explicar consecuencias     |
+        | Señalar alertas            |
+      Y no puede:
+        | Capacidad prohibida        |
+        | Crear/editar/eliminar datos|
+        | Confirmar/cancelar cirugías|
+        | Asignar recursos           |
+        | Modificar expedientes      |
+        | Autorizar compras          |
+        | Cambiar protocolos         |
+        | Cambiar permisos           |
+        | Escribir datos persistentes|
+
+  Regla: Toda interacción queda registrada
+
+    Escenario: Agente procesa solicitud
+      Dado que un usuario consulta al agente
+      Cuando el agente procesa
       Entonces se registra:
         | Campo                      |
         | Input del usuario         |
-        | Acción sugerida           |
-        | Acción ejecutada (si aplica) |
-        | Resultado                 |
+        | Información consultada    |
+        | Propuesta generada        |
         | Tiempo de respuesta       |
-        | Datos sensibles filtrados |
-      # @evidence EVID-AGENDA-057: Interacción completa registrada
+      Y no almacena datos sensibles en logs
+      # @evidence EVID-AGENDA-056
 
-  Regla: Cada agente tiene un alcance definido
+  Regla: El agente opera bajo mínimo privilegio
 
-    Escenario: Agente de inventario solo gestiona stock
-      Dado que se consulta al agente de inventario
-      Cuando se le pide información de expedientes clínicos
-      Entonces responde que no tiene acceso a esa información
-      Y no intenta acceder a datos fuera de su alcance
-      # @evidence EVID-AGENDA-058: Acceso denegado por alcance
-
-    Escenario: Agente conversacional interpreta lenguaje natural
-      Dado que la recepcionista dice "Busca hueco para el Dr. Ríos el viernes"
-      Cuando el agente procesa la solicitud
-      Entonces interpreta la intención
-      Y consulta la agenda del Dr. Ríos
-      Y muestra huecos disponibles
-      Y espera confirmación antes de agendar
-      Y registra la interacción completa
-      # @evidence EVID-AGENDA-059: Interpretación + consulta + confirmación pendiente
-
-    Escenario: Agente ante ambigüedad
-      Dado que el usuario dice "agenda algo para el martes" sin especificar médico
-      Cuando el agente procesa la solicitud
-      Entonces solicita aclaración al usuario
-      Y no ejecuta ninguna acción
-      Y espera respuesta antes de continuar
-      # @evidence EVID-AGENDA-060: Solicitud de aclaración + sin acción
-
-    Escenario: Agente ante error
-      Dado que el agente no puede acceder a la agenda
-      Cuando ocurre un error
-      Entonces informa al usuario que no puede procesar la solicitud
-      Y sugiere una alternativa (ej: llamar a recepción)
-      Y registra el error
-      # @evidence EVID-AGENDA-061: Error informado + alternativa + registro
-
-  Regla: El agente opera bajo principio de mínimo privilegio
-
-    Escenario: Agente no accede a datos innecesarios
-      Dado que el agente de agenda necesita verificar inventario
-      Cuando solicita información de farmacia
-      Entonces farmacia solo comparte stock de insumos
-      Y no comparte precios ni proveedores
-      # @evidence EVID-AGENDA-062: Acceso mínimo verificado
+    Escenario: Agente consulta disponibilidad
+      Dado que se verifica acceso
+      Entonces puede ver: quirófanos, horarios, citas
+      Y no puede ver: diagnósticos, tratamientos, precios
+      # @evidence EVID-AGENDA-057
+      # @invariante INV-AGENDA-008
 
     Escenario: Agente opera con datos pseudonimizados
-      Dado que el agente procesa información de pacientes
-      Cuando necesita identificar un paciente
-      Entonces usa ID interno, no nombre completo ni CURP
-      Y no almacena datos sensibles en sus logs
-      # @evidence EVID-AGENDA-063: Pseudonimización verificada
+      Dado que agente necesita identificar paciente
+      Cuando consulta
+      Entonces usa ID interno, no nombre ni CURP
+      Y no almacena datos sensibles en logs
+      # @evidence EVID-AGENDA-058
       # @invariante INV-AGENDA-009
 
-  Regla: El agente offline opera con datos locales
+  Regla: Agente offline opera con datos locales
 
-    Escenario: Agente funciona sin conectividad
-      Dado que no hay conexión a internet
-      Cuando el agente procesa una solicitud
+    Escenario: Funcionamiento sin conectividad
+      Dado que no hay conexión
+      Cuando agente procesa solicitud de consulta
       Entonces usa datos locales
-      Y no accede a servicios externos
-      Y registra la operación como local
-      # @evidence EVID-AGENDA-064: Operación local sin servicios externos
+      Y advierte que información puede no estar actualizada
+      # @evidence EVID-AGENDA-059
+
+  Regla: Agente ante errores y ambigüedad
+
+    Escenario: Solicitud ambigua
+      Dado que usuario dice "agenda algo para el martes" sin especificar médico
+      Cuando agente procesa solicitud
+      Entonces solicita aclaración
+      Y no ejecuta ninguna acción
+      Y espera respuesta
+      # @evidence EVID-AGENDA-060
+
+    Escenario: Error del sistema
+      Dado que agente no puede acceder a la agenda
+      Cuando ocurre error
+      Entonces informa al usuario
+      Y sugiere alternativa (llamar a recepción)
+      Y registra el error
+      # @evidence EVID-AGENDA-061
+
+    Escenario: Información contradictoria
+      Dado que agente detecta información inconsistente
+      Cuando analiza discrepancia
+      Entonces informa inconsistencia
+      Y presenta ambas versiones
+      Y no decide cuál es correcta
+      # @evidence EVID-AGENDA-062
