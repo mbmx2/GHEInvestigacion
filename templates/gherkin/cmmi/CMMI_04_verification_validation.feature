@@ -17,48 +17,45 @@ Característica: CMMI - Verificación y Validación (VER + VAL)
 
   Regla: Cada componente tiene plan de verificación
 
-    Escenario: Plan de verificación
+    Escenario: Plan de verificación completo
       Dado que se verifica componente
       Cuando se ejecuta verificación
-      Entonces incluye:
-        | Elemento                    |
-        | Qué se verifica           |
-        | Cómo se verifica          |
-        | Criterio de éxito         |
-        | Evidencia requerida       |
+      Entonces incluye: qué se verifica, cómo se verifica, criterio de éxito, evidencia
       # @evidence EVID-CMMI-VER-001
+
+    Escenario: Verificación sin plan
+      Dado que se intenta verificar sin plan
+      Cuando se detecta
+      Entonces se bloquea hasta crear plan
+      # @evidence EVID-CMMI-VER-001-N
 
   Regla: La verificación usa múltiples métodos
 
     Escenario: Métodos de verificación
       Dado que se verifica componente
       Cuando se evalúa
-      Entonces se usan:
-        | Método                     |
-        | Revisiones de código     |
-        | Tests unitarios           |
-        | Tests de integración     |
-        | Análisis estático        |
-        | Inspección visual        |
+      Entonces se usan: revisiones de código, tests unitarios, tests de integración, análisis estático, inspección visual
       # @evidence EVID-CMMI-VER-002
 
-  Regla: La validación verifica que el sistema cumple necesidades del usuario
+  Regla: La validación verifica necesidades del usuario
 
     Escenario: Validación clínica
       Dado que se valida componente clínico
       Cuando se verifica
-      Entonces:
-        | Verificación              |
-        | Médico aprueba comportamiento |
-        | Flujo clínico correcto   |
-        | Cálculos correctos       |
-        | Alertas appropriate      |
+      Entonces: médico aprueba comportamiento, flujo correcto, cálculos correctos, alertas appropriate
       # @evidence EVID-CMMI-VER-003
 
-  Regla: No se libera sin verificación completa
+  # @invariante INV-VER-001: No se libera sin verificación completa
+  Regla: No se libera sin verificación
 
     Escenario: Liberación bloqueada
       Dado que hay verificación pendiente
       Cuando se intenta liberar
       Entonces la liberación es bloqueada
       # @evidence EVID-CMMI-VER-004
+
+    Escenario: Liberación con verificación
+      Dado que toda verificación está completa
+      Cuando se libera
+      Entonces la liberación se ejecuta exitosamente
+      # @evidence EVID-CMMI-VER-005

@@ -83,3 +83,30 @@ Característica: CMMI - Gestión de Proyectos (PP + PMC)
       Entonces se actualiza cronograma
       Y se notifica a stakeholders
       Y se documenta la decisión
+
+  # @invariante INV-PP-001: Todo entregable tiene fecha de entrega y responsable
+  Regla: Cada entregable tiene dueño y fecha
+
+    Escenario: Entregable sin responsable
+      Dado que se identifica un entregable
+      Cuando se verifica
+      Entonces tiene responsable asignado y fecha objetivo
+      # @evidence EVID-CMMI-PP-004
+
+  # @invariante INV-PP-002: No hay desviación sin acción correctiva
+  Regla: Toda desviación genera acción correctiva
+
+    Escenario: Desviación sin acción
+      Dado que hay desviación >10% sin acción
+      Cuando se detecta
+      Entonces se escala a dirección
+      Y se registra como riesgo abierto
+      # @evidence EVID-CMMI-PP-005
+
+  Regla: Los riesgos se revisan periódicamente
+
+    Escenario: Revisión trimestral de riesgos
+      Dado que es fin de trimestre
+      Cuando se revisan riesgos
+      Entonces cada riesgo tiene estado actualizado
+      Y se identifican nuevos riesgos

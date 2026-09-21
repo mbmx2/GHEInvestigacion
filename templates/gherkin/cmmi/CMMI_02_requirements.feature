@@ -20,49 +20,53 @@ Característica: CMMI - Desarrollo de Requisitos (RD + REQM)
     Escenario: Requisito completo
       Dado que se define un requisito
       Cuando se documenta
-      Entonces incluye:
-        | Campo                      |
-        | ID único                  |
-        | Descripción clara         |
-        | Fuente (norma/stakeholder)|
-        | Prioridad                 |
-        | Criterio de aceptación   |
-        | Método de verificación   |
-        | Estado                    |
+      Entonces incluye: ID único, descripción, fuente, prioridad, criterio de aceptación, método de verificación, estado
       # @evidence EVID-CMMI-RD-001
+
+    Escenario: Requisito incompleto
+      Dado que se detecta requisito sin criterio de aceptación
+      Cuando se verifica
+      Entonces se bloquea hasta completar
+      # @evidence EVID-CMMI-RD-001-N
 
   Regla: Los requisitos se validan con stakeholders
 
     Escenario: Validación con usuario final
       Dado que se tiene un requisito
       Cuando se valida con stakeholder
-      Entonces se confirma que el requisito:
-        | Verificación              |
-        | Es correcto               |
-        | Es completo               |
-        | Es consistente            |
-        | Es verificable            |
+      Entonces se confirma que es correcto, completo, consistente y verificable
       # @evidence EVID-CMMI-RD-002
 
+  # @invariante INV-RD-001: Cada requisito tiene trazabilidad completa
   Regla: Los requisitos tienen trazabilidad
 
     Escenario: Trazabilidad completa
       Dado que se tiene un requisito
       Cuando se verifica trazabilidad
-      Entonces se puede rastrear:
-        | Cadena                     |
-        | Requisito → Norma         |
-        | Requisito → Feature       |
-        | Requisito → Test          |
-        | Requisito → Evidencia     |
+      Entonces se puede rastrear: requisito → norma, feature, test, evidencia
       # @evidence EVID-CMMI-RD-003
+
+    Escenario: Trazabilidad rota
+      Dado que un requisito NO tiene test asociado
+      Cuando se detecta
+      Entonces se genera gap de trazabilidad
+      Y se solicita crear el test antes de avanzar
+      # @evidence EVID-CMMI-RD-003-N
 
   Regla: Los cambios de requisitos se gestionan
 
     Escenario: Cambio de requisito
       Dado que un requisito necesita cambio
       Cuando se solicita
-      Entonces se evalúa impacto
-      Y se aprueba antes de implementar
-      Y se actualiza trazabilidad
+      Entonces se evalúa impacto, se aprueba, se actualiza trazabilidad
       # @evidence EVID-CMMI-RD-004
+
+  # @invariante INV-RD-002: No se implementa sin requisito aprobado
+  Regla: No hay implementación sin requisito
+
+    Escenario: Implementación sin requisito
+      Dado que se detecta código sin requisito asociado
+      Cuando se audita
+      Entonces se marca como deuda técnica
+      Y se solicita documentar el requisito retroactivamente
+      # @evidence EVID-CMMI-RD-005
