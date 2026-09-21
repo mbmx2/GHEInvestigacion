@@ -1,6 +1,7 @@
 # language: es
 # Deuda Técnica - Priorización
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 # PRIORIZACIÓN: Decidir qué deuda reducir primero

@@ -1,6 +1,7 @@
 # language: es
 # Hexagonal Architecture - Dependency Injection / Composition Root
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # RAÍZ DE COMPOSICIÓN: Ensambla adaptadores con puertos

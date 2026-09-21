@@ -1,6 +1,7 @@
 # language: es
 # SWEBOK KA-11: Software Engineering Professional Practice
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Práctica Profesional de Ingeniería de Software

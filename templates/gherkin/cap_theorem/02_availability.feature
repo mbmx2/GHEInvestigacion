@@ -1,6 +1,7 @@
 # language: es
 # CAP Theorem - Disponibilidad
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 # DISPONIBILIDAD: Cada petición recibe una respuesta (éxito o error)

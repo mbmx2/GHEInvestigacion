@@ -1,6 +1,7 @@
 # language: es
 # Anti-Patrones de Arquitectura de Software
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:quality
 Característica: Anti-Patrones Arquitectónicos (GHE)

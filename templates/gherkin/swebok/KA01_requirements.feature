@@ -1,6 +1,7 @@
 # language: es
 # SWEBOK KA-01: Software Requirements
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Requisitos de Software

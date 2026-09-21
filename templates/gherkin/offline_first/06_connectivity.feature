@@ -1,6 +1,7 @@
 # language: es
 # Offline-First - Connectivity Detection
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # DETECCIÓN DE CONECTIVIDAD: Saber cuándo hay internet

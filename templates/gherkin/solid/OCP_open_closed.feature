@@ -1,6 +1,7 @@
 # language: es
 # SOLID - O: Open/Closed Principle
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PRINCIPIO: Entidades de software deben estar abiertas a extensión, cerradas a modificación

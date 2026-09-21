@@ -1,6 +1,7 @@
 # language: es
 # SWEBOK KA-09: Software Engineering Models and Methods
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Modelos y Métodos de Ingeniería de Software

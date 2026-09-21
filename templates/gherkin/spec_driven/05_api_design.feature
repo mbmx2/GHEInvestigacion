@@ -1,6 +1,7 @@
 # language: es
 # Clojure Spec Driven Design - API Design
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # DISEÑO DE API: Usar specs para definir contratos de API

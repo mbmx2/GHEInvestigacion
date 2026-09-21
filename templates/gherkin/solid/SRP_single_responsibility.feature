@@ -1,6 +1,7 @@
 # language: es
 # SOLID - S: Single Responsibility Principle
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PRINCIPIO: Cada módulo/clase debe tener una sola razón para cambiar

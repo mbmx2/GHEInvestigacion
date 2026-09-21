@@ -1,6 +1,7 @@
 # language: es
 # CAP Theorem - Consistencia
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 # CONSISTENCIA: Todos los nodos ven los mismos datos al mismo tiempo

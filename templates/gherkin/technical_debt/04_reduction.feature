@@ -1,6 +1,7 @@
 # language: es
 # Deuda Técnica - Reducción
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 # REDUCCIÓN: Estrategias para eliminar deuda técnica

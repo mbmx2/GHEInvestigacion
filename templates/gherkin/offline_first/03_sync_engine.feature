@@ -1,6 +1,7 @@
 # language: es
 # Offline-First - Sync Engine
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # MOTOR DE SINCRONIZACIÓN: Sincronizar datos locales con cloud

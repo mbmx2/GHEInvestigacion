@@ -1,6 +1,7 @@
 # language: es
 # Anti-Patrones de Software Médico
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:quality
 Característica: Anti-Patrones Médicos (GHE)

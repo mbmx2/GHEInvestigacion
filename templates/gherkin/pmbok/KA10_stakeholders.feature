@@ -1,6 +1,7 @@
 # language: es
 # PMBOK KA-10: Project Stakeholder Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Interesados del Proyecto

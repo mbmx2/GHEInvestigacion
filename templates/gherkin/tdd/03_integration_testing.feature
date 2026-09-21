@@ -1,6 +1,8 @@
 # language: es
 # TDD - Integration Testing
 @status:proposed
+# @evidence:code
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PRUEBAS DE INTEGRACIÓN: Tests de componentes trabajando juntos

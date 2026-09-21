@@ -1,6 +1,7 @@
 # language: es
 # PMBOK KA-03: Project Schedule Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión del Cronograma del Proyecto

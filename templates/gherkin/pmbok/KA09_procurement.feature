@@ -1,6 +1,7 @@
 # language: es
 # PMBOK KA-09: Project Procurement Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Adquisiciones del Proyecto

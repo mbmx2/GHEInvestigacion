@@ -1,6 +1,7 @@
 # language: es
 # Deuda Técnica - Identificación y Clasificación
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 # DETECCIÓN: Encontrar y clasificar deuda técnica antes de que crezca

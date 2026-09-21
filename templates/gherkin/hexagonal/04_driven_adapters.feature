@@ -1,6 +1,7 @@
 # language: es
 # Hexagonal Architecture - Driven Adapters (Output)
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ADAPTADORES DE SALIDA: Implementan los puertos de salida del dominio

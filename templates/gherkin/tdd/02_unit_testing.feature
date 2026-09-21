@@ -1,6 +1,8 @@
 # language: es
 # TDD - Unit Testing
 @status:proposed
+# @evidence:code
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PRUEBAS UNITARIAS: Tests de funciones aisladas del dominio

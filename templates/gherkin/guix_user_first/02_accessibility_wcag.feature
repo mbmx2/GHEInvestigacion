@@ -1,6 +1,7 @@
 # language: es
 # GUIX User First - Accesibilidad (WCAG)
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ACCESIBILIDAD: Que TODOS puedan usar el sistema

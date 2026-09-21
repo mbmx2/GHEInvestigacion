@@ -1,6 +1,7 @@
 # language: es
 # GUIX User First - UI/UX para Software Médico
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # DISEÑO ESPECÍFICO PARA ENTORNO CLÍNICO

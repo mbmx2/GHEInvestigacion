@@ -1,6 +1,7 @@
 # language: es
 # Hexagonal Architecture - Driving Adapters (Input)
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ADAPTADORES DE ENTRADA: Conectan el mundo exterior con los puertos de entrada

@@ -1,6 +1,7 @@
 # language: es
 # GUIX User First - Navegación
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # NAVEGACIÓN: Encontrar lo que necesitas rápidamente

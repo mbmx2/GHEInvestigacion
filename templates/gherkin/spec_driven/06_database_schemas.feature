@@ -1,6 +1,7 @@
 # language: es
 # Clojure Spec Driven Design - Database Schemas
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ESQUEMAS DE BD: Usar specs para definir esquemas de base de datos

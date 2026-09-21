@@ -1,6 +1,7 @@
 # language: es
 # GUIX User First - Formularios
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # FORMULARIOS: Entrada de datos eficiente y sin errores

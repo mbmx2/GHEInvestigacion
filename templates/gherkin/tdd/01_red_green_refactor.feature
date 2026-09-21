@@ -1,6 +1,8 @@
 # language: es
 # TDD - Ciclo Red-Green-Refactor
 @status:proposed
+# @evidence:code
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # EL CICLO FUNDAMENTAL: Escribir test → Falla → Escribir código → Pasa → Refactorizar

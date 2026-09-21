@@ -1,6 +1,7 @@
 # language: es
 # PMBOK KA-08: Project Risk Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Riesgos del Proyecto

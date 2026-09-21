@@ -1,6 +1,7 @@
 # language: es
 # Clojure Spec Driven Design - Generative Testing
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # TESTING GENERATIVO: Usar specs para generar datos de prueba automáticamente

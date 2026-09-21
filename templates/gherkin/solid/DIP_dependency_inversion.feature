@@ -1,6 +1,7 @@
 # language: es
 # SOLID - D: Dependency Inversion Principle
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PRINCIPIO: Los módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones.

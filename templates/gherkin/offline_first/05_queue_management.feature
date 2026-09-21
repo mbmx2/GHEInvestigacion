@@ -1,6 +1,7 @@
 # language: es
 # Offline-First - Queue Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # GESTIÓN DE COLA: Administrar operaciones pendientes de sync

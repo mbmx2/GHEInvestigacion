@@ -1,6 +1,7 @@
 # language: es
 # Clojure Spec Driven Design - Validación de Datos
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # VALIDACIÓN: Usar specs para validar entrada en cada capa

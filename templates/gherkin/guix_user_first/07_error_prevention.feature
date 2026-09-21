@@ -1,6 +1,7 @@
 # language: es
 # GUIX User First - Prevención de Errores
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PREVENCIÓN DE ERRORES: Evitar que el usuario cometa errores

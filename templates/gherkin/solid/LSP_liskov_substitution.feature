@@ -1,6 +1,7 @@
 # language: es
 # SOLID - L: Liskov Substitution Principle
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PRINCIPIO: Objetos de un subtipo deben ser sustituibles por objetos del supertipo sin alterar comportamiento

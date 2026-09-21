@@ -1,6 +1,7 @@
 # language: es
 # SWEBOK KA-02: Software Design
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Diseño de Software

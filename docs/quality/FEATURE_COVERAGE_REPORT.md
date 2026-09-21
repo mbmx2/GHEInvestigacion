@@ -14,8 +14,8 @@
 | Escenarios totales | 1,764 | `grep -r "Escenario" templates/gherkin/ \| wc -l` |
 | IDs únicos | 60 | `grep -r "^# @id " templates/gherkin/ \| sort -u \| wc -l` |
 | Features con @domain | 260 (100%) | `grep -r '@domain:' templates/gherkin/ \| wc -l` |
-| Features con @evidence | 229 (88%) | `grep -r '@evidence' templates/gherkin/ \| wc -l` |
-| Features con @requirement | 50 (19%) | `grep -r '@requirement:' templates/gherkin/ \| wc -l` |
+| Features con @evidence | 253 (97%) | `grep -r '@evidence' templates/gherkin/ \| wc -l` |
+| Features con @requirement | 62 (24%) | `grep -r '@requirement:' templates/gherkin/ \| wc -l` |
 | Features con @invariant | 29 (11%) | `grep -r '@invariant' templates/gherkin/ \| wc -l` |
 | Features con Regla: | 204 (78%) | `grep -r 'Regla:' templates/gherkin/ \| wc -l` |
 | Duplicados exactos | 0 | `validate_features.sh` |

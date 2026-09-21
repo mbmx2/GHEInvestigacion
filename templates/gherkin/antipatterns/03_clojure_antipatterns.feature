@@ -1,6 +1,7 @@
 # language: es
 # Anti-Patrones de Código Clojure
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:quality
 Característica: Anti-Patrones de Código (GHE)

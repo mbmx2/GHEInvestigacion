@@ -1,6 +1,7 @@
 # language: es
 # Clojure Spec Driven Design - Dominio del Negocio
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # SPECS como documentación viva del dominio médico

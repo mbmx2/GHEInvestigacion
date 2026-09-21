@@ -1,6 +1,7 @@
 # language: es
 # PMBOK KA-05: Project Quality Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Calidad del Proyecto

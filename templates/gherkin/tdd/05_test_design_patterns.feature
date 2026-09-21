@@ -1,6 +1,8 @@
 # language: es
 # TDD - Test Design Patterns
 @status:proposed
+# @evidence:code
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PATRONES DE DISEÑO DE TESTS: Estrategias para tests mantenibles

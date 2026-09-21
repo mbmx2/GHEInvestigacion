@@ -1,6 +1,7 @@
 # language: es
 # Event-Driven Architecture
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 Característica: Arquitectura Basada en Eventos (GHE)

@@ -1,6 +1,7 @@
 # language: es
 # Deuda Técnica - Métricas y Tracking
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 # MÉTRICAS: Medir deuda técnica objetivamente

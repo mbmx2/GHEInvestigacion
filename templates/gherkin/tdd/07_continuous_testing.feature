@@ -1,6 +1,8 @@
 # language: es
 # TDD - Continuous Testing
 @status:proposed
+# @evidence:code
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # TESTING CONTINUO: Tests que se ejecutan durante todo el ciclo de vida

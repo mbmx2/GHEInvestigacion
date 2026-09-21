@@ -1,6 +1,7 @@
 # language: es
 # SOLID - I: Interface Segregation Principle
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PRINCIPIO: No forzar a los clientes a depender de interfaces que no usan

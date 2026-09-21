@@ -1,6 +1,7 @@
 # language: es
 # PMBOK KA-07: Project Communications Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Comunicaciones del Proyecto

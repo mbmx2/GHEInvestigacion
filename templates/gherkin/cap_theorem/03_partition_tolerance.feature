@@ -1,6 +1,7 @@
 # language: es
 # CAP Theorem - Tolerancia a Particiones
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 # PARTITION TOLERANCE: El sistema funciona cuando hay separación de red

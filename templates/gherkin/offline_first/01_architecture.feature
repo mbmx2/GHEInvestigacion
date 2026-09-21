@@ -1,6 +1,7 @@
 # language: es
 # Offline-First - Arquitectura Base
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # FILOSOFÍA: El sistema funciona SIN internet como si tuviera conexión

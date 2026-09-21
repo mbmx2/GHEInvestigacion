@@ -1,6 +1,7 @@
 # language: es
 # Code Review
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 Característica: Revisión de Código (GHE)

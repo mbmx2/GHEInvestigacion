@@ -1,6 +1,8 @@
 # language: es
 # TDD - Test Automation
 @status:proposed
+# @evidence:code
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # AUTOMATIZACIÓN DE TESTS: Ejecución automática en cada commit

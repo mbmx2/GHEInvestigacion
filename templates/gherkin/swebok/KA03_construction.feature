@@ -1,6 +1,7 @@
 # language: es
 # SWEBOK KA-03: Software Construction
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Construcción de Software

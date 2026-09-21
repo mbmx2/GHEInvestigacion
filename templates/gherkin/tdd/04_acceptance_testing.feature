@@ -1,6 +1,8 @@
 # language: es
 # TDD - Acceptance Testing
 @status:proposed
+# @evidence:code
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PRUEBAS DE ACEPTACIÓN: Tests que validan requisitos desde la perspectiva del usuario

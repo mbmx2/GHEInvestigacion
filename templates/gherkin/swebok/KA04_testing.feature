@@ -1,6 +1,7 @@
 # language: es
 # SWEBOK KA-04: Software Testing
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Pruebas de Software

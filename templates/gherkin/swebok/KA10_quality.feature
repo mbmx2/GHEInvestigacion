@@ -1,6 +1,7 @@
 # language: es
 # SWEBOK KA-10: Software Quality
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Calidad de Software

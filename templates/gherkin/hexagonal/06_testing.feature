@@ -1,6 +1,7 @@
 # language: es
 # Hexagonal Architecture - Testing
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # TESTING: Cómo la arquitectura hexagonal facilita el testing

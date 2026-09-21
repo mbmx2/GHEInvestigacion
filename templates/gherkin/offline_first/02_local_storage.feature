@@ -1,6 +1,7 @@
 # language: es
 # Offline-First - Local Storage (SQLite)
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ALMACENAMIENTO LOCAL: SQLite como fuente de verdad

@@ -1,6 +1,7 @@
 # language: es
 # GUIX User First - Localización e Internacionalización
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # i18n y l10n: Adaptar el sistema a locale del usuario

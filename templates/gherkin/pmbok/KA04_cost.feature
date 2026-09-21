@@ -1,6 +1,7 @@
 # language: es
 # PMBOK KA-04: Project Cost Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Costos del Proyecto

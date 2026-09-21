@@ -1,6 +1,7 @@
 # language: es
 # Hexagonal Architecture - Ports (Interfaces)
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # PUERTOS: Contratos que define el dominio para interactuar con el exterior

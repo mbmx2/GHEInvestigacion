@@ -1,6 +1,7 @@
 # language: es
 # Offline-First - Data Integrity During Sync
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # INTEGRIDAD DE DATOS: Garantizar que los datos no se corrompen durante sync

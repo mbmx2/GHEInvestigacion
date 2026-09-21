@@ -1,6 +1,7 @@
 # language: es
 # SWEBOK KA-05: Software Maintenance
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Mantenimiento de Software

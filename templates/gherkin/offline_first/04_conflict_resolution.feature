@@ -1,6 +1,7 @@
 # language: es
 # Offline-First - Conflict Resolution
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # RESOLUCIÓN DE CONFLICTOS: Manejar cuando los datos cambian en ambos lados

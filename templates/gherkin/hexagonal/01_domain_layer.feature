@@ -1,6 +1,7 @@
 # language: es
 # Hexagonal Architecture - Domain Layer (Core)
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # CAPA CENTRAL: Lógica de negocio pura, sin dependencias de infraestructura

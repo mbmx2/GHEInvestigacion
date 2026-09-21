@@ -1,6 +1,7 @@
 # language: es
 # API Design Patterns
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 Característica: Patrones de Diseño de API (GHE)

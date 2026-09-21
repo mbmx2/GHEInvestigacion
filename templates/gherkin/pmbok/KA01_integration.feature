@@ -1,6 +1,7 @@
 # language: es
 # PMBOK KA-01: Project Integration Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión Integrada de Proyectos

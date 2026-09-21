@@ -1,6 +1,7 @@
 # language: es
 # GUIX User First - Responsive Design
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # DISEÑO RESPONSIVO: Que funcione en cualquier tamaño de pantalla

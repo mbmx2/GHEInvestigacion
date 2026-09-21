@@ -1,6 +1,7 @@
 # language: es
 # PMBOK KA-06: Project Resource Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Recursos del Proyecto

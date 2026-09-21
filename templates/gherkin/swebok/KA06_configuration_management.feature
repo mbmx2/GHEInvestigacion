@@ -1,6 +1,7 @@
 # language: es
 # SWEBOK KA-06: Software Configuration Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Configuración de Software

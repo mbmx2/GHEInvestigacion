@@ -1,6 +1,7 @@
 # language: es
 # CRAP Index y Métricas de Riesgo de Cambio
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:quality
 Característica: Análisis CRAP y Métricas de Riesgo (GHE)

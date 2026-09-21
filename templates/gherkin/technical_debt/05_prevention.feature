@@ -1,6 +1,7 @@
 # language: es
 # Deuda Técnica - Prevención
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 # PREVENCIÓN: Evitar que se acumule más deuda técnica

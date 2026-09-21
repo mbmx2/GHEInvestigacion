@@ -1,6 +1,7 @@
 # language: es
 # SWEBOK KA-07: Software Engineering Management
 @status:proposed
+# @requirement:PRACTICE-GHE-001
 @type:acceptance
 @domain:general
 # ÁREA DE CONOCIMIENTO: Gestión de Ingeniería de Software

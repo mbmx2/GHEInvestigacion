@@ -1,6 +1,7 @@
 # language: es
 # Deuda Técnica - Reporting
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 # REPORTING: Comunicar estado de deuda técnica a stakeholders

@@ -1,6 +1,7 @@
 # language: es
 # CI/CD Pipeline
 @status:proposed
+# @evidence:code
 @type:acceptance
 @domain:general
 Característica: Pipeline de Integración Continua y Despliegue Continuo (GHE)
