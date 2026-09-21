@@ -150,9 +150,104 @@ Escalar a múltiples maternidades.
 
 ---
 
+## Asignación de Features por Fase
+
+### Fase 0: Fundamentos (Semanas 1-8)
+| Categoría | Features | Total |
+|---|---|---|
+| spec_driven | 01-07 | 7 |
+| hexagonal | 01-06 | 6 |
+| solid | 01-05 | 5 |
+| cap_theorem | 01-03 | 3 |
+| offline_first | 01-07 | 7 |
+| guiX_user_first | 01-08 | 8 |
+| **Total Fase 0** | | **36** |
+
+### Fase 1: Core Clínico (Semanas 9-20)
+| Categoría | Features | Total |
+|---|---|---|
+| patient_lifecycle | 01 | 1 |
+| clinical_decision_support | 01 | 1 |
+| maternity | 01-05, 10-11 | 7 |
+| medical_calculations | 01-05 | 5 |
+| clinical_safety | 01-06 | 6 |
+| **Total Fase 1** | | **20** |
+
+### Fase 2: Agenda y Administración (Semanas 21-32)
+| Categoría | Features | Total |
+|---|---|---|
+| agenda | 01-07 | 7 |
+| **Total Fase 2** | | **7** |
+
+### Fase 3: Integración Hospitalaria (Semanas 33-44)
+| Categoría | Features | Total |
+|---|---|---|
+| hospital | 01-24 | 24 |
+| medication_management | 01 | 1 |
+| laboratory_workflows | 01 | 1 |
+| imaging_workflows | 01 | 1 |
+| emergency_response | 01 | 1 |
+| **Total Fase 3** | | **28** |
+
+### Fase 4: Seguridad y Cumplimiento (Semanas 45-52)
+| Categoría | Features | Total |
+|---|---|---|
+| owasp | A01-A10 + ASVS | 11 |
+| owasp_asvs | V01-V14 | 13 |
+| owasp_samm | 01-05 | 5 |
+| secure_by_design | 01-07 | 7 |
+| **Total Fase 4** | | **36** |
+
+### Fase 5: Piloto (Semanas 53-64)
+| Categoría | Features | Total |
+|---|---|---|
+| maternity (piloto) | Validación con datos reales | — |
+| clinical_safety | 03 (competency) | 1 |
+| quality_compliance | 01 | 1 |
+| **Total Fase 5** | | **2** |
+
+### Features sin fase asignada (requieren decisión)
+| Categoría | Features | Total |
+|---|---|---|
+| technical_debt | 01-06 | 6 |
+| tdd | 01-07 | 7 |
+| antipatterns | 01-04 | 4 |
+| observability | 01-03 | 3 |
+| resilience | 01-02 | 2 |
+| performance | 01 | 1 |
+| disaster_recovery | 01 | 1 |
+| cicd_pipeline | 01 | 1 |
+| code_review | 01 | 1 |
+| domain_events | 01 | 1 |
+| incident_response | 01 | 1 |
+| api_patterns | 01 | 1 |
+| integration | 01 | 1 |
+| financial_management | 01 | 1 |
+| reporting_analytics | 01 | 1 |
+| quality | 01-02 | 2 |
+| **Total sin fase** | | **28** |
+
+### Resumen
+
+| Fase | Features | % del total |
+|---|---|---|
+| Fase 0: Fundamentos | 36 | 14% |
+| Fase 1: Core Clínico | 20 | 8% |
+| Fase 2: Agenda | 7 | 3% |
+| Fase 3: Integración | 28 | 11% |
+| Fase 4: Seguridad | 36 | 14% |
+| Fase 5: Piloto | 2 | 1% |
+| Sin fase | 28 | 11% |
+| Ya existentes (maternity/hospital) | 58 | 22% |
+| ASVS/SAMM | 39 | 15% |
+| **TOTAL** | **260** | **100%** |
+
+---
+
 ## Referencias
 
 - PROJECT_CHARTER.md
 - SCOPE.md
 - MATURITY_MODEL.md
-- ADR-001 a ADR-007
+- ADR-001 a ADR-006
+- FEATURE_COVERAGE_REPORT.md
