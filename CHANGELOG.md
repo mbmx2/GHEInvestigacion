@@ -1,5 +1,53 @@
 # Changelog - GHEInvestigacion
 
+## v1.7.0 (2024-09-22) — Integración SANS/GIAC
+
+### Nueva categoría: SANS/GIAC — 28 features
+
+**SANS Core Frameworks (6 features):**
+- `01_sans_cis_critical_controls.feature` — CIS Controls Top 18: inventario, control de acceso, auditoría, gestión de vulnerabilidades
+- `02_sans_incident_response_framework.feature` — Framework SANS de IR: preparación, detección, contención, lecciones
+- `03_sans_penetration_testing.feature` — Metodología SANS de pentesting: reconocimiento, explotación, post-explotación, reporte
+- `04_sans_digital_forensics.feature` — Metodología SANS de forense: adquisición, análisis, reporte, preservación
+- `05_sans_threat_intelligence_lifecycle.feature` — Ciclo de vida de inteligencia: recopilación, análisis, distribución, métricas
+- `06_sans_secure_software_development.feature` — Desarrollo seguro: requisitos, diseño, coding, pruebas, despliegue
+
+**GIAC Foundational (7 features):**
+- `07_giac_gsec_security_essentials.feature` — GSEC: fundamentos CIA, redes, SO, controles esenciales
+- `08_giac_gpen_penetration_testing.feature` — GPEN: reconocimiento avanzado, explotación, post-explotación
+- `09_giac_gcih_incident_handling.feature` — GCIH: preparación, detección, contención, recuperación
+- `10_giac_gcia_intrusion_analysis.feature` — GCIA: análisis de tráfico, logs, malware, reporte
+- `11_giac_gcfa_forensic_analysis.feature` — GCFA: adquisición, sistemas de archivos, memoria, registro
+- `12_giac_gwapt_web_application_pentesting.feature` — GWAPT: reconocimiento web, inyección, lógica, reporte
+- `13_giac_gslc_security_leadership.feature` — GSLC: estrategia, programa, comunicación, cultura
+
+**GIAC Advanced (8 features):**
+- `14_giac_grem_reverse_engineering_malware.feature` — GREM: análisis estático/dinámico, ingeniería inversa, clasificación
+- `15_giac_gnfa_network_forensics.feature` — GNFA: captura, análisis de protocolos, exfiltración, reporte
+- `16_giac_gosint_open_source_intelligence.feature` — GOSINT: técnicas OSINT, correlación, OSINT defensivo
+- `17_giac_gicsp_industrial_cyber_security.feature` — GICSP: dispositivos IoT médico, sistemas de control, protocolos ICS
+- `18_giac_gcsa_cloud_security_automation.feature` — GCSA: IaC, Kubernetes, SOAR, automatización
+- `19_giac_gweb_web_application_defense.feature` — GWEB: WAF, defensa contra inyección, monitoreo
+- `20_giac_gcle_cyber_law_essentials.feature` — GCLE: marco legal mexicano, responsabilidades, investigación
+- `21_giac_gwsp_wireless_security.feature` — GWSP: auditoría WiFi, WPA3, detección de ataques
+
+**GIAC Specialized Healthcare (7 features):**
+- `22_giac_gcwn_windows_security.feature` — GCWN: Active Directory, hardening Windows, herramientas nativas
+- `23_giac_gunn_unix_security.feature` — GUNN: hardening Linux, control de acceso, monitoreo
+- `24_giac_gapt_advanced_pentesting.feature` — GAPT: explotación 0-days, pivoting avanzado, exfiltración
+- `25_giac_gcti_cyber_threat_intelligence.feature` — GCTI: fuentes avanzadas, actores de amenaza, inteligencia accionable
+- `26_giac_gxpn_exploit_development.feature` — GXPN: fuzzing, desarrollo de exploits, bypass de defensas
+- `27_giac_gcid_cloud_security_design.feature` — GClD: arquitectura zero trust cloud, controles nativos, compliance
+- `28_giac_gsoc_security_operations_center.feature` — GSOC: diseño SOC, procesos 24/7, métricas, mejora continua
+
+### Impacto en métricas
+- Feature files: 402 → 430 (+28)
+- Escenarios: 2,555 → 2,672 (+117)
+- Categorías: 51 → 52 (+1)
+- SANS/GIAC: nueva categoría con 28 features
+
+---
+
 ## v1.6.0 (2024-09-22) — Profundización ISC2/CISSP
 
 ### Profundización de categoría ISC2/CISSP (28 → 40 features)
