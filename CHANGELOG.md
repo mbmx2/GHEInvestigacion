@@ -1,5 +1,34 @@
 # Changelog - GHEInvestigacion
 
+## v1.4.0 (2024-09-22) — Completación ISACA
+
+### Completación de categoría ISACA (22 → 28 features)
+
+**Nuevos features (6):**
+- `06_cobit_data_governance.feature` — GOV03/AED12: gobernanza de datos, calidad, ciclo de vida, integridad
+- `07_cobit_investment_management.feature` — GOV06: ROI, VAN, portafolio, seguimiento financiero
+- `10_cisa_operations_resilience.feature` — Dominio 4: monitoreo operativo, resiliencia, BIA, capacidad
+- `12_crisc_risk_assessment.feature` — Dominio 2: ALE, costo-beneficio de controles, riesgos de terceros
+- `13_crisc_monitoring_reporting.feature` — Dominio 4: KRIs, dashboard real-time, alertas, reportes automáticos
+- `11_cgeit_it_resources.feature` — Dominio 2: recursos humanos, infraestructura, licencias, datos, capacidad
+
+### Estado final ISACA: 28 features
+
+| Framework | Features | Cobertura |
+|---|---|---|
+| COBIT 2019 | 7 | Gobierno, riesgos, desempeño, diseño, AED, datos, inversiones |
+| CISA | 5 | Auditoría, adquisición/desarrollo, activos, procesos negocio, resiliencia |
+| CISM | 5 | Gobernanza seguridad, riesgos, programa dev/gestión, incidentes |
+| CRISC | 6 | Gestión, identificación, respuesta, controles, evaluación, monitoreo/reportes |
+| CGEIT | 5 | Gobierno, benefits, riesgos, recursos (optimización + gestión) |
+
+### Impacto en métricas
+- Feature files: 356 → 362 (+6)
+- Escenarios: 2,295 → 2,331 (+36)
+- ISACA features: 22 → 28
+
+---
+
 ## v1.3.0 (2024-09-22) — Profundización ISACA
 
 ### Profundización de categoría ISACA (10 → 22 features)
