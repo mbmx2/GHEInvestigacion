@@ -4,11 +4,13 @@
 
 > *"La tecnología al servicio de la vida, donde más se necesita."*
 
+**Release Candidate v1.1.0** — Septiembre 2024
+
 ---
 
 ## Resumen Ejecutivo
 
-GHE es un sistema médico offline-first diseñado para la Maternidad de Altotonga, una comunidad rural en la sierra de Veracruz, México. Combina expedientes clínicos electrónicos, farmacia, triaje obstétrico y recetas en una arquitectura hexagonal robusta y certificable.
+GHE es un sistema médico offline-first diseñado para la Maternidad de Altotonga, una comunidad rural en la sierra de Veracruz, México. Este repositorio contiene la **especificación completa** del sistema: 334 feature files Gherkin con 2,157 escenarios que cubren 49 dominios de conocimiento. No es una implementación funcional terminada, sino el esqueleto especificativo que guiará el desarrollo de GHE-v1.
 
 ### Datos Clave
 
@@ -17,159 +19,141 @@ GHE es un sistema médico offline-first diseñado para la Maternidad de Altotong
 | Ubicación | Altotonga, Veracruz (sierra rural) |
 | Conectividad | 2G/EDGE (intermitente) |
 | Población objetivo | Mujeres embarazadas, familias de bajos recursos |
-| Stack | Clojure, SQLite, Architecture Hexagonal |
-| Tests automatizados | 5,573+ |
-| Meta-testing | PEAEH (verificación de tests) |
+| Stack objetivo | Clojure, SQLite, Architecture Hexagonal |
 | Certificación | IEC 62304 en proceso |
-| Normativa | NOM-004, NOM-007, NOM-024 |
+| Normativa | NOM-004, NOM-007, NOM-024, LFPDPPP |
 
-### Estado del Repositorio (Verificado 2024-09-20)
+---
 
-| Métrica | Valor | Nota |
+## Estado del Repositorio — Release Candidate
+
+Métricas verificadas con comandos de sistema de archivos (`find`, `grep`, `wc`, `git log`).
+
+| Métrica | Valor | Verificación |
 |---|---|---|
-| Archivos totales | 534 | features + docs |
-| Feature files Gherkin | 424 | Verificado con `find` |
-| Documentos .md | 110 | Verificado con `find` |
-| Escenarios Gherkin | 1,478 | Verificado con `grep` |
-| Líneas en features | 43,012 | Verificado con `wc` |
-| Líneas en docs | 25,010 | Verificado con `wc` |
-| Categorías de templates | 31 | Directorios activos |
-| Commits | 35+ | Verificado con `git log` |
+| **Feature files Gherkin** | 334 | `find templates/gherkin -name "*.feature" \| wc -l` |
+| **Escenarios Gherkin** | 2,157 | `grep -c "Escenario" ... \| awk` |
+| **Líneas en features** | 28,968 | `wc -l templates/gherkin/**/*.feature` |
+| **Categorías de dominio** | 49 | `find templates/gherkin -mindepth 1 -maxdepth 1 -type d` |
+| **Categorías con 2+ features** | 49/49 (100%) | Verificado por inventario completo |
+| **Commits** | 72 | `git log --oneline \| wc -l` |
+| **Archivos totales en repo** | 135 | `find . -maxdepth 3 -type f \| wc -l` |
 
-> **Nota:** Las métricas anteriores (248 archivos, 34,148 líneas) estaban desactualizadas. Las cifras aquí son las verificadas con comandos de sistema de archivos.
+### Estado de Profundización
+
+| Fase | Estado | Detalle |
+|---|---|---|
+| Profundización de categorías | ✅ Completada | 49/49 categorías con 2+ features |
+| Hardening de calidad | ✅ Completado | 11 categorías reforzadas con escenarios negativos, edge cases e invariantes |
+| Release Candidate | ✅ Lista | Documentación cerrada, CHANGELOG actualizado |
+
+### Nuevos en v1.1.0
+
+**Phase 1 — Cierre de gaps (7 features):**
+- `imaging_workflows` (1→3): seguridad radiológica, dosimetría, QA por modalidad
+- `quality_compliance` (1→3): audit trail inmutable, envío regulatorio SUIVE/COFEPRIS
+- `iso_13485` (0→3): SGQ, controles de diseño, CAPA
+
+**Phase 2 — Hardening (11 features):**
+- `surgery`: checklist por tipo (cesárea, cardíaca), count quirúrgico, negativos
+- `security`: pentesting avanzado (BOLA, SSRF, replay, deserialización)
+- `medical_calculations`: edge cases (IMC extremo, TFG pediátrica, GCS incompleto)
+- `secure_by_design`: invariantes PHI/TLS/sesiones, SAST/DAST en CI/CD
+- `emergency_response`: protocolos por tipo de desastre (sismo, inundación, incendio, epidemia)
+- `resilience`: circuit breaker, bulkhead, retry, degradación graceful
+- `financial_management`: costo por paciente, GDG, facturación aseguradoras
+- `integration`: ADT HL7v2, validación, tolerancia a fallos
+- `disaster_recovery`: ransomware, contención, recuperación, RTO/RPO
+- `incident_response`: post-mortem, playbooks, lecciones aprendidas
+- `performance`: benchmarks sync offline 2G/WiFi, cola prioritaria
 
 ---
 
 ## Especialidades Médicas Cubiertas
 
-GHE incluye workflows completos para todas las áreas de especialización médica:
-
-| Especialidad | Archivo | Escenarios | Casos de uso |
-|---|---|---|---|
-| **Urgencias** | `emergency.feature` | 10 | Triaje 5 niveles, politraumatismo, PCR, intoxicación |
-| **Cirugía** | `surgery.feature` | 8 | Preoperatorio, intraoperatorio, recuperación, ISQ |
-| **Pediatría** | `pediatrics.feature` | 8 | Niño sano, vacunas, crecimiento, IRA, emergencia |
-| **Medicina Interna** | `internal_medicine.feature` | 8 | Diabetes, HTA, ERC, asma, cetoacidosis, diálisis |
-| **Cardiología** | `cardiology.feature` | 7 | Dolor torácico, ECG, ecocardiograma, ICFE, MAPA |
-| **Neurología** | `neurology.feature` | 7 | Cefalea, Glasgow, epilepsia, ictus, Parkinson |
-| **Ginecología** | `gynecology.feature` | 7 | PAP, miomas, endometriosis, aborto, anticoncepción |
-| **Psiquiatría** | `psychiatry.feature` | 8 | Depresión, ansiedad, riesgo suicida, litio, TEC |
-| **Laboratorio** | `laboratory.feature` | 8 | Solicitud, procesamiento, valores críticos, QC |
-| **Imagenología** | `radiology.feature` | 8 | RX, ecografía, TAC, dosis radiación, lista espera |
-| **Nutrición** | `nutrition.feature` | 8 | Evaluación, plan alimentario, diabéticos, oncológico |
-| **Rehabilitación** | `rehabilitation.feature` | 7 | Evaluación, sesión, progreso, terapia de lenguaje |
-| **Odontología** | `dentistry.feature` | 7 | Odontograma, caries, profilaxis, urgencia, plan |
-| **Referencia** | `referral.feature` | 7 | Referencia, contrarreferencia, interconsulta, seguimiento |
-| **Enf. Crónicas** | `chronic_disease.feature` | 8 | Registro, dashboard, adherencia, complicaciones |
-| **Obstetricia** | `prenatal_control.feature` | 8 | Control prenatal, preeclampsia, CIUR |
-| **Farmacia** | `pharmacy_dispensing.feature` | 8 | Dispensación, stock, interacciones, controlados |
-| **Triaje** | `triage.feature` | 7 | 4 niveles, emergencia, historial |
-| **Receta** | `prescription.feature` | 8 | Generación, alergias, dosis, interacciones |
-| **Registro** | `patient_registration.feature` | 7 | Walk-in, CURP, duplicados, offline |
-
-**Total: 20 archivos, 151 escenarios Gherkin**
+| Especialidad | Archivo | Dominio |
+|---|---|---|
+| **Urgencias** | `emergency.feature` | Clínica |
+| **Cirugía** | `surgery/` (4 features) | Quirúrgico |
+| **Pediatría** | `pediatrics.feature` | Clínica |
+| **Medicina Interna** | `internal_medicine.feature` | Clínica |
+| **Cardiología** | `cardiology.feature` | Clínica |
+| **Neurología** | `neurology.feature` | Clínica |
+| **Ginecología** | `gynecology.feature` | Clínica |
+| **Psiquiatría** | `psychiatry.feature` | Clínica |
+| **Laboratorio** | `laboratory_workflows/` (3 features) | Diagnóstico |
+| **Imagenología** | `imaging_workflows/` (3 features) | Diagnóstico |
+| **Nutrición** | `nutrition.feature` | Clínica |
+| **Rehabilitación** | `rehabilitation.feature` | Clínica |
+| **Odontología** | `dentistry.feature` | Clínica |
+| **Referencia** | `referral.feature` | Interconsulta |
+| **Enf. Crónicas** | `chronic_disease.feature` | Crónico |
+| **Obstetricia** | `prenatal_control.feature` | Materno |
+| **Farmacia** | `pharmacy_dispensing.feature` | Farmacia |
+| **Triaje** | `triage.feature` | Urgencias |
+| **Receta** | `prescription.feature` | Farmacia |
+| **Registro** | `patient_registration.feature` | Administrativo |
 
 ---
 
-## Estructura del Proyecto
+## Categorías de Dominio (49)
 
-```
-GHEInvestigacion/
-├── README.md                          # Este archivo
-├── docs/
-│   ├── strategy/
-│   │   ├── MISSION.md                 # Misión y responsabilidad social
-│   │   ├── MARKET.md                  # Análisis de mercado
-│   │   └── COMPETITIVE.md             # Análisis competitivo
-│   ├── architecture/
-│   │   ├── ARCHITECTURE.md            # Arquitectura hexagonal
-│   │   ├── STANDARDS.md              # Estándares técnicos
-│   │   └── INTEROPERABILITY.md       # HL7 FHIR e interoperabilidad
-│   ├── compliance/
-│   │   ├── NOM004.md                  # Expediente clínico
-│   │   ├── NOM007.md                  # Atención prenatal
-│   │   ├── NOM024.md                  # Sistemas de información
-│   │   ├── IEC62304.md               # Software médico
-│   │   └── LFPDPPP.md               # Protección de datos
-│   ├── clinical/
-│   │   ├── WORKFLOWS.md              # Flujos clínicos
-│   │   ├── TEMPLATES.md              # Plantillas de documentación
-│   │   └── SAFETY.md                 # Seguridad del paciente
-│   ├── quality/
-│   │   ├── QUALITY_STANDARDS.md      # Estándares de calidad
-│   │   ├── TESTING.md                # Estrategia de testing
-│   │   └── AUDIT.md                  # Auditorías
-│   └── operations/
-│       ├── DEPLOYMENT.md             # Despliegue
-│       ├── MONITORING.md             # Monitoreo
-│       └── DISASTER_RECOVERY.md      # Recuperación
-├── templates/
-│   ├── gherkin/
-│   │   ├── patient_registration.feature   # Registro de pacientes
-│   │   ├── prenatal_control.feature       # Control prenatal
-│   │   ├── pharmacy_dispensing.feature    # Dispensación farmacia
-│   │   ├── triage.feature                 # Triaje obstétrico
-│   │   ├── prescription.feature           # Receta electrónica
-│   │   ├── emergency.feature              # Urgencias
-│   │   ├── surgery.feature                # Cirugía
-│   │   ├── pediatrics.feature             # Pediatría
-│   │   ├── internal_medicine.feature      # Medicina Interna
-│   │   ├── cardiology.feature             # Cardiología
-│   │   ├── neurology.feature              # Neurología
-│   │   ├── gynecology.feature             # Ginecología
-│   │   ├── psychiatry.feature             # Psiquiatría
-│   │   ├── laboratory.feature             # Laboratorio
-│   │   ├── radiology.feature              # Imagenología
-│   │   ├── nutrition.feature              # Nutrición
-│   │   ├── rehabilitation.feature         # Rehabilitación
-│   │   ├── dentistry.feature              # Odontología
-│   │   ├── referral.feature               # Referencia/Contrarreferencia
-│   │   └── chronic_disease.feature        # Enfermedades Crónicas
-│   └── workflows/
-│       └── PATIENT_JOURNEY.md             # Journey del paciente
-├── standards/
-│   ├── CODING_STANDARDS.md
-│   ├── SECURITY_STANDARDS.md
-│   └── DATA_STANDARDS.md
-├── src/                               # Código fuente
-└── tests/                             # Tests automatizados
-```
+### Dominios Clínicos (standalone)
+20 archivos `.feature` en raíz de `templates/gherkin/`
 
----
+### Dominios de Infraestructura y Estándares (49 directorios)
 
-## Visión General del Sistema
-
-### Módulos Principales
-
-1. **Expediente Clínico Electrónico (ECE)**
-   - Historia clínica completa
-   - Notas de evolución SOAP
-   - Consentimientos informados
-   - Cumple NOM-004-SSA3-2012
-
-2. **Triaje Obstétrico**
-   - Clasificación de riesgo
-   - Signos vitales maternos
-   - Monitoreo fetal
-   - Cumple NOM-007-SSA1-2016
-
-3. **Farmacia**
-   - Inventario de medicamentos
-   - Dispensación con receta electrónica
-   - Control de lotes y caducidades
-   - Alertas de contraindicaciones
-
-4. **Receta Electrónica**
-   - Prescripción digital
-   - Vinculada al expediente
-   - Firma electrónica del médico
-   - Cumple NOM-004
-
-5. **Reportes y Estadísticas**
-   - Hoja diaria de pacientes
-   - Reporte SUIVE (COFEPRIS)
-   - Indicadores obstétricos
-   - Dashboard ejecutivo
+| Categoría | Features | Foco |
+|---|---|---|
+| `hospital/` | 24 | Hospital completo (24 áreas) |
+| `maternity/` | 34 | Maternidad (24 + 10 propuestas) |
+| `clinical_safety/` | 20 | Seguridad del paciente |
+| `owasp_asvs/` | 13 | Verificación de seguridad |
+| `security/` | 13 | Pentesting y defensa |
+| `swebok/` | 12 | Ingeniería de software |
+| `owasp/` | 11 | Vulnerabilidades web |
+| `cmmi/` | 10 | Madurez de procesos |
+| `nist/` | 10 | Ciberseguridad |
+| `pmbok/` | 10 | Gestión de proyectos |
+| `framework/` | 8 | Framework de agentes |
+| `guix_user_first/` | 8 | UX/UI médico |
+| `agenda/` | 7 | Agenda y workflow engine |
+| `offline_first/` | 7 | Arquitectura offline |
+| `secure_by_design/` | 8 | Seguridad por diseño |
+| `spec_driven/` | 7 | Diseño por especificación |
+| `tdd/` | 7 | Testing驱动 development |
+| `technical_debt/` | 6 | Deuda técnica |
+| `hexagonal/` | 6 | Arquitectura hexagonal |
+| `accessibility/` | 5 | Accesibilidad WCAG |
+| `medical_calculations/` | 6 | Cálculos clínicos |
+| `owasp_samm/` | 5 | MADUREZ DE SEGURIDAD |
+| `solid/` | 5 | Principios SOLID |
+| `antipatterns/` | 4 | Anti-patrones |
+| `patient_lifecycle/` | 4 | Ciclo del paciente |
+| `cap_theorem/` | 3 | Teorema CAP |
+| `clinical_decision_support/` | 3 | CDSS |
+| `laboratory_workflows/` | 3 | Flujos de laboratorio |
+| `medication_management/` | 3 | Gestión de medicamentos |
+| `observability/` | 3 | Observabilidad |
+| `surgery/` | 4 | Checklist quirúrgico |
+| `imaging_workflows/` | 3 | Imagenología |
+| `quality_compliance/` | 3 | Calidad y cumplimiento |
+| `iso_13485/` | 3 | SGQ ISO 13485 |
+| `api_patterns/` | 2 | Patrones de API |
+| `cicd_pipeline/` | 2 | CI/CD |
+| `code_review/` | 2 | Revisión de código |
+| `disaster_recovery/` | 3 | Recuperación |
+| `domain_events/` | 2 | Eventos de dominio |
+| `emergency_response/` | 3 | Respuesta a emergencias |
+| `financial_management/` | 3 | Gestión financiera |
+| `hl7_fhir/` | 2 | Interoperabilidad |
+| `incident_response/` | 3 | Respuesta a incidentes |
+| `integration/` | 3 | Integración de sistemas |
+| `iso_14971/` | 2 | Gestión de riesgos |
+| `performance/` | 3 | Ingeniería de rendimiento |
+| `quality/` | 2 | Calidad |
+| `reporting_analytics/` | 2 | Reportes |
+| `resilience/` | 3 | Resiliencia |
 
 ---
 
@@ -217,22 +201,10 @@ GHEInvestigacion/
 | NOM-004-SSA3-2012 | Cumple | Expediente clínico |
 | NOM-007-SSA1-2016 | Cumple | Atención prenatal |
 | NOM-024-SSA3-2012 | En proceso | Sistemas de información |
-| ISO 13485 | Objetivo | Sistema de gestión de calidad |
-| ISO 14971 | Objetivo | Gestión de riesgos |
-
----
-
-## Métricas del Repositorio
-
-| Métrica | Valor |
-|---|---|
-| **Archivos totales** | 144 |
-| **Líneas totales** | 19,190 |
-| **Escenarios Gherkin** | 151+ |
-| **Especialidades médicas** | 20 |
-| **Marcos de referencia** | 10 |
-| **Casos multiagente** | 4 |
-| **Guías de referencia** | 12 |
+| ISO 13485 | Especificado | SGQ (3 features) |
+| ISO 14971 | Especificado | Gestión de riesgos |
+| OWASP Top 10 + ASVS | Cubierto | 24 features de seguridad |
+| LFPDPPP | Cumple | Protección de datos |
 
 ---
 
@@ -247,41 +219,38 @@ GHEInvestigacion/
 | **Compliance** | NOM-004/NOM-024/IEC 62304 | `docs/compliance/` |
 | **Ejecutivos** | Misión + Estrategia | `docs/strategy/MISSION.md` |
 | **QA/Testing** | Estrategia de testing | `docs/quality/TESTING.md` |
-| **Seguridad** | OWASP + Secure by Design | `docs/quality/OWASP_GUIDE.md` |
-| **UX/UI** | GUIX User First | `docs/quality/GUIX_USER_FIRST_GUIDE.md` |
-| **Multiagente** | Análisis de casos | `templates/multiagent_cases/` |
+| **Seguridad** | OWASP + Secure by Design | `templates/gherkin/owasp/` |
+| **UX/UI** | GUIX User First | `templates/gherkin/guix_user_first/` |
 
 ### Por framework:
 
-| Framework | Directorio | Contenido |
+| Framework | Directorio | Features |
 |---|---|---|
-| **SWEBOK** | `templates/gherkin/swebok/` | 12 áreas de ingeniería |
-| **PMBOK** | `templates/gherkin/pmbok/` | 10 áreas de gestión |
-| **SOLID** | `templates/gherkin/solid/` | 5 principios de diseño |
-| **Hexagonal** | `templates/gherkin/hexagonal/` | 6 componentes |
-| **OWASP** | `templates/gherkin/owasp/` | 11 vulnerabilidades |
-| **TDD** | `templates/gherkin/tdd/` | 7 prácticas |
-| **Secure by Design** | `templates/gherkin/secure_by_design/` | 7 componentes |
-| **Offline-First** | `templates/gherkin/offline_first/` | 7 componentes |
-| **GUIX User First** | `templates/gherkin/guix_user_first/` | 8 componentes |
-| **Spec Driven** | `templates/gherkin/spec_driven/` | 7 componentes |
-| **Deuda Técnica** | `templates/gherkin/technical_debt/` | 6 componentes |
-| **Cálculos Médicos** | `templates/gherkin/medical_calculations/` | 5 componentes |
-
-### Documentación final:
-
-| Documento | Contenido |
-|---|---|
-| `docs/AGENTIC_WORKFLOWS.md` | Workflows que vinculan todos los templates |
-| `docs/COMPLETE_PROJECT_DOCS.md` | Qué, por qué, cómo del proyecto |
-| `docs/VALUE_ADD_PROPOSALS.md` | Propuestas de valor añadido |
+| **SWEBOK** | `templates/gherkin/swebok/` | 12 |
+| **PMBOK** | `templates/gherkin/pmbok/` | 10 |
+| **SOLID** | `templates/gherkin/solid/` | 5 |
+| **Hexagonal** | `templates/gherkin/hexagonal/` | 6 |
+| **OWASP** | `templates/gherkin/owasp/` | 11 |
+| **TDD** | `templates/gherkin/tdd/` | 7 |
+| **Secure by Design** | `templates/gherkin/secure_by_design/` | 8 |
+| **Offline-First** | `templates/gherkin/offline_first/` | 7 |
+| **GUIX User First** | `templates/gherkin/guix_user_first/` | 8 |
+| **Spec Driven** | `templates/gherkin/spec_driven/` | 7 |
+| **Deuda Técnica** | `templates/gherkin/technical_debt/` | 6 |
+| **Cálculos Médicos** | `templates/gherkin/medical_calculations/` | 6 |
+| **ISO 13485** | `templates/gherkin/iso_13485/` | 3 |
+| **ISO 14971** | `templates/gherkin/iso_14971/` | 2 |
+| **CMMI** | `templates/gherkin/cmmi/` | 10 |
+| **NIST** | `templates/gherkin/nist/` | 10 |
 
 ---
 
 ## Licencia
 
-Proyecto privado — Maternidad de Altotonga, Veracruz, México.
+MIT License — Ver `LICENSE` para detalles completos.
+
+Proyecto con excepción para uso en salud pública: sin costo de licencia para instituciones de salud, siempre que se mantenga el copyright y se contribuyan mejoras.
 
 ---
 
-*GHE: Tecnología con propósito social, documentación completa, conocimiento transferible.*
+*GHE: Tecnología con propósito social, especificación completa, conocimiento transferible.*

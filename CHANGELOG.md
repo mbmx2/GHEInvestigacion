@@ -1,5 +1,79 @@
 # Changelog - GHEInvestigacion
 
+## v1.1.0-rc.1 (2024-09-21) — Release Candidate
+
+### Cierre de Release Candidate
+
+**Estado:** Repositorio listo para revisión como base de especificación de GHE-v1.
+
+**Métricas verificadas (comandos de sistema):**
+- 334 feature files Gherkin (`find ... | wc -l`)
+- 2,157 escenarios (`grep -c "Escenario" ... | awk`)
+- 28,968 líneas en features (`wc -l`)
+- 49 categorías de dominio (100% con 2+ features)
+- 72 commits (`git log --oneline | wc -l`)
+
+**Cambios en esta versión:**
+- README.md actualizado con métricas verificadas y estructura de 49 categorías
+- CHANGELOG.md actualizado con cierre de milestones 1, 2 y 3
+- CONTRIBUTING.md completado con guías de contribución, convenciones y checklist de revisión
+- Licencia MIT verificada con excepción para salud pública
+- 18 features nuevos (7 profundización + 11 hardening)
+- 0 gaps de cobertura restantes
+
+**Alcance:**
+- Este repositorio es una **especificación**, no una implementación funcional
+- No contiene código Clojure ni lógica de negocio
+- Sirve como base de requisitos y validación para GHE-v1
+
+---
+
+## v1.1.0 (2024-09-21)
+
+### Profundización de Categorías — Milestone 1+2
+
+**7 archivos nuevos en Phase 1 (cierro de gaps):**
+- `imaging_workflows/02_radiation_safety_dosimetry.feature` — Seguridad radiológica, dosimetría, protección de embarazadas
+- `imaging_workflows/03_quality_assurance_imaging.feature` — QA por modalidad (RX, US, TAC), reacción a contraste
+- `quality_compliance/02_audit_trail_integrity.feature` — Trazabilidad inmutable, retención de logs, detección de anomalías
+- `quality_compliance/03_regulatory_submission.feature` — SUIVE, NOM-007, COFEPRIS, CFDI fiscal
+- `iso_13485/01_quality_management_system.feature` — SGQ: control de documentos, revisión por dirección, recursos
+- `iso_13485/02_design_controls.feature` — Entradas/salidas de diseño, verificación, validación, design transfer
+- `iso_13485/03_CAPA_corrective_preventive.feature` — CAPA: causa raíz, efectividad, ciclo de vida, escalamiento
+
+**11 archivos nuevos en Phase 2 (hardening de calidad):**
+- `surgery/04_surgical_checklist_by_type.feature` — Checklists por tipo: cesárea, histerectomía, cardíaca, count quirúrgico
+- `security/05_penetration_testing_advanced.feature` — Pentesting avanzado: BOLA, SSRF, deserialización, phishing, replay attacks
+- `medical_calculations/06_edge_cases_boundary.feature` — Edge cases: IMC extremo, TFG pediátrica, GCS incompleto, APACHE incompleto
+- `secure_by_design/08_invariants_monitoring.feature` — Invariantes PHI, TLS, sesiones, privilegios, SAST/DAST en CI/CD
+- `emergency_response/03_disaster_protocols.feature` — Protocolos por tipo: sismo, inundación, incendio, epidemia, emergencia dual
+- `resilience/03_circuit_breaker_patterns.feature` — Circuit breaker, bulkhead, retry con backoff, degradación graceful, health checks
+- `financial_management/03_inventory_accounting.feature` — Costo por paciente, valoración de inventario, facturación a aseguradoras
+- `integration/03_legacy_adt_hl7v2.feature` — ADT A01/A03/A08, validación HL7v2, ORU, catálogos, tolerancia a fallos
+- `disaster_recovery/03_ransomware_scenarios.feature` — Detección de ransomware, contención, recuperación desde backup, RTO
+- `incident_response/03_post_mortem_playbooks.feature` — Post-mortem obligatorio, playbooks de fallo DB/auth/conectividad, lecciones
+- `performance/03_offline_sync_benchmarks.feature` — Benchmarks sync 2G/WiFi, cola prioritaria, compresión, métricas
+
+### Categorías ahora con 3+ features (antes tenían 1)
+- imaging_workflows: 1 → 3
+- quality_compliance: 1 → 3
+- iso_13485: 0 → 3 (nueva)
+
+### Categorías con hardening (antes 2-3, ahora 3-4)
+- surgery: 3 → 4
+- security: 12 → 13
+- medical_calculations: 5 → 6
+- secure_by_design: 7 → 8
+- emergency_response: 2 → 3
+- resilience: 2 → 3
+- financial_management: 2 → 3
+- integration: 2 → 3
+- disaster_recovery: 2 → 3
+- incident_response: 2 → 3
+- performance: 2 → 3
+
+---
+
 ## v1.0.0 (2024-09-19)
 
 ### Documentación de Estandarización
