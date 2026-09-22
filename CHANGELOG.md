@@ -1,5 +1,36 @@
 # Changelog - GHEInvestigacion
 
+## v1.2.0 (2024-09-22) — Integración ISACA
+
+### Nueva categoría: ISACA (10 features)
+
+**COBIT 2019 — Marco de Gobernanza y Gestión de TI:**
+- `01_cobit_governance_framework.feature` — 5 objetivos de gobernanza, 40 procesos, alineación TI-negocio
+- `02_cobit_risk_management.feature` — Identificación, evaluación, respuesta y monitoreo de riesgos de TI
+
+**CISA — Auditoría de Sistemas de Información:**
+- `03_cisa_audit_methodology.feature` — Planificación, ejecución (ITGC, controles de aplicación), hallazgos, informes
+- `08_cisa_asset_protection_continuity.feature` — Clasificación de activos, controles de protección, continuidad del negocio, DR
+
+**CISM — Seguridad de la Información:**
+- `04_cism_security_governance.feature` — Estrategia, programa, métricas, clasificación de datos, IAM
+- `05_cism_risk_management.feature` — Evaluación de riesgos, amenazas del sector salud, respuesta, aceptación
+- `09_cism_incident_management.feature` — Detección (IoCs), respuesta (P1-P4), forense, post-mortem, métricas
+
+**CRISC — Gestión de Riesgos de TI:**
+- `06_crisc_risk_management.feature` — Identificación, evaluación cuantitativa/cualitativa, tratamiento, monitoreo, reporte
+- `10_crisc_controls_monitoring.feature` — Inventario de controles, evidencia, efectividad, monitoreo continuo
+
+**CGEIT — Gobernanza de TI Empresarial:**
+- `07_cgeit_it_governance.feature` — Marco de gobernanza, portafolio de inversión, realization de beneficios, BSC
+
+### Impacto en métricas
+- Feature files: 334 → 344 (+10)
+- Categorías: 49 → 50 (+1)
+- Escenarios: 2,157 → ~2,250 (+93 estimados)
+
+---
+
 ## v1.1.0-rc.1 (2024-09-21) — Release Candidate
 
 ### Cierre de Release Candidate
