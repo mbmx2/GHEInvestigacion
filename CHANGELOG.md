@@ -1,5 +1,47 @@
 # Changelog - GHEInvestigacion
 
+## v1.8.0 (2024-09-22) — Profundización SANS/GIAC
+
+### Profundización de categoría SANS/GIAC (28 → 40 features)
+
+**Nuevos features (12):**
+
+**SANS Core:**
+- `29_sans_network_monitoring_analysis.feature` — Monitoreo de red, IDS/IPS, NetFlow, segmentos críticos
+- `30_sans_endpoint_detection_response.feature` — EDR, detección de comportamiento, respuesta automatizada, threat hunting
+- `31_sans_cloud_security_framework.feature` — Shared responsibility, controles cloud, multi-cloud
+
+**GIAC Foundational:**
+- `32_giac_gcih_recovery_communication.feature` — Recuperación post-incidente, comunicación a stakeholders, lecciones
+- `33_giac_gcia_encrypted_traffic_analysis.feature` — Análisis de tráfico encriptado, JA3/JA3S, detección de C2
+- `34_giac_gcfa_mobile_forensics.feature` — Forense de dispositivos móviles, análisis de apps de mensajería
+
+**GIAC Advanced:**
+- `35_giac_gwapt_api_security_testing.feature` — Pruebas de APIs, BOLA, JWT, GraphQL, OWASP API Top 10
+- `36_giac_gsec_cloud_security.feature` — Seguridad IaaS/PaaS/SaaS, protección de datos en cloud
+
+**GIAC Specialized:**
+- `37_giac_gpen_social_engineering.feature` — Ingeniería social, phishing, vishing, physical social engineering
+- `38_giac_gcti_mitre_attack_integration.feature` — Mapeo ATT&CK, cobertura por táctica, threat hunting
+- `39_giac_gsoc_automation_metrics.feature` — SOAR, playbooks, métricas avanzadas, enrichment automatizado
+- `40_giac_gcih_healthcare_incident_response.feature` — IR específica para salud, impacto clínico, procedimientos manuales, notificación regulatoria
+
+### Estado final SANS/GIAC: 40 features
+
+| Categoría | Features | Cobertura |
+|---|---|---|
+| SANS Core | 9 | CIS Controls, IR, pentesting, forense, threat intel, secure dev, network monitoring, EDR, cloud |
+| GIAC Foundational | 10 | GSEC, GPEN, GCIH, GCIA, GCFA, GWAPT, GSLC, recovery, encrypted traffic, social eng |
+| GIAC Advanced | 10 | GREM, GNFA, GOSINT, GICSP, GCSA, GWEB, GCLE, GWSP, API security, cloud |
+| GIAC Specialized | 11 | GCWN, GUNN, GAPT, GCTI, GXPN, GClD, GSOC, MITRE, automation, healthcare IR |
+
+### Impacto en métricas
+- Feature files: 430 → 442 (+12)
+- Escenarios: 2,672 → 2,721 (+49)
+- SANS/GIAC features: 28 → 40
+
+---
+
 ## v1.7.0 (2024-09-22) — Integración SANS/GIAC
 
 ### Nueva categoría: SANS/GIAC — 28 features
