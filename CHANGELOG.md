@@ -1,5 +1,61 @@
 # Changelog - GHEInvestigacion
 
+## v1.5.0 (2024-09-22) — Integración ISC2/CISSP
+
+### Nueva categoría: ISC2/CISSP — 28 features
+
+**Dominio 1: Security and Risk Management (3 features):**
+- `01_security_governance_risk_management.feature` — Políticas, gestión de riesgos, controles, métricas
+- `02_compliance_legal_regulatory.feature` — Marco regulatorio mexicano (LFPDPPP, NOM-004, NOM-024), privacidad, ARCO
+- `03_professional_ethics.feature` — Código de ética ISC2, dilemas éticos, conflictos de interés
+
+**Dominio 2: Asset Security (2 features):**
+- `04_asset_security.feature` — Clasificación de datos, ciclo de vida, propiedad, protección en tránsito
+- `15_data_protection_privacy.feature` — Datos sensibles, consentimiento, transferencias, brechas
+
+**Dominio 3: Security Architecture and Engineering (4 features):**
+- `05_security_architecture_engineering.feature` — Modelos de seguridad, principios de diseño, defensa en profundidad
+- `06_cryptography_key_management.feature` — Cifrado simétrico/asimétrico, hash, gestión de claves, firmas digitales
+- `12_physical_security.feature` — Control de acceso físico, CCTV, ambiental, medios
+- `22_cryptography_implementation.feature` — SQLite cifrado, TLS, sync offline, firma de recetas
+
+**Dominio 4: Communication and Network Security (3 features):**
+- `07_network_security.feature` — Segmentación, firewalls, protocolos seguros, IDS/IPS, WiFi, VPN
+- `23_application_web_security.feature` — Validación de entrada, sesiones, XSS, CSRF, seguridad de APIs
+- `27_zero_trust_architecture.feature` — Microsegmentación, verificación continua, acceso basado en contexto
+
+**Dominio 5: Identity and Access Management (2 features):**
+- `08_identity_access_management.feature` — Ciclo de vida de identidades, MFA, RBAC, segregación, monitoreo
+- `26_data_encryption_anonymization.feature` — Cifrado por clase, anonimización, pseudonimización, enmascaramiento
+
+**Dominio 6: Security Assessment and Testing (2 features):**
+- `09_security_assessment_testing.feature` — Vulnerabilidades, pentest, auditorías, SAST/DAST
+- `24_vulnerability_management.feature` — Escaneo automatizado, priorización, remediación, métricas
+
+**Dominio 7: Security Operations (5 features):**
+- `10_security_operations.feature` — SIEM, parches, hardening, respuesta a incidentes, forense
+- `13_business_continuity_disaster_recovery.feature` — BIA, BCP, DR, pruebas, sitio alternativo
+- `14_incident_response.feature` — CSIRT, clasificación, contención, forense, post-mortem
+- `17_endpoint_security.feature` — Hardening, parches, BYOD, IoT médico
+- `20_security_monitoring_analytics.feature` — SIEM, threat hunting, métricas SOC, herramientas forenses
+
+**Dominio 8: Software Development Security (5 features):**
+- `11_software_development_security.feature` — SDLC seguro, coding, OWASP Top 10, DevSecOps
+- `16_cloud_security.feature` — Shared responsibility, cifrado cloud, IAM cloud, contenedores
+- `18_security_awareness_training.feature` — Capacitación inicial/anual, concienciación, phishing simulado
+- `19_supply_chain_risk_management.feature` — Due diligence proveedores, cláusulas, cadena de suministro
+- `21_mobile_application_security.feature` — Desarrollo móvil seguro, MDM, TLS, publicación
+- `25_database_security.feature` — Acceso a BD, cifrado, integridad, backups seguros
+- `28_security_program_metrics.feature` — Scorecard de seguridad, benchmarking, madurez, ROI
+
+### Impacto en métricas
+- Feature files: 362 → 390 (+28)
+- Escenarios: 2,331 → 2,485 (+154)
+- Categorías: 50 → 51 (+1)
+- ISC2/CISSP: nueva categoría con 28 features
+
+---
+
 ## v1.4.0 (2024-09-22) — Completación ISACA
 
 ### Completación de categoría ISACA (22 → 28 features)
