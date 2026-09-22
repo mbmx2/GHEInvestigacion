@@ -1,5 +1,57 @@
 # Changelog - GHEInvestigacion
 
+## v1.6.0 (2024-09-22) — Profundización ISC2/CISSP
+
+### Profundización de categoría ISC2/CISSP (28 → 40 features)
+
+**Nuevos features (12):**
+
+**Domain 1 - Security & Risk Management:**
+- `29_risk_assessment_methodology.feature` — ALE, costo-beneficio, factor de exposición, evaluación cualitativa
+- `30_security_policy_lifecycle.feature` — Ciclo de vida de políticas, excepciones, cumplimiento medido
+
+**Domain 2 - Asset Security:**
+- `31_data_lifecycle_management.feature` — Clasificación, almacenamiento, procesamiento, transferencia, archivo, eliminación
+- `32_data_masking_tokenization_dlp.feature` — Enmascaramiento UI/BD, tokenización, DLP endpoint/red, watermarking
+
+**Domain 3 - Security Architecture:**
+- `33_hsm_certificate_management.feature` — HSM para operaciones críticas, PKI, cadenas de confianza, ciclos de certificados
+
+**Domain 4 - Communication & Network:**
+- `34_secure_communications.feature` — Email cifrado (S/MIME, SPF/DKIM/DMARC), VoIP seguro, mTLS entre servicios
+
+**Domain 5 - IAM:**
+- `35_privileged_access_management.feature` — Inventario cuentas privilegiadas, grabación de sesiones, JIT access
+- `36_federation_sso_directory.feature` — SSO (SAML/OIDC), federación, seguridad de directorios, mTLS
+
+**Domain 6 - Security Assessment:**
+- `37_log_review_monitoring.feature` — Fuentes de log, protección, revisión manual/automatizada, retención
+
+**Domain 7 - Security Operations:**
+- `38_configuration_change_management.feature` — Baselines, control de cambios, gestión de parches, auditoría
+- `39_media_protection_storage.feature` — Clasificación de medios, transporte seguro, eliminación, USB, cloud
+- `40_access_review_certification.feature` — Revisiones trimestrales, certificación, accesos fantasma, SOD
+
+### Estado final ISC2/CISSP: 40 features
+
+| Dominio | Features | Cobertura |
+|---|---|---|
+| D1: Security & Risk Mgmt | 5 | Gobernanza, cumplimiento, ética, evaluación riesgos, políticas |
+| D2: Asset Security | 4 | Clasificación, privacidad, ciclo vida datos, enmascaramiento/tokenización/DLP |
+| D3: Security Architecture | 5 | Modelos, criptografía, física, implementación cripto, HSM/certificados |
+| D4: Communication & Network | 4 | Red, app/web, Zero Trust, comunicaciones seguras |
+| D5: IAM | 4 | Identidades, cifrado/anonimización, PAM, federación/SSO |
+| D6: Security Assessment | 3 | Evaluación, vulnerabilidades, logs |
+| D7: Security Operations | 8 | Operaciones, BC/DR, incidentes, endpoints, monitoreo, config, medios, accesos |
+| D8: Software Dev Security | 7 | SDLC, cloud, capacitación, supply chain, mobile, BD, métricas |
+
+### Impacto en métricas
+- Feature files: 390 → 402 (+12)
+- Escenarios: 2,485 → 2,555 (+70)
+- ISC2/CISSP features: 28 → 40
+
+---
+
 ## v1.5.0 (2024-09-22) — Integración ISC2/CISSP
 
 ### Nueva categoría: ISC2/CISSP — 28 features
