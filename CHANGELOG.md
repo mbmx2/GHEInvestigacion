@@ -1,33 +1,49 @@
 # Changelog - GHEInvestigacion
 
-## v1.2.0 (2024-09-22) — Integración ISACA
+## v1.3.0 (2024-09-22) — Profundización ISACA
 
-### Nueva categoría: ISACA (10 features)
+### Profundización de categoría ISACA (10 → 22 features)
 
-**COBIT 2019 — Marco de Gobernanza y Gestión de TI:**
-- `01_cobit_governance_framework.feature` — 5 objetivos de gobernanza, 40 procesos, alineación TI-negocio
-- `02_cobit_risk_management.feature` — Identificación, evaluación, respuesta y monitoreo de riesgos de TI
+**COBIT 2019 (5 features):**
+- `01_cobit_governance_framework.feature` — 5 objetivos, 40 procesos, alineación TI-negocio
+- `02_cobit_risk_management.feature` — Identificación, evaluación, respuesta y monitoreo
+- `03_cobit_performance_management.feature` — Niveles de capacidad, KPIs de procesos, benchmarking
+- `04_cobit_design_factors.feature` — Factores de diseño, personalización para hospital rural
+- `05_cobit_aed_processes.feature` — Procesos AED críticos: seguridad, operaciones, continuidad, cambio, configuración
 
-**CISA — Auditoría de Sistemas de Información:**
-- `03_cisa_audit_methodology.feature` — Planificación, ejecución (ITGC, controles de aplicación), hallazgos, informes
-- `08_cisa_asset_protection_continuity.feature` — Clasificación de activos, controles de protección, continuidad del negocio, DR
+**CISA (4 features):**
+- `06_cisa_audit_methodology.feature` — Planificación, ITGC, controles de aplicación, hallazgos, informes
+- `07_cisa_is_acquisition_development.feature` — Adquisición, desarrollo, pruebas, implementación, post-implementación
+- `08_cisa_asset_protection_continuity.feature` — Clasificación de activos, protección, continuidad, DR
+- `09_cisa_business_processes_it.feature` — Mapa de procesos, alineación TI-procesos, controles por proceso
 
-**CISM — Seguridad de la Información:**
+**CISM (5 features):**
 - `04_cism_security_governance.feature` — Estrategia, programa, métricas, clasificación de datos, IAM
-- `05_cism_risk_management.feature` — Evaluación de riesgos, amenazas del sector salud, respuesta, aceptación
-- `09_cism_incident_management.feature` — Detección (IoCs), respuesta (P1-P4), forense, post-mortem, métricas
+- `05_cism_risk_management.feature` — Evaluación de riesgos, amenazas del sector salud, respuesta
+- `08_cism_security_program_development.feature` — Desarrollo del programa, roadmap, controles, presupuesto
+- `09_cism_security_program_management.feature` — Gestión con métricas, reportes, optimización, mejora continua
+- `09_cism_incident_management.feature` — Detección (IoCs), respuesta (P1-P4), forense, post-mortem
 
-**CRISC — Gestión de Riesgos de TI:**
-- `06_crisc_risk_management.feature` — Identificación, evaluación cuantitativa/cualitativa, tratamiento, monitoreo, reporte
-- `10_crisc_controls_monitoring.feature` — Inventario de controles, evidencia, efectividad, monitoreo continuo
+**CRISC (4 features):**
+- `06_crisc_risk_management.feature` — Evaluación cuantitativa/cualitativa, tratamiento, monitoreo
+- `07_crisc_risk_identification.feature` — Fuentes de riesgo, técnicas de identificación, registro, causa raíz
+- `08_crisc_risk_response_mitigation.feature` — Estrategias de respuesta, planes de mitigación, riesgo residual
+- `10_crisc_controls_monitoring.feature` — Inventario de controles, evidencia, efectividad, monitoreo
 
-**CGEIT — Gobernanza de TI Empresarial:**
-- `07_cgeit_it_governance.feature` — Marco de gobernanza, portafolio de inversión, realization de beneficios, BSC
+**CGEIT (4 features):**
+- `07_cgeit_it_governance.feature` — Marco de gobernanza, portafolio, BSC
+- `08_cgeit_benefits_realization.feature` — Definición de beneficios, tracking, realización parcial
+- `09_cgeit_risk_optimization.feature` — Apetito de riesgo, optimización de portafolio
+- `10_cgeit_resource_optimization.feature` — Inventario de recursos, priorización, talento, costos, proveedores
 
 ### Impacto en métricas
-- Feature files: 334 → 344 (+10)
-- Categorías: 49 → 50 (+1)
-- Escenarios: 2,157 → ~2,250 (+93 estimados)
+- Feature files: 344 → 356 (+12)
+- Escenarios: 2,231 → 2,295 (+64)
+- ISACA features: 10 → 22
+
+---
+
+## v1.2.0 (2024-09-22) — Integración ISACA
 
 ---
 
